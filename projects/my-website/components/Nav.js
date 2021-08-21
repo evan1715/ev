@@ -9,13 +9,13 @@ const Nav = () => {
                     <Link className={ styles.link } href="/">Evan</Link>
                 </li>
                 <li className={ styles.li }>
-                    <Link className={ styles.link } href="/">Coding</Link>
+                    <Link className={ styles.link } href="/coding">Coding</Link>
                 </li>
                 <li className={ styles.li }>
-                    <Link className={ styles.link } href="/">About</Link>
+                    <Link className={ styles.link } href="/about">About</Link>
                 </li>
                 <li className={ styles.li }>
-                    <Link className={ styles.link } href="/">Contact</Link>
+                    <Link className={ styles.link } href="/contact">Contact</Link>
                 </li>
             </ul>
         </nav>
