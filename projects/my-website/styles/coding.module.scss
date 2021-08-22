@@ -13,3 +13,18 @@
     // background-color: green;
     padding-bottom: 20px;
 }
+
+.techs {
+    display: flex;
+    background-color: #444;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.techs_tech {
+    // align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    padding: 30px;
+    text-align: center;
+}
