@@ -28,3 +28,17 @@
     padding: 30px;
     text-align: center;
 }
+
+.ttable {
+    background-color: #444;
+}
+
+.thead {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tbody {
+    display: flex;
+    justify-content: space-evenly;
+}

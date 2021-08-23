@@ -13,7 +13,7 @@ import redux from '../images/redux.svg';
 import sass from '../images/sass.svg';
 
 const Coding = () => {
-    const images = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'NodeJS', 'Express', 'NextJS', 'Sass', 'MongoDB', 'Mongoose'];
+    const images = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express', 'Next.js', 'Sass', 'MongoDB', 'Mongoose'];
     const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, mongodb, mongoose];
 
     return (
@@ -23,8 +23,18 @@ const Coding = () => {
             {/* Repository section */}
             <section className={ styles.section }>
                 <h2 className={ styles.section_header }>Repository</h2>
-                <div className="">
-
+                {/* Table */}
+                <div className={ styles.ttable } role="grid">
+                    {/* Table headers */}
+                    <div className={ styles.thead }>
+                        <div>Title</div>
+                        <div>Description</div>
+                        <div>Language</div>
+                    </div>
+                    {/* Table body */}
+                    <div className={ styles.tbody }>
+                        <div>body</div>
+                    </div>
                 </div>
             </section>
 
