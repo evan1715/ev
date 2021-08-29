@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/coding.module.scss';
+import bootstrap from '../images/bootstrap.svg';
 import css from'../images/css3.svg';
 import express from '../images/express.svg';
 import html from '../images/html5.svg';
@@ -13,8 +14,8 @@ import redux from '../images/redux.svg';
 import sass from '../images/sass.svg';
 
 const Coding = () => {
-    const images = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express', 'Next.js', 'Sass', 'MongoDB', 'Mongoose'];
-    const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, mongodb, mongoose];
+    const images = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express', 'Next.js', 'Sass', 'Bootstrap', 'MongoDB', 'Mongoose'];
+    const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, bootstrap, mongodb, mongoose];
 
     return (
         <main className={ styles.main }>
@@ -30,6 +31,7 @@ const Coding = () => {
                         <div>Title</div>
                         <div>Description</div>
                         <div>Language</div>
+                        <div>Technologies used</div>
                     </div>
                     {/* Table body */}
                     <div className={ styles.tbody }>
