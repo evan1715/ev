@@ -10,7 +10,7 @@ const Navigation = () => {
     //Link doesn't accept a class/className prop. So, I'll use <a> tags to pass styles.
     return (
         <header className="fixed-top">
-            <Navbar bg="navbar navbar-dark bg-secondary bg-gradient" collapseOnSelect expand="lg">
+            <Navbar bg="navbar navbar-dark bg-dark bg-gradient" collapseOnSelect expand="lg">
                 <Container>
                     <Navbar.Brand href="/" aria-current="page">Evan</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
