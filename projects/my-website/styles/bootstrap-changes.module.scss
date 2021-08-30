@@ -1,0 +1,7 @@
+.nav-tabs {
+    border-bottom: none;
+
+    .nav-link {
+        @include border-radius($nav-tabs-border-radius);
+    }
+}
