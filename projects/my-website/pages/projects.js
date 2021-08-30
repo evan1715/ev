@@ -1,7 +1,7 @@
 const Projects = () => {
 
     return (
-        <main className="d-flex flex-column">
+        <main className="d-flex flex-column align-items-center">
             <p>Table/menu showing links to the projects on this website with # tag to move down the page.</p>
 
             <ul>

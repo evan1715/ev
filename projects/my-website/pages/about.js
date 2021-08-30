@@ -1,12 +1,7 @@
-import styles from '../styles/evan.module.scss';
+const About = () => (
+    <main className="d-flex justify-content-center">
+        Evan's about page
+    </main>
+);
 
-const Coding = () => {
-
-    return (
-        <main className={ styles.main }>
-            Evan's about page
-        </main>
-    )
-}
-
-export { Coding as default }
+export { About as default }

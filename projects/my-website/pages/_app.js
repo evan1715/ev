@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
             </Head>
 
             <Navigation />
-            <div className="my-4 py-5">
+            <div className="min-vh-99 m-4 py-5">
                 <Component {...pageProps} />
             </div>
             <Footer />
@@ -21,3 +21,6 @@ function MyApp({ Component, pageProps }) {
 }
 
 export { MyApp as default }
+
+//Can't import global CSS file into index.js. That's done in _app.js
+//CSS files have to have the file name *.module.css

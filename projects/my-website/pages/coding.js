@@ -18,7 +18,7 @@ const Coding = () => {
     const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, bootstrap, mongodb, mongoose];
 
     return (
-        <main className={ styles.main }>
+        <main className="d-flex flex-column align-items-center">
             <h1>Evan's coding page</h1>
             
             {/* Repository section */}
