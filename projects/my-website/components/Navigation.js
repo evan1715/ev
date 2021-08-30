@@ -12,7 +12,13 @@ const Navigation = () => {
         <header className="fixed-top">
             <Navbar bg="navbar navbar-dark bg-dark bg-gradient" collapseOnSelect expand="lg">
                 <Container>
-                    <Navbar.Brand href="/" aria-current="page">Evan</Navbar.Brand>
+                    <Navbar.Brand href="/" aria-current="page">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        Evan
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
                     <Navbar.Collapse id="responsive-navbar-nav">
