@@ -1,7 +1,66 @@
+//Bootstrap nav-tabs
 .nav-tabs {
     border-bottom: none;
 
     .nav-link {
         @include border-radius($nav-tabs-border-radius);
     }
+}
+
+
+//Bootstrap navbar-dark
+// White links against a dark background
+.navbar-dark {
+    .navbar-brand {
+        color: lighten(orange, 5%);
+        border: 1px;
+        border-color: aqua;
+        padding: 0.5rem 1rem;
+        border-style: solid;
+        border-radius: 0.25rem;
+        // padding: 5px;
+
+        &:hover,
+        &:focus {
+            color: $navbar-dark-brand-hover-color;
+        }
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: cyan;
+
+            &:hover,
+            &:focus {
+                color: lawngreen;
+            }
+
+            // &.disabled {
+            //     color: $navbar-dark-disabled-color;
+            // }
+        }
+
+        // .show > .nav-link,
+        //     .nav-link.active {
+        //         color: $navbar-dark-active-color;
+        //     }
+    }
+
+    // .navbar-toggler {
+    //     color: $navbar-dark-color;
+    //     border-color: $navbar-dark-toggler-border-color;
+    // }
+
+    // .navbar-toggler-icon {
+    //     background-image: escape-svg($navbar-dark-toggler-icon-bg);
+    // }
+
+    // .navbar-text {
+    //     color: $navbar-dark-color;
+    //     a,
+    //     a:hover,
+    //     a:focus {
+    //         color: $navbar-dark-active-color;
+    //     }
+    // }
 }
