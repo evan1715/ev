@@ -1,47 +1,47 @@
-import Link from 'next/link.js';
+import { useRouter } from 'next/router.js';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const Navigation = () => {
-    //With <nav>, we do not need <ul> <li></li> </ul> to list since <nav> is defined
-    //expand="sm" md lg xl xxl will configure when it will be collapsed or expanded on window size
-    //Link doesn't accept a class/className prop. So, I'll use <a> tags to pass styles.
+    const router = useRouter();
+
+    const handleRoute = (e, route) => {
+        e.preventDefault();
+        router.push(route);
+    }
+
     return (
-        <header className="fixed-top">
-            <Navbar bg="navbar navbar-dark bg-dark bg-gradient" collapseOnSelect expand="lg">
-                <Container>
-                    <Navbar.Brand href="/" aria-current="page">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        Evan
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar collapseOnSelect bg="navbar navbar-dark bg-dark bg-gradient" expand="lg" sticky="top" variant="dark">
+            <Container>
+                <Navbar.Brand href="/" aria-current="page">
+                    <div /><div /><div /><div />
+                    Evan
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-                    <Navbar.Collapse id="responsive-navbar-nav">
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="justify-content-sm-evenly w-100" variant="tabs">
+                        <Nav.Link eventKey="coding" onClick={ (e) => handleRoute(e, '/coding') }>
+                            <div /><div />Coding
+                        </Nav.Link>
+                        <Nav.Link eventKey="projects" onClick={ (e) => handleRoute(e, '/projects') }>
+                            <div /><div />Projects
+                        </Nav.Link>
+                        <Nav.Link eventKey="blog" onClick={ (e) => handleRoute(e, '/blog') }>
+                            <div /><div />Blog
+                        </Nav.Link>
 
-                        <div className="me-auto" />
-
-                        <NavDropdown.Divider />
-                        <Nav variant="tabs" className="me-auto d-flex">
-                            <Link href="/coding"><a className="nav-link">Coding</a></Link>
-                            <Link href="/projects"><a className="nav-link">Projects</a></Link>
-                            <Link href="/blog"><a className="nav-link">Blog</a></Link>
-                        </Nav>
-
-                        <NavDropdown.Divider />
-                        <Nav variant="tabs">
-                            <Link href="/contact"><a className="nav-link">Contact</a></Link>
-                            <Link href="/about"><a className="nav-link">About</a></Link>
-                        </Nav>
-                        
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </header>
+                        <Nav.Link eventKey="contact" onClick={ (e) => handleRoute(e, '/contact') }>
+                            <div /><div />Contact
+                        </Nav.Link>
+                        <Nav.Link eventKey="about" onClick={ (e) => handleRoute(e, '/about') }>
+                            <div /><div />About
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
 
