@@ -2,7 +2,7 @@
 //Can't import global CSS file. That's done in _app.js
 
 const Home = () => (
-    <main className="d-flex justify-content-center flex-column">
+    <div className="d-flex justify-content-center flex-column">
         <section className="d-flex align-items-center justify-content-center border border-success vh-100">
             <h1 className="h-50">Intro section</h1>
         </section>
@@ -16,7 +16,7 @@ const Home = () => (
         </section>
 
 
-    </main>
+    </div>
 );
 
 export { Home as default }

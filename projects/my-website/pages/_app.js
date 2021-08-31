@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }) {
             </Head>
 
             <Navigation />
-            <div className="min-vh-99 m-4 py-5">
+            <main className="min-vh-99 m-4 py-5">
                 <Component {...pageProps} />
-            </div>
+            </main>
             <Footer />
         </>
     );

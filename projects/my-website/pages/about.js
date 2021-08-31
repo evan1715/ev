@@ -1,7 +1,7 @@
 const About = () => (
-    <main className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center">
         Evan's about page
-    </main>
+    </div>
 );
 
 export { About as default }
