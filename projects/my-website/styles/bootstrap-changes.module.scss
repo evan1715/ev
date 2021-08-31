@@ -12,7 +12,9 @@
     .nav-item.show .nav-link {
         @include animation-lines-tb(lawngreen, none);
         background-color: inherit;
-        border-color: #fff;
+        border-bottom: none;
+        border-color: aqua;
+        border-top: none;
     }
 }
 
