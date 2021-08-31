@@ -14,7 +14,8 @@ const Navigation = () => {
     return (
         <Navbar collapseOnSelect bg="navbar navbar-dark bg-dark bg-gradient" expand="lg" sticky="top" variant="dark">
             <Container>
-                <Navbar.Brand href="/" aria-current="page">
+                {/* <Navbar.Brand aria-current="home" href onClick={ (e) => handleRoute(e, '/') }> */}
+                <Navbar.Brand aria-current="home" href="/">
                     <div /><div /><div /><div />
                     Evan
                 </Navbar.Brand>
