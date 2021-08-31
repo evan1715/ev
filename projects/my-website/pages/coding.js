@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Container from 'react-bootstrap/Container';
 import styles from '../styles/coding.module.scss';
 import bootstrap from '../images/bootstrap.svg';
 import css from'../images/css3.svg';
@@ -18,7 +19,7 @@ const Coding = () => {
     const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, bootstrap, mongodb, mongoose];
 
     return (
-        <div className="d-flex flex-column align-items-center">
+        <Container className="d-flex flex-column align-items-center">
             <h1>Evan's coding page</h1>
             
             {/* Repository section */}
@@ -52,7 +53,7 @@ const Coding = () => {
                     )}
                 </div>
             </section>
-        </div>
+        </Container>
     )
 }
 

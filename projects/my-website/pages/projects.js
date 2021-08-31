@@ -1,16 +1,15 @@
-const Projects = () => {
+import Container from 'react-bootstrap/Container';
 
-    return (
-        <div className="d-flex flex-column align-items-center">
-            <p>Table/menu showing links to the projects on this website with # tag to move down the page.</p>
+const Projects = () => (
+    <Container className="border border-secondary d-flex flex-column align-items-center">
+        <p>Table/menu showing links to the projects on this website with # tag to move down the page.</p>
 
-            <ul>
-                <li>JK2</li>
-                <li>My Website</li>
-                <li>Recipe</li>
-            </ul>
-        </div>
-    )
-}
+        <ul>
+            <li>JK2</li>
+            <li>My Website</li>
+            <li>Recipe</li>
+        </ul>
+    </Container>
+);
 
 export { Projects as default }

@@ -1,7 +1,9 @@
+import Container from 'react-bootstrap/Container';
+
 const Blog = () => (
-    <div className="d-flex justify-content-center">
+    <Container className="border border-warning d-flex justify-content-center">
         Evan's blog page
-    </div>
+    </Container>
 );
 
 export { Blog as default }

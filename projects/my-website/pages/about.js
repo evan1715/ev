@@ -1,7 +1,9 @@
+import Container from 'react-bootstrap/Container';
+
 const About = () => (
-    <div className="d-flex justify-content-center">
-        Evan's about page
-    </div>
+    <Container className="border border-primary d-flex justify-content-center">
+            Evan's about page
+    </Container>
 );
 
 export { About as default }
