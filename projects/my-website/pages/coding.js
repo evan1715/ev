@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
-import styles from '../styles/coding.module.scss';
 import bootstrap from '../images/bootstrap.svg';
 import css from'../images/css3.svg';
 import express from '../images/express.svg';
@@ -23,30 +22,30 @@ const Coding = () => {
             <h1>Evan's coding page</h1>
             
             {/* Repository section */}
-            <section className={ styles.section }>
-                <h2 className={ styles.section_header }>Repository</h2>
+            <section className="w-100">
+                <h2 className="pb-4">Repository</h2>
                 {/* Table */}
-                <div className={ styles.ttable } role="grid">
+                <div className="bg-dark bg-gradient" role="grid">
                     {/* Table headers */}
-                    <div className={ styles.thead }>
+                    <div className="d-flex justify-content-evenly">
                         <div>Title</div>
                         <div>Description</div>
                         <div>Language</div>
                         <div>Technologies used</div>
                     </div>
                     {/* Table body */}
-                    <div className={ styles.tbody }>
+                    <div className="d-flex justify-content-evenly">
                         <div>body</div>
                     </div>
                 </div>
             </section>
 
             {/* Technologies section */}
-            <section className={ styles.section }>
-                <h2 className={ styles.section_header }>Technologies</h2>
-                <div className={ styles.techs }>
+            <section className="w-100">
+                <h2 className="pb-4">Technologies</h2>
+                <div className="bg-dark bg-gradient d-flex flex-wrap justify-content-around">
                     { images.map((tech, index) => 
-                        <div className={ styles.techs_tech } key={ tech }>
+                        <div className="p-4" key={ tech }>
                             <h3>{ tech }</h3>
                             <Image alt={ `${tech} icon` } src={ files[index] } height={ 128 } width={ 128 } />
                         </div>
