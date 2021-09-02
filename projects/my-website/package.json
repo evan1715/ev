@@ -6,9 +6,10 @@
     "license": "ISC",
     "main": "index.js",
     "scripts": {
+        "start": "next start",
+        "heroku-postbuild": "npm run build",
         "dev": "next dev",
         "build": "next build",
-        "start": "next start",
         "lint": "next lint"
     },
     "dependencies": {
