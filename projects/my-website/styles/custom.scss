@@ -1,0 +1,27 @@
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.mainTitle {
+    font-family: "Gravity-Regular";
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 20px;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 460px) {
+    .mainTitle {
+        letter-spacing: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .mainTitle {
+        font-size: 2em;
+        letter-spacing: 0;
+    }
+}
