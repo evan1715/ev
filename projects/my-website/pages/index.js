@@ -4,7 +4,8 @@
 const Home = () => (
     <>
         <section className="d-flex align-items-center justify-content-center border border-success vh-100">
-            <h1 className="h-50">Intro section</h1>
+            <h1 className="h-50 mainTitle">Evan McHugh</h1>
+            <p>Self-learning software developer.</p>
         </section>
 
         <section className="d-flex align-items-center justify-content-center border border-info vh-100">
