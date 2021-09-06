@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Chat App",
+        "subtitle": "NodeJS",
+        "text": "",
+        "links": ["/projects#chat-app"]
+    }, {
+        "title": "Indecision App",
+        "subtitle": "React",
+        "text": "",
+        "links": ["/projects#indecision-app"]
+    }, {
+        "title": "JDFix",
+        "subtitle": "C",
+        "text": "",
+        "links": ["/projects#jdfix"]
+    }, {
+        "title": "My Website",
+        "subtitle": "NextJS, Bootstrap",
+        "text": "",
+        "links": ["/projects#my-website"]
+    }, {
+        "title": "Task Manager",
+        "subtitle": "NodeJS",
+        "text": "",
+        "links": ["/projects#task-manager"]
+    }, {
+        "title": "Recipe Project",
+        "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose",
+        "text": "",
+        "links": ["/projects#recipe-project"]
+    }, {
+        "title": "Weather App",
+        "subtitle": "NodeJS",
+        "text": "",
+        "links": ["/projects#weather-app"]
+    }
+]
