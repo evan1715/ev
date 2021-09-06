@@ -104,7 +104,7 @@
         box-sizing: border-box;
         display: block;
         height: 100%;
-        // overflow: hidden;
+        overflow: hidden;
     }
     i:before {
         animation-name: animate-border;
@@ -116,8 +116,8 @@
         content: '';
         height: 2px;
         position: absolute;
-        width: 96.5vw;
-        // overflow: hidden;
+        width: 97.5vw;
+        overflow: hidden;
     }
 }
 
