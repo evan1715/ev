@@ -47,3 +47,11 @@
             }
     }
 }
+
+@each $color, $value in $theme-colors {
+    .link-#{$color} {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
