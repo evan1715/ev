@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
-import bootstrap from '../images/bootstrap.svg';
+import Modal from 'react-bootstrap/Modal';
 //Technology logos
+import bootstrap from '../images/bootstrap.svg';
 import css from'../images/css3.svg';
 import express from '../images/express.svg';
 import html from '../images/html5.svg';
@@ -22,9 +24,18 @@ import udemy_reactjs from '../images/udemy_reactjs_certificate.jpg'
 const Coding = () => {
     const images = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express', 'Next.js', 'Sass', 'Bootstrap', 'MongoDB', 'Mongoose'];
     const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, bootstrap, mongodb, mongoose];
+    const [fullscreen, setFullscreen] = useState(true);
+    const [show, setShow] = useState(false);
+    const [selectedImage, setSelectedImage] = useState();
+
+    const handleShow = (selected) => {
+        setSelectedImage(selected);
+        setFullscreen('');
+        setShow(true);
+    }
 
     return (
-        <Container className="d-flex flex-column align-items-center">
+        <Container className="d-flex flex-column align-items-center min-vh-100">
             <h1 className="p-2">Evan's coding page</h1>
     
             {/* Repository section */}
@@ -60,15 +71,20 @@ const Coding = () => {
             </section>
 
             {/* Certifications section */}
-            <section className=" vh-100 w-100">
+            <section className="m-4 w-100">
                 <h2 className="p-2">Certifications</h2>
                 <div className="d-flex flex-wrap justify-content-around">
-                    <Image src={ fcc_html_css } height={ 225 } width={ 300 } />
-                    <Image src={ fcc_js } height={ 225 } width={ 300 } />
-                    <Image src={ udemy_nodejs } height={ 225 } width={ 300 } />
-                    <Image src={ udemy_reactjs } height={ 225 } width={ 300 } />
+                    <Image className="zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
+                    <Image className="zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
+                    <Image className="zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
+                    <Image className="zoom-zoom" onClick={ () => handleShow(udemy_reactjs) } src={ udemy_reactjs } height={ 225 } width={ 300 } />
                 </div>
             </section>
+
+            <Modal className="d-flex" fullscreen={ fullscreen } onHide={ () => setShow(false) } size="lg" show={ show }>
+                <Modal.Header className="bg-dark bg-gradient" closeButton closeVariant="white" />
+                <Modal.Body className="bg-dark bg-gradient"><Image src={ selectedImage } /></Modal.Body>
+            </Modal>
         </Container>
     )
 }
