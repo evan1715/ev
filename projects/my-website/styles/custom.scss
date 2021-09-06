@@ -1,3 +1,26 @@
+@import './mixins.scss';
+
+.card-animation {
+    @include animation-border(white);
+}
+
+.border-orange {
+    border-left: 1px solid lighten(orange, 5%);
+    border-right: 1px solid lighten(orange, 5%);
+}
+
+.bg-light-gray {
+    background-color: #333;
+}
+
+//Unused divider
+.white-line {
+    background-color: white;
+    height: 1px;
+    margin: auto;
+    width: 98%;
+}
+
 .center {
     position: absolute;
     top: 50%;
@@ -5,7 +28,7 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
-.mainTitle {
+.main-title {
     font-family: "Gravity-Regular";
     font-size: 2.5rem;
     font-weight: 500;
@@ -13,14 +36,29 @@
     margin-bottom: 0.5rem;
 }
 
+//Zoom in for images
+.zoom-zoom {
+    cursor: zoom-in;
+}
+
 @media (max-width: 460px) {
-    .mainTitle {
+    // .card-animation {
+    //     i:before {}
+    // }
+    .main-title {
         letter-spacing: 10px;
     }
 }
 
 @media (max-width: 380px) {
-    .mainTitle {
+    .card-animation {
+        i:before {
+            animation-duration: 4s;
+            width: 83vw;
+            // width: auto;
+        }
+    }
+    .main-title {
         font-size: 2em;
         letter-spacing: 0;
     }
