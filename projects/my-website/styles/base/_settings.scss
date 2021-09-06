@@ -1,7 +1,12 @@
-// $color-theme-teal: 
-// $color-theme-orange:
-// $color-theme-green: 
-
+//Colors
+$color-theme-cyan: aqua; //aqua === cyan
+$color-theme-turq: turquoise;
+$color-theme-teal: teal;
+$color-theme-light-green: lawngreen;
+$color-theme-green: lighten(green, 10%);
+$color-theme-dark-green: rgb(23, 90, 53);
+$color-theme-orange: lighten(orange, 5%);
+$color-theme-dark-orange: rgb(90, 67, 23);
 
 
 //Screen width, 16:9 aspect ratio

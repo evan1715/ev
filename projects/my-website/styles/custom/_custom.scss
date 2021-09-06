@@ -3,8 +3,8 @@
 }
 
 .border-orange {
-    border-left: 1px solid lighten(orange, 5%);
-    border-right: 1px solid lighten(orange, 5%);
+    border-left: 1px solid $color-theme-orange;
+    border-right: 1px solid $color-theme-orange;
 }
 
 .bg-light-gray {

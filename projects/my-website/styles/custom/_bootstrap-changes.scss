@@ -8,10 +8,10 @@
 
     .nav-link.active,
     .nav-item.show .nav-link {
-        @include animation-lines-tb(lawngreen, none);
+        @include animation-lines-tb($color-theme-light-green, none);
         background-color: inherit;
         border-bottom: none;
-        border-color: aqua;
+        border-color: $color-theme-cyan;
         border-top: none;
     }
 }
@@ -23,27 +23,27 @@
     .navbar-brand {
         border-radius: 0.5rem;
         box-shadow: 0 10px 25px rgb(90, 67, 23);
-        color: lighten(orange, 5%);
+        color: $color-theme-orange;
         padding: 0.6rem 1.1rem;  //top right bottom left || top&bot left&right
         &:hover,
         &:focus {
-            @include animation-lines(aqua, rgb(23, 90, 53));
+            @include animation-lines($color-theme-cyan, rgb(23, 90, 53));
         }
     }
 
     .navbar-nav {
         .nav-link {
-            color: cyan;
+            color: $color-theme-cyan;
             padding-left: 1.5rem;
             padding-right: 1.5rem;
             &:hover,
             &:focus {
-                color: lawngreen;
+                color: $color-theme-light-green;
             }
         }
         .show > .nav-link,
             .nav-link.active {
-                color: lawngreen;
+                color: $color-theme-light-green;
             }
     }
 }
