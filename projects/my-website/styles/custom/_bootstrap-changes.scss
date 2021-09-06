@@ -22,13 +22,25 @@
 .navbar-dark {
     .navbar-brand {
         border-radius: 0.5rem;
-        box-shadow: 0 10px 25px rgb(90, 67, 23);
+        box-shadow: 0 10px 25px $color-theme-dark-orange;
         color: $color-theme-orange;
         padding: 0.6rem 1.1rem;  //top right bottom left || top&bot left&right
         &:hover,
         &:focus {
-            @include animation-lines($color-theme-cyan, rgb(23, 90, 53));
+            @include animation-lines($color-theme-cyan, white, $color-theme-cyan, $color-theme-dark-green);
         }
+    }
+    .navbar-brand-active {
+        @include animation-lines($color-theme-orange, $color-theme-orange, none, none);
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px $color-theme-dark-orange;
+        color: $color-theme-orange;
+        padding: 0.6rem 1.1rem;  //top right bottom left || top&bot left&right
+        &:hover,
+        &:focus {
+            @include animation-lines($color-theme-cyan, white, $color-theme-cyan, $color-theme-dark-green);
+        }
+        
     }
 
     .navbar-nav {

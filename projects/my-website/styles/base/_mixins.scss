@@ -1,9 +1,9 @@
 //All four sides
-@mixin animation-lines($borderColor, $shadowColor) {
+@mixin animation-lines($line-colors, $text-color, $borderColor, $shadowColor) {
     border: 2px solid $borderColor;
     border-radius: 0.4rem;
     box-shadow: 0 20px 50px $shadowColor;
-    color: white;
+    color: $text-color;
     overflow: hidden;
     padding: 0.38em 0.975rem; //top&bot left&right
     transform: translate(-1%, -1%);
@@ -33,7 +33,7 @@
         animation-duration: 3s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
-        background: $color-theme-cyan;
+        background: $line-colors;
         content: '';
         height: 2px;
         position: absolute;
