@@ -1,4 +1,4 @@
-//Nextjs & React
+//NextJS & React
 import { useState } from 'react';
 import Image from 'next/image';
 //react-bootstrap
@@ -10,6 +10,7 @@ import Row from 'react-bootstrap/Row';
 import cardsInfo from '../data/cards-info.json';
 //Images
 import chat_app from '../images/screenshot_chat_app.png';
+import external from '../images/external.svg';
 import indecision_app from '../images/screenshot_indecision_app.png';
 import jd_mod from '../images/jk2_glow.gif';
 import my_website from '../images/nextjs.svg';
@@ -30,7 +31,7 @@ const ProjectCards = () => {
     }
 
     return (
-        <Container className="d-flex flex-column align-items-center">
+        <Container className="d-flex flex-column align-items-center p-4">
             <Row className="align-items-center justify-content-around">
                 { projects.map((project, index) => 
                     <Card border="success" className="bg-light-gray bg-gradient m-2" key={ index } style={{ width: '18rem' }}>
@@ -40,11 +41,14 @@ const ProjectCards = () => {
                             <Card.Subtitle className="mb-2 text-muted">{ cardsInfo[index].subtitle }</Card.Subtitle>
                             <Card.Text>{ cardsInfo[index].text }</Card.Text>
                             <div className="flex-column">
-                                <Card.Link href={ cardsInfo[index].links[0] }>Learn more</Card.Link>
                                 { cardsInfo[index].links[1] && 
-                                    <Card.Link href="#">Card link 2</Card.Link>
+                                    <Card.Link className="link-light" href={ cardsInfo[index].links[1] } target="_blank">Repository <Image src={ external } /></Card.Link>
+                                }
+                                { cardsInfo[index].links[2] && 
+                                    <Card.Link className="link-light" href={ cardsInfo[index].links[2] } target="_blank">Deployment <Image src={ external } /></Card.Link>
                                 }
                             </div>
+                            <Card.Link className="link-info" href={ cardsInfo[index].links[0] }>Learn more</Card.Link>
                         </Card.Body>
                     </Card>
                 )}
