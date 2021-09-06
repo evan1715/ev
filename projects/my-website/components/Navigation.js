@@ -14,6 +14,7 @@ const Navigation = () => {
     }
 
     useEffect(() => {
+        //This is here so that whenever a user is on a page, the active navbar will still display.
         setIsActive(router.pathname);
     }, [router.pathname]);
 
