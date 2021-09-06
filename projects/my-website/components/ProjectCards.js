@@ -1,6 +1,7 @@
 //NextJS & React
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 //react-bootstrap
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
@@ -19,6 +20,7 @@ import recipe_project from '../images/screenshot_recipe_project.png';
 import weather_app from '../images/screenshot_weather_app.png';
 
 const ProjectCards = () => {
+    const router = useRouter();
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
     const [selectedImage, setSelectedImage] = useState();
@@ -28,6 +30,11 @@ const ProjectCards = () => {
         setSelectedImage(selected);
         setFullscreen('');
         setShow(true);
+    }
+
+    const handleRoute = (e, route) => {
+        e.preventDefault();
+        router.push(route);
     }
 
     return (
@@ -48,7 +55,7 @@ const ProjectCards = () => {
                                     <Card.Link className="link-light" href={ cardsInfo[index].links[2] } target="_blank">Deployment <Image src={ external } /></Card.Link>
                                 }
                             </div>
-                            <Card.Link className="link-info" href={ cardsInfo[index].links[0] }>Learn more</Card.Link>
+                            <Card.Link className="link-info" onClick={ (e) => handleRoute(e, cardsInfo[index].links[0]) }>Learn more</Card.Link>
                         </Card.Body>
                     </Card>
                 )}
