@@ -1,45 +1,52 @@
 [
     {
+        "id": "chat-app",
         "title": "Chat App",
         "subtitle": "NodeJS/Express, vanilla JavaScript",
         "text": "This was created while learning NodeJS. It features real-time live chat with socket.io, chat room, names, and utilizing a user's location.",
         "body": "",
-        "links": ["/projects#chat-app"]
+        "links": ["/coding#chat-app"]
     }, {
+        "id": "indecision-app",
         "title": "Indecision App",
         "subtitle": "React, SCSS, Webpack",
         "text": "This was created while learning React. A user can add or remove options. If they are undecided, a button will randomly decide.",
         "body": "",
-        "links": ["/projects#indecision-app"]
+        "links": ["/coding#indecision-app"]
     }, {
+        "id": "jdfix",
         "title": "JDFix",
         "subtitle": "C",
         "text": "This is an old video game mod I did when I was younger in C with the JK2 source code based on the Quake III engine. The intent was to patch many highly exploited bugs.",
         "body": "",
-        "links": ["/projects#jdfix", "https://github.com/evan1715/JDFix-for-JK2"]
+        "links": ["/coding#jdfix", "https://github.com/evan1715/JDFix-for-JK2"]
     }, {
+        "id": "my-website",
         "title": "My Website",
         "subtitle": "NextJS, Bootstrap, SCSS",
         "text": "That's this website! This website uses NextJS and bootstrap with the intent to showcase.",
         "body": "",
-        "links": ["/projects#my-website", "https://github.com/evan1715/MyWebsite"]
+        "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite"]
     }, {
+        "id": "task-manager",
         "title": "Task Manager",
         "subtitle": "NodeJS/Express, MongoDB/Mongoose",
         "text": "The task manager app is an API-based project created while learning NodeJS. It includes middleware, user authentication, login tokens, database usage, user avatars, and more.",
         "body": "",
-        "links": ["/projects#task-manager", "https://github.com/evan1715/task-manager-api", "https://jd1715-task-manager.herokuapp.com"]
+        "links": ["/coding#task-manager", "https://github.com/evan1715/task-manager-api", "https://jd1715-task-manager.herokuapp.com"]
     }, {
+        "id": "recipe-project",
         "title": "Recipe Project",
         "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack",
         "text": "This is the largest project I've done. It is a full-stack, user-based recipe website. There's too much to say to fit it on a card, so go ahead and click that 'Learn more' link.",
         "body": "",
-        "links": ["/projects#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com/"]
+        "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com/"]
     }, {
+        "id": "weather-app",
         "title": "Weather App",
         "subtitle": "NodeJS/Express, Handlebars templating, vanilla JavaScript",
         "text": "This is a small app that utilizes an external weather API to display weather information based on a search. It's uses Handlebars templating to serve pages from the server.",
         "body": "",
-        "links": ["/projects#weather-app", "https://github.com/evan1715/node-weather-website", "https://jd1715-weather-app.herokuapp.com/"]
+        "links": ["/coding#weather-app", "https://github.com/evan1715/node-weather-website", "https://jd1715-weather-app.herokuapp.com/"]
     }
 ]
