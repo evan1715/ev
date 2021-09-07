@@ -29,17 +29,9 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="justify-content-sm-evenly w-100" variant="tabs">
+                    <Nav className="justify-content-around w-100" variant="tabs">
                         <Nav.Link active={ isActive === '/coding' && true } eventKey="coding" onClick={ (e) => handleRoute(e, '/coding') }>
                             <div /><div />Coding
-                        </Nav.Link>
-
-                        <Nav.Link active={ isActive === '/projects' && true } eventKey="projects" onClick={ (e) => handleRoute(e, '/projects') }>
-                            <div /><div />Projects
-                        </Nav.Link>
-
-                        <Nav.Link active={ isActive === '/blog' && true } eventKey="blog" onClick={ (e) => handleRoute(e, '/blog') }>
-                            <div /><div />Blog
                         </Nav.Link>
 
                         <Nav.Link active={ isActive === '/contact' && true } eventKey="contact" onClick={ (e) => handleRoute(e, '/contact') }>
