@@ -13,12 +13,12 @@ const Footer = () => {
 
                 <div className="d-flex flex-row justify-content-center">
                     <a href="https://github.com/evan1715" target="_blank">
-                        <span className="nav-link">
+                        <span className="footer-link nav-link">
                             GitHub <Image src={ external } />
                         </span>
                     </a>
                     <a href="https://www.linkedin.com/in/evan-mchugh-8013a6142/" target="_blank">
-                        <span className="nav-link">
+                        <span className="nav-link footer-link">
                             LinkedIn <Image src={ external } />
                         </span>
                     </a>
