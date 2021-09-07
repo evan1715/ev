@@ -39,6 +39,7 @@ const ProjectCards = () => {
 
     return (
         <Container className="d-flex flex-column align-items-center p-4">
+            <h2>Software Summary</h2>
             <Row className="align-items-center justify-content-around">
                 { projects.map((project, index) => 
                     <Card border="success" className="bg-light-gray bg-gradient m-2" key={ index } style={{ width: '18rem' }}>
