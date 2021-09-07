@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 //Data
-import cardsInfo from '../data/cards-info.json';
+import cardsInfo from '../data/projects-info.json';
 //Images
 import chat_app from '../images/screenshot_chat_app.png';
 import external from '../images/external.svg';
