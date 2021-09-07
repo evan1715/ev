@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
+//Component
+import ProjectAccordion from '../components/ProjectAccordion';
 //Technology logos
 import bootstrap from '../images/bootstrap.svg';
 import css from'../images/css3.svg';
@@ -36,29 +38,15 @@ const Coding = () => {
 
     return (
         <Container className="d-flex flex-column align-items-center min-vh-100">
-            <h1 className="p-2">Evan's coding page</h1>
+            <h1 className="p-2">Coding</h1>
     
             {/* Repository section */}
-            <section className="w-100">
-                <h2 className="p-2">Repository</h2>
-                {/* Table */}
-                <div className="bg-dark bg-gradient" role="grid">
-                    {/* Table headers */}
-                    <div className="d-flex justify-content-evenly">
-                        <div>Title</div>
-                        <div>Description</div>
-                        <div>Language</div>
-                        <div>Technologies used</div>
-                    </div>
-                    {/* Table body */}
-                    <div className="d-flex justify-content-evenly">
-                        <div>body</div>
-                    </div>
-                </div>
+            <section className="mt-3 w-100">
+                <ProjectAccordion />
             </section>
 
             {/* Technologies section */}
-            <section className="w-100">
+            <section className=" mt-5 w-100">
                 <h2 className="p-2">Technologies</h2>
                 <div className="bg-dark bg-gradient d-flex flex-wrap justify-content-around">
                     { images.map((tech, index) => 
