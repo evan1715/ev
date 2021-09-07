@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Container from 'react-bootstrap/Container';
 //Technology logos
 import bootstrap from '../images/bootstrap.svg';
 import css from'../images/css3.svg';
@@ -18,8 +19,8 @@ const Technologies = () => {
     const files = [html, css, javascript, react, redux, nodejs, express, nextjs, sass, bootstrap, mongodb, mongoose];
 
     return (
-        <>
-            <h2 className="p-2">Technologies</h2>
+        <Container className="mb-5 mt-5">
+            {/* <h2 className="p-2">Technologies</h2> */}
             <div className="bg-dark bg-gradient d-flex flex-wrap justify-content-around">
                 { images.map((tech, index) => 
                     <div className="p-4" key={ tech }>
@@ -28,7 +29,7 @@ const Technologies = () => {
                     </div>
                 )}
             </div>
-        </>
+        </Container>
     );
 }
 
