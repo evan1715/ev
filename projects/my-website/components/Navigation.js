@@ -1,5 +1,8 @@
-import { useRouter } from 'next/router.js';
+//React
 import { useEffect, useState } from 'react';
+//NextJS
+import { useRouter } from 'next/router.js';
+//react-bootstrap
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -19,13 +22,14 @@ const Navigation = () => {
     }, [router.pathname]);
 
     return (
-        <Navbar collapseOnSelect bg="navbar navbar-dark bg-dark bg-gradient" expand="lg" sticky="top" variant="dark">
+        <Navbar bg="navbar navbar-dark bg-dark bg-gradient" collapseOnSelect expand="lg" sticky="top" variant="dark">
             <Container>
                 {/* <Navbar.Brand aria-current="home" href onClick={ (e) => handleRoute(e, '/') }> */}
-                <Navbar.Brand className={ isActive === '/' && 'navbar-brand-active' } aria-current="home" href="/">
+                <Navbar.Brand aria-current="home" className={ isActive === '/' && 'navbar-brand-active' } href="/">
                     <div /><div /><div /><div />
                     Evan
                 </Navbar.Brand>
+
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
                 <Navbar.Collapse id="responsive-navbar-nav">

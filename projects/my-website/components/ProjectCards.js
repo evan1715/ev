@@ -1,5 +1,6 @@
-//NextJS & React
+//React
 import { useState } from 'react';
+//NextJS
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 //react-bootstrap
@@ -62,6 +63,7 @@ const ProjectCards = () => {
                 )}
             </Row>
 
+            {/* Modal used for pop up images to view a whole selected photo. */}
             <Modal className="d-flex" fullscreen={ fullscreen } onHide={ () => setShow(false) } size="lg" show={ show }>
                 <Modal.Header className="bg-dark bg-gradient" closeButton closeVariant="white" />
                 <Modal.Body className="bg-dark bg-gradient"><Image src={ selectedImage } /></Modal.Body>
