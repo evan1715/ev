@@ -21,7 +21,8 @@ const Home = () => (
         <div className="card-animation"><i /></div>
 
         {/* Last section  */}
-        <section className="border-start border-end border-info m-2 min-vh-100 d-flex flex-column justify-content-center align-items-center">
+        {/* <section className="border-start border-end border-info m-2 min-vh-100 d-flex flex-column justify-content-center align-items-center"> */}
+        <section className="m-2 bottom-section">
             <h2>Technologies</h2>
             <Technologies />
         </section>

@@ -1,12 +1,3 @@
-.card-animation {
-    @include animation-border(white);
-}
-
-.border-orange {
-    border-left: 1px solid $color-theme-orange;
-    border-right: 1px solid $color-theme-orange;
-}
-
 .bg-light-gray {
     background-color: #333;
 }
@@ -19,12 +10,39 @@
     }
 }
 
+//Zoom in for images
+.zoom-zoom {
+    cursor: zoom-in;
+}
+
+//First section of homepage
 .main-title {
     font-family: "Gravity-Regular";
     font-size: 2.5rem;
     font-weight: 500;
     letter-spacing: 20px;
     margin-bottom: 0.5rem;
+}
+
+//Middle section of homepage
+.card-animation {
+    @include animation-border(white);
+}
+
+.border-orange {
+    border-left: 1px solid $color-theme-orange;
+    border-right: 1px solid $color-theme-orange;
+}
+
+//Bottom section of homepage
+.bottom-section {
+    align-items: center;
+    border-left: 1px solid $info;
+    border-right: 1px solid $info;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 75vh;
 }
 
 //Coding page -- projects section
@@ -45,10 +63,7 @@
     z-index: 1;
 }
 
-//Zoom in for images
-.zoom-zoom {
-    cursor: zoom-in;
-}
+
 
 
 
