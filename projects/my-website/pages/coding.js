@@ -1,5 +1,8 @@
+//React
 import { useState } from 'react';
+//NextJS
 import Image from 'next/image';
+//react-bootstrap
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
 //Components
@@ -32,7 +35,7 @@ const Coding = () => {
             </section>
 
             {/* Technologies section */}
-            <section className=" mt-5 w-100">
+            <section className="mt-5 w-100">
                 <Technologies />
             </section>
 
@@ -40,13 +43,14 @@ const Coding = () => {
             <section className="m-4 w-100">
                 <h2 className="p-2">Certifications</h2>
                 <div className="d-flex flex-wrap justify-content-around">
-                    <Image className="zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
-                    <Image className="zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
-                    <Image className="zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
-                    <Image className="zoom-zoom" onClick={ () => handleShow(udemy_reactjs) } src={ udemy_reactjs } height={ 225 } width={ 300 } />
+                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
+                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
+                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
+                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_reactjs) } src={ udemy_reactjs } height={ 225 } width={ 300 } />
                 </div>
             </section>
 
+            {/* Modal used for pop up images to view a whole selected photo. */}
             <Modal className="d-flex" fullscreen={ fullscreen } onHide={ () => setShow(false) } size="lg" show={ show }>
                 <Modal.Header className="bg-dark bg-gradient" closeButton closeVariant="white" />
                 <Modal.Body className="bg-dark bg-gradient"><Image src={ selectedImage } /></Modal.Body>
