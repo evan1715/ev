@@ -51,10 +51,10 @@ const ProjectCards = () => {
                             <Card.Text>{ cardsInfo[index].text }</Card.Text>
                             <div className="flex-column">
                                 { cardsInfo[index].links[1] && 
-                                    <Card.Link className="link-light" href={ cardsInfo[index].links[1] } target="_blank">Repository <Image src={ external } /></Card.Link>
+                                    <Card.Link className="external-link" href={ cardsInfo[index].links[1] } target="_blank">Repository <Image src={ external } /></Card.Link>
                                 }
                                 { cardsInfo[index].links[2] && 
-                                    <Card.Link className="link-light" href={ cardsInfo[index].links[2] } target="_blank">Deployment <Image src={ external } /></Card.Link>
+                                    <Card.Link className="external-link" href={ cardsInfo[index].links[2] } target="_blank">Deployment <Image src={ external } /></Card.Link>
                                 }
                             </div>
                             <Card.Link className="link-info" onClick={ (e) => handleRoute(e, cardsInfo[index].links[0]) }>Learn more</Card.Link>
