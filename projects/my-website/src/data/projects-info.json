@@ -2,7 +2,7 @@
     {
         "id": "chat-app",
         "title": "Chat App",
-        "subtitle": "NodeJS/Express, vanilla JavaScript",
+        "subtitle": "NodeJS/Express, Socket.IO, vanilla JavaScript",
         "text": "This was created while learning NodeJS. It features real-time live chat with socket.io, chat room, names, and utilizing a user's location.",
         "body": "",
         "links": ["/coding#chat-app"]
@@ -26,27 +26,27 @@
         "subtitle": "NextJS, Bootstrap, SCSS",
         "text": "That's this website! This website uses NextJS and bootstrap with the intent to showcase.",
         "body": "",
-        "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite"]
+        "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite", "https://jd1715.herokuapp.com"]
     }, {
         "id": "task-manager",
-        "title": "Task Manager",
-        "subtitle": "NodeJS/Express, MongoDB/Mongoose",
+        "title": "Task Manager API",
+        "subtitle": "NodeJS/Express, MongoDB/Mongoose, Authentication",
         "text": "The task manager app is an API-based project created while learning NodeJS. It includes middleware, user authentication, login tokens, database usage, user avatars, and more.",
         "body": "",
         "links": ["/coding#task-manager", "https://github.com/evan1715/task-manager-api", "https://jd1715-task-manager.herokuapp.com"]
     }, {
         "id": "recipe-project",
-        "title": "Recipe Project",
-        "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack",
+        "title": "Recipe Project Full Stack",
+        "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack, Authentication",
         "text": "This is the largest project I've done. It is a full-stack, user-based recipe website. There's too much to say to fit it on a card, so go ahead and click that 'Learn more' link.",
         "body": "",
-        "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com/"]
+        "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com"]
     }, {
         "id": "weather-app",
         "title": "Weather App",
         "subtitle": "NodeJS/Express, Handlebars templating, vanilla JavaScript",
         "text": "This is a small app that utilizes an external weather API to display weather information based on a search. It's uses Handlebars templating to serve pages from the server.",
         "body": "",
-        "links": ["/coding#weather-app", "https://github.com/evan1715/node-weather-website", "https://jd1715-weather-app.herokuapp.com/"]
+        "links": ["/coding#weather-app", "https://github.com/evan1715/node-weather-website", "https://jd1715-weather-app.herokuapp.com"]
     }
 ]
