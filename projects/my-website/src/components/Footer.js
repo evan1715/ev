@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Container from 'react-bootstrap/Container';
-import external from '../images/external.svg';
+import Image from 'next/image'; //NextJS
+import Container from 'react-bootstrap/Container'; //react-bootstrap
+import external from '../images/icons/external.svg'; //Images - icons
 
 const Footer = () => {
     return (

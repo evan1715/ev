@@ -3,18 +3,18 @@ import Image from 'next/image';
 //react-bootstrap
 import Container from 'react-bootstrap/Container';
 //Technology logos
-import bootstrap from '../images/bootstrap.svg';
-import css from'../images/css3.svg';
-import express from '../images/express.svg';
-import html from '../images/html5.svg';
-import javascript from '../images/javascript.svg';
-import mongodb from '../images/mongodb.svg';
-import mongoose from '../images/mongoosejs.png';
-import nextjs from '../images/nextjs.svg';
-import nodejs from '../images/nodejs.svg';
-import react from '../images/react.svg';
-import redux from '../images/redux.svg';
-import sass from '../images/sass.svg';
+import bootstrap from '../images/logos/bootstrap.svg';
+import css from'../images/logos/css3.svg';
+import express from '../images/logos/express.svg';
+import html from '../images/logos/html5.svg';
+import javascript from '../images/logos/javascript.svg';
+import mongodb from '../images/logos/mongodb.svg';
+import mongoose from '../images/logos/mongoosejs.png';
+import nextjs from '../images/logos/nextjs.svg';
+import nodejs from '../images/logos/nodejs.svg';
+import react from '../images/logos/react.svg';
+import redux from '../images/logos/redux.svg';
+import sass from '../images/logos/sass.svg';
 
 const Technologies = () => {
     const images = ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js', 'Express', 'Next.js', 'Sass', 'Bootstrap', 'MongoDB', 'Mongoose'];

@@ -10,15 +10,16 @@ import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 //Data
 import cardsInfo from '../data/projects-info.json';
-//Images
-import chat_app from '../images/screenshot_chat_app.png';
-import external from '../images/external.svg';
-import indecision_app from '../images/screenshot_indecision_app.png';
-import jd_mod from '../images/jk2_glow.gif';
-import my_website from '../images/nextjs.svg';
-import task_manager from '../images/screenshot_task_manager_app.jpg';
-import recipe_project from '../images/screenshot_recipe_project.png';
-import weather_app from '../images/screenshot_weather_app.png';
+//Images - icons
+import external from '../images/icons/external.svg';
+//Images - projects
+import chat_app from '../images/projects/chat_app.png';
+import indecision_app from '../images/projects/indecision_app.png';
+import jd_mod from '../images/projects/jk2_glow.gif';
+import my_website from '../images/logos/nextjs.svg';
+import task_manager from '../images/projects/task_manager_app.jpg';
+import recipe_project from '../images/projects/recipe_project.png';
+import weather_app from '../images/projects/weather_app.png';
 
 const ProjectCards = () => {
     const router = useRouter();

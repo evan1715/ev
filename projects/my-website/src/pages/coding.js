@@ -9,10 +9,10 @@ import Modal from 'react-bootstrap/Modal';
 import ProjectAccordion from '../components/ProjectAccordion';
 import Technologies from '../components/Technologies';
 //Certificate images
-import fcc_html_css from '../images/fcc_html_css_certificate.png';
-import fcc_js from '../images/fcc_js_certificate.png';
-import udemy_nodejs from '../images/udemy_nodejs_certificate.jpg';
-import udemy_reactjs from '../images/udemy_reactjs_certificate.jpg'
+import fcc_html_css from '../images/certificates/fcc_html_css_certificate.png';
+import fcc_js from '../images/certificates/fcc_js_certificate.png';
+import udemy_nodejs from '../images/certificates/udemy_nodejs_certificate.jpg';
+import udemy_reactjs from '../images/certificates/udemy_reactjs_certificate.jpg'
 
 const Coding = () => {
     const [fullscreen, setFullscreen] = useState(true);
