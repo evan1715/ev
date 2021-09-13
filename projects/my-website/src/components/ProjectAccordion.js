@@ -14,7 +14,7 @@ import pjInfo from '../data/projects-info.json';
 import expand from '../images/icons/expand.svg';
 import external from '../images/icons/external.svg';
 //Images - projects
-import chat_app from '../images/projects/chat_app.png';
+import chat_app from '../images/projects/chat_app1.png';
 import indecision_app from '../images/projects/indecision_app.png';
 import jd_mod from '../images/projects/jk2_glow.gif';
 import my_website from '../images/logos/nextjs.svg';
@@ -43,7 +43,7 @@ const ProjectAccordion = () => {
             if (pj.id == router.asPath.split('#')[1]) {
                 setSelectedProject(index);
             }
-        })
+        });
     }, [router.asPath]);
 
     return (
@@ -53,7 +53,7 @@ const ProjectAccordion = () => {
                 { pjInfo.map((project, index) => 
                     <Accordion.Item className="bg-light-gray" eventKey={ `${index}` } id={ project.id } key={ index }>
                         <Accordion.Header className="bg-light-gray" onClick={ selectedProject === index ? () => setSelectedProject(-1) : () => setSelectedProject(index) }>
-                            { project.title } <div className="ps-2 text-muted">- { project.subtitle }</div>
+                            { project.descriptiveTitle } <div className="ps-2 text-muted">- { project.subtitle }</div>
                         </Accordion.Header>
                         <Accordion.Body className="d-flex flex-column align-items-center">
                             {/* Carousel of Progress section */}
@@ -92,7 +92,7 @@ const ProjectAccordion = () => {
                             </section>
 
                             {/* Body text section */}
-                            <section>{ project.text }</section>
+                            <section>{ project.body }</section>
                         </Accordion.Body>
                     </Accordion.Item>
                 )}

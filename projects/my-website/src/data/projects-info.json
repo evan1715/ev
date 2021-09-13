@@ -1,49 +1,56 @@
 [
     {
         "id": "chat-app",
-        "title": "Chat App",
-        "subtitle": "NodeJS/Express, Socket.IO, vanilla JavaScript",
+        "cardTitle": "Chat App",
+        "descriptiveTitle": "Chat App",
+        "subtitle": "NodeJS/Express, Socket.IO, Mustache templating",
         "text": "This was created while learning NodeJS. It features real-time live chat with socket.io, chat room, names, and utilizing a user's location.",
-        "body": "",
-        "links": ["/coding#chat-app"]
+        "body": "This is a simple app that uses socket.io to create a WebSocket (TCP) connection to the server for live chat between users. A user can join a group that's already created or they can create a new one. It features autoscroll but won't autoscroll when there's a new message and you're scrolling upwards. Chats can be sent as well as a user's location. Users will be added and removed as they login and exit the tab so that they do not forever remain in the session. This app features NodeJS with Express, Socket.IO for the WebSocket, a profanity filter, and front-end vanilla JavaScript with templating using Mustache.",
+        "links": ["/coding#chat-app", "https://github.com/evan1715/ChatApp", "https://jd1715-chat-app.herokuapp.com"]
     }, {
         "id": "indecision-app",
-        "title": "Indecision App",
+        "cardTitle": "Indecision App",
+        "descriptiveTitle": "Indecision App",
         "subtitle": "React, SCSS, Webpack",
         "text": "This was created while learning React. A user can add or remove options. If they are undecided, a button will randomly decide.",
         "body": "",
         "links": ["/coding#indecision-app"]
     }, {
         "id": "jdfix",
-        "title": "JDFix",
+        "cardTitle": "JDFix",
+        "descriptiveTitle": "JDFix - Video Game Mod",
         "subtitle": "C",
         "text": "This is an old video game mod I did when I was younger in C with the JK2 source code based on the Quake III engine. The intent was to patch many highly exploited bugs.",
         "body": "",
         "links": ["/coding#jdfix", "https://github.com/evan1715/JDFix-for-JK2"]
     }, {
         "id": "my-website",
-        "title": "My Website",
+        "cardTitle": "My Website",
+        "descriptiveTitle": "My Website",
         "subtitle": "NextJS, Bootstrap, SCSS",
         "text": "That's this website! This website uses NextJS and bootstrap with the intent to showcase.",
         "body": "",
         "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite", "https://jd1715.herokuapp.com"]
     }, {
         "id": "task-manager",
-        "title": "Task Manager API",
+        "cardTitle": "Task Manager",
+        "descriptiveTitle": "Task Manager - API",
         "subtitle": "NodeJS/Express, MongoDB/Mongoose, Authentication",
         "text": "The task manager app is an API-based project created while learning NodeJS. It includes middleware, user authentication, login tokens, database usage, user avatars, and more.",
         "body": "",
         "links": ["/coding#task-manager", "https://github.com/evan1715/task-manager-api", "https://jd1715-task-manager.herokuapp.com"]
     }, {
         "id": "recipe-project",
-        "title": "Recipe Project Full Stack",
+        "cardTitle": "Recipe Project",
+        "descriptiveTitle": "Recipe Project - MERN Full Stack",
         "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack, Authentication",
         "text": "This is the largest project I've done. It is a full-stack, user-based recipe website. There's too much to say to fit it on a card, so go ahead and click that 'Learn more' link.",
         "body": "",
         "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com"]
     }, {
         "id": "weather-app",
-        "title": "Weather App",
+        "cardTitle": "Weather App",
+        "descriptiveTitle": "Weather App",
         "subtitle": "NodeJS/Express, Handlebars templating, vanilla JavaScript",
         "text": "This is a small app that utilizes an external weather API to display weather information based on a search. It's uses Handlebars templating to serve pages from the server.",
         "body": "",
