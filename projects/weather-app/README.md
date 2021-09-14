@@ -1,0 +1,2 @@
+# Weather App
+This is a small utility that uses Mapbox and Weatherstack API to deliver weather information to the user based on a search term. Pages are rendered with vanilla JavaScript and Handlebars templating to serve pages from the server.
