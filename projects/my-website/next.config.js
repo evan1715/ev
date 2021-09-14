@@ -1,14 +1,9 @@
 module.exports = {
     reactStrictMode: true,
+    
+    //NextJS builds up cache too much. Clean it up.
     // webpack: (config, options) => {
-    //     config.module.rules.push({
-    //         test: /\.css$/,
-    //         use: ['postcss-loader']
-    //     });
-    //     config.plugins.push([
-    //         require('autoprefixer')
-    //     ])
+    //     config.output.clean = true;
     //     return config;
     // }
-    
 }

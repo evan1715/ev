@@ -1,6 +1,7 @@
 [
     {
         "id": "chat-app",
+        "imageVariable": "chatApp",
         "cardTitle": "Chat App",
         "descriptiveTitle": "Chat App",
         "subtitle": "NodeJS/Express, Socket.IO, Mustache templating",
@@ -9,14 +10,16 @@
         "links": ["/coding#chat-app", "https://github.com/evan1715/ChatApp", "https://jd1715-chat-app.herokuapp.com"]
     }, {
         "id": "indecision-app",
+        "imageVariable": "indecisionApp",
         "cardTitle": "Indecision App",
         "descriptiveTitle": "Indecision App",
         "subtitle": "React, SCSS, Webpack",
         "text": "This was created while learning React. A user can add or remove options. If they are undecided, a button will randomly decide.",
-        "body": "",
-        "links": ["/coding#indecision-app"]
+        "body": "This app was created while I was initially learning React, SCSS, and Webpack. Using props and class components in React, the app will randomize a to-do list for a user to do. One would add multiple things to the list of things to do, and if they're indecisive on what to do, just simply press the 'What should I do?' button. The SCSS uses an organized file structure with base & settings, and components in another folder. The styling uses BEM (Block Element Modifier) standard for formatting and organizing CSS. Webpack was also learned and used during this project. If you've got some things to do, but don't know where to start, go ahead and try it out!",
+        "links": ["/coding#indecision-app", "https://github.com/evan1715/IndecisionApp", "https://jd1715-indecision-app.herokuapp.com"]
     }, {
         "id": "jdfix",
+        "imageVariable": "jdMod",
         "cardTitle": "JDFix",
         "descriptiveTitle": "JDFix - Video Game Mod",
         "subtitle": "C",
@@ -25,22 +28,42 @@
         "links": ["/coding#jdfix", "https://github.com/evan1715/JDFix-for-JK2"]
     }, {
         "id": "my-website",
+        "imageVariable": "myWebsite",
         "cardTitle": "My Website",
         "descriptiveTitle": "My Website",
         "subtitle": "NextJS, Bootstrap, SCSS",
         "text": "That's this website! This website uses NextJS and bootstrap with the intent to showcase.",
-        "body": "",
+        "body": "It's this website you're using now! This project expanded my knowledge of React, styling, and NodeJS by using and learning NextJS and Bootstrap. There's also included subtle animations at random spots. Feel free to explore the website and my pages.",
         "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite", "https://jd1715.herokuapp.com"]
     }, {
         "id": "task-manager",
+        "imageVariable": "taskManager",
         "cardTitle": "Task Manager",
         "descriptiveTitle": "Task Manager - API",
         "subtitle": "NodeJS/Express, MongoDB/Mongoose, Authentication",
         "text": "The task manager app is an API-based project created while learning NodeJS. It includes middleware, user authentication, login tokens, database usage, user avatars, and more.",
-        "body": "",
+        "body": "The Task Manager app is an API-only app. Meaning that when you click the Deployment link, it won't go to an actual website because there is no front-end. To access the API, you use Postman or something similar to access the NodeJS API. The app features NodeJS with Express, active connection to MongoDB using Mongoose, and even authentication with hashed passwords. The active login token is stored in the database. The idea is you create an account, add tasks, and see what you need to do. Sort of like a to-do list. A user can create a user, login, logout, logout of all locations, read their profile, user, tasks, delete user or tasks, upload avatar, or update existing user info or task info.",
+        "list": [
+            "/user is a POST that creates a user", 
+            "/users/login is a POST that will log you in with your email and password,", 
+            "/users/logout is a POST that will logout the current user",
+            "/users/logoutAll is a POST that will log the user out of all active locations",
+            "/tasks is a POST to create a new task",
+            "/users/me is a GET to read the current profile",
+            "/users/:id is a GET to read a selected user profile",
+            "/tasks?sortBy=createdAt_asc is a GET to get tasks and an example of sorting & pagination that can be used",
+            "/tasks/:id is a GET to read one specific task based on the id",
+            "/users/me is a PATCH to update the current user info",
+            "/tasks/:id is a PATCH to update the current selected task",
+            "/users/me is a DELETE to delete the current user",
+            "/tasks/:id is a DELETE to delete the current task",
+            "/users/me/avatar is a POST to upload an avatar for the user",
+            "/users/me/avatar is a DELETE to delete the current avatar for the user"
+        ],
         "links": ["/coding#task-manager", "https://github.com/evan1715/task-manager-api", "https://jd1715-task-manager.herokuapp.com"]
     }, {
         "id": "recipe-project",
+        "imageVariable": "recipeProject",
         "cardTitle": "Recipe Project",
         "descriptiveTitle": "Recipe Project - MERN Full Stack",
         "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack, Authentication",
@@ -49,11 +72,12 @@
         "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com"]
     }, {
         "id": "weather-app",
+        "imageVariable": "weatherApp",
         "cardTitle": "Weather App",
         "descriptiveTitle": "Weather App",
-        "subtitle": "NodeJS/Express, Handlebars templating, vanilla JavaScript",
+        "subtitle": "NodeJS/Express, Handlebars templating",
         "text": "This is a small app that utilizes an external weather API to display weather information based on a search. It's uses Handlebars templating to serve pages from the server.",
-        "body": "",
-        "links": ["/coding#weather-app", "https://github.com/evan1715/node-weather-website", "https://jd1715-weather-app.herokuapp.com"]
+        "body": "This is a small utility that uses Mapbox and Weatherstack API to deliver weather information to the user based on a search term. Pages are rendered with vanilla JavaScript and Handlebars templating to serve pages from the server.",
+        "links": ["/coding#weather-app", "https://github.com/evan1715/WeatherApp", "https://jd1715-weather-app.herokuapp.com"]
     }
 ]
