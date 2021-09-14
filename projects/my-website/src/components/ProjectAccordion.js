@@ -37,8 +37,6 @@ import recipe_project12 from '../images/projects/recipe_project12.png';
 import recipe_project13 from '../images/projects/recipe_project13.png';
 import recipe_project14 from '../images/projects/recipe_project14.png';
 import recipe_project15 from '../images/projects/recipe_project15.png';
-import recipe_project16 from '../images/projects/recipe_project16.png';
-import recipe_project17 from '../images/projects/recipe_project17.png';
 import weather_app from '../images/projects/weather_app1.png';
 import weather_app2 from '../images/projects/weather_app2.png';
 
@@ -56,7 +54,7 @@ const ProjectAccordion = () => {
     const jdMod = [jd_mod];
     const myWebsite = [my_website];
     const taskManager = [task_manager];
-    const recipeProject = [recipe_project1, recipe_project2, recipe_project3, recipe_project4, recipe_project5, recipe_project6, recipe_project7, recipe_project8, recipe_project9, recipe_project10, recipe_project11, recipe_project12, recipe_project13, recipe_project14, recipe_project15, recipe_project16, recipe_project17];
+    const recipeProject = [recipe_project1, recipe_project2, recipe_project3, recipe_project4, recipe_project5, recipe_project6, recipe_project7, recipe_project8, recipe_project9, recipe_project10, recipe_project11, recipe_project12, recipe_project13, recipe_project14, recipe_project15];
     const weatherApp = [weather_app, weather_app2];
 
     const handleShow = (selected) => {
