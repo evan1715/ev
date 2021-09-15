@@ -153,5 +153,13 @@
     .image-container {
         max-height: 180px;
     }
+    .mobile {
+        display: none;
+    }
 }
 
+@media (min-width: $screen-nHD) {
+    .desktop {
+        display: none;
+    }
+}

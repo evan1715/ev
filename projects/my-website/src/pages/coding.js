@@ -26,18 +26,21 @@ const Coding = () => {
     }
 
     return (
-        <Container className="d-flex flex-column align-items-center min-vh-100">
+        //px-2 to make the technologies 2 rows to fit all when fully expanded
+        <Container className="d-flex flex-column align-items-center min-vh-100 px-2">
             <h1 className="p-2">Coding</h1>
+
+            {/* Technologies section */}
+            <section className="my-2 w-100 ">
+                <Technologies mobile={ false } />
+            </section>
     
             {/* Repository section */}
-            <section className="mt-3 w-100">
+            <section className="my-5 w-100">
                 <ProjectAccordion />
             </section>
 
-            {/* Technologies section */}
-            <section className="mt-5 w-100">
-                <Technologies />
-            </section>
+
 
             {/* Certifications section */}
             <section className="m-4 w-100">
