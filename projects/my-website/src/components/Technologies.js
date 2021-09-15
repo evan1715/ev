@@ -25,7 +25,7 @@ const Technologies = (props) => {
 
     return (
         <Container className="mt-1 mb-4"> { !props.mobile ? <>
-            <h2 className="p-2">Technologies</h2>
+            <h2 className="p-2">Technology Proficiencies</h2>
             <div className="mobile">
                 <div className="bg-dark bg-gradient d-flex flex-wrap justify-content-around align-items-center">
                     { images.map((tech, index) => {
