@@ -8,6 +8,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
 import Modal from 'react-bootstrap/Modal';
+//Component
+import RecipeReadme from './RecipeReadme.js';
 //Data
 import pjInfo from '../data/projects-info.json';
 //Images - icons
@@ -146,7 +148,7 @@ const ProjectAccordion = () => {
                             </section>
 
                             {/* Links section */}
-                            <section className="d-flex">
+                            <section className="d-flex mb-3">
                                 { project.links[1] && 
                                     <a href={ project.links[1] } target="_blank">
                                         <span className="external-link nav-link">Source <Image src={ external } /></span>
@@ -160,8 +162,9 @@ const ProjectAccordion = () => {
                             </section>
 
                             {/* Body text section */}
-                            <section>
+                            <section className="project-body">
                                 { project.body }
+                                { project.id === 'recipe-project' && <RecipeReadme /> }
                                 { project.list && 
                                     <ul>
                                         { project.list.map((item, index) => <li key={ index }>{ item }</li>) }
