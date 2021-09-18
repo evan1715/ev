@@ -86,7 +86,26 @@
     z-index: 1;
 }
 
+.project-body {
+    max-width: 80%;
+    word-wrap: break-word;
+}
 
+.text-theme-cyan {
+    color: $color-theme-cyan;
+}
+
+.text-theme-turq {
+    color: $color-theme-turq;
+}
+
+.text-theme-green {
+    color: $color-theme-green;
+}
+
+.text-theme-orange {
+    color: $color-theme-orange;
+}
 
 
 

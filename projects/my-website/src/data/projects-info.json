@@ -68,7 +68,7 @@
         "descriptiveTitle": "Recipe Project - MERN Full Stack",
         "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack, Authentication",
         "text": "This is the largest project I've done. It is a full-stack, user-based recipe website. There's too much to say to fit it on a card, so go ahead and click that 'Learn more' link.",
-        "body": "",
+        "body": "This is my largest project I've done so far. It's a full-stack, user-based recipe website. It uses NodeJS with Express as the server and API, React with Redux as the front-end, MongoDB with Mongoose for the database, SCSS for styling, advance Webpack configuration, and authentication. The website was designed to be an account-focused website, so to view the most of the features, you'll have to create an account. Passwords are fully hashed and stored with bcrypt. One can create an account, upload an icon, submit recipes, modify recipes, upload multiple recipe pictures at a time, view another user's profile, and many more features. I also ensured code and network efficiency by storing things in Redux and only calling for information after a check to see if we didn't already have it. I've placed the readme below this for a very detailed description of the project.",
         "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com"]
     }, {
         "id": "weather-app",
