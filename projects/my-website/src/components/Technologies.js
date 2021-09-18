@@ -79,7 +79,6 @@ const Technologies = (props) => {
             </>:<>
 
             <Carousel 
-                className="" 
                 controls={ false } 
                 indicators={ false } 
                 interval={ 500 } 
@@ -100,9 +99,7 @@ const Technologies = (props) => {
                         <Carousel.Item className="p-4 text-center" key={ tech }>
                             <h3>{ tech }</h3>
                             <Image 
-                                className={ 
-                                    (index === 8 || index === 9) && "bg-light-gray bg-gradient rounded p-2"
-                                } 
+                                className={ (index === 8 || index === 9) ? "bg-light-gray bg-gradient rounded p-2" : "" } 
                                 alt={ `${tech} icon` } 
                                 src={ files[index] } 
                                 height={ 128 } 
