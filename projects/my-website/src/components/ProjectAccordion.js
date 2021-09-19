@@ -23,7 +23,9 @@ import indecision_app from '../images/projects/indecision_app1.png';
 import indecision_app2 from '../images/projects/indecision_app2.png';
 import jd_mod from '../images/projects/jk2_glow.gif';
 import my_website from '../images/logos/nextjs.svg';
-import task_manager from '../images/projects/task_manager_app.jpg';
+import task_manager from '../images/projects/task_manager_app1.png';
+import task_manager2 from '../images/projects/task_manager_app2.png';
+import task_manager3 from '../images/projects/task_manager_app3.png';
 import recipe_project1 from '../images/projects/recipe_project1.png';
 import recipe_project2 from '../images/projects/recipe_project2.png';
 import recipe_project3 from '../images/projects/recipe_project3.png';
@@ -55,7 +57,7 @@ const ProjectAccordion = () => {
     const indecisionApp = [indecision_app, indecision_app2];
     const jdMod = [jd_mod];
     const myWebsite = [my_website];
-    const taskManager = [task_manager];
+    const taskManager = [task_manager, task_manager2, task_manager3];
     const recipeProject = [recipe_project1, recipe_project2, recipe_project3, recipe_project4, recipe_project5, recipe_project6, recipe_project7, recipe_project8, recipe_project9, recipe_project10, recipe_project11, recipe_project12, recipe_project13, recipe_project14, recipe_project15];
     const weatherApp = [weather_app, weather_app2];
 
@@ -144,7 +146,7 @@ const ProjectAccordion = () => {
                             </section>
 
                             <section className="link-info" onClick={ () => handleShow(index) }>
-                                <p className="m-2 p-2">View full size photos <Image height="20" src={ expand } /></p>
+                                <div className="m-2 p-2">View full size photos <Image height="20" src={ expand } /></div>
                             </section>
 
                             {/* Links section */}
@@ -158,6 +160,13 @@ const ProjectAccordion = () => {
                                     <a as="a" href={ project.links[2] } target="_blank">
                                         <span className="external-link nav-link">Deployment <Image src={ external } /></span>
                                     </a>
+                                }
+                                { project.id === 'jdfix' &&
+                                    <div className="d-flex justify-content-center">
+                                        <a className="" href={ project.links[3] } target="_blank">
+                                            <span className="external-link nav-link">JDFix <Image src={ external } /></span>
+                                        </a>
+                                    </div>
                                 }
                             </section>
 

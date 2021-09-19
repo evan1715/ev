@@ -17,7 +17,7 @@ import chat_app from '../images/projects/chat_app2.png';
 import indecision_app from '../images/projects/indecision_app1.png';
 import jd_mod from '../images/projects/jk2_glow.gif';
 import my_website from '../images/logos/nextjs.svg';
-import task_manager from '../images/projects/task_manager_app.jpg';
+import task_manager from '../images/projects/task_manager_app1.png';
 import recipe_project from '../images/projects/recipe_project.png';
 import weather_app from '../images/projects/weather_app2.png';
 

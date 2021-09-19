@@ -24,8 +24,8 @@
         "descriptiveTitle": "JDFix - Video Game Mod",
         "subtitle": "C",
         "text": "This is an old video game mod I did when I was younger in C with the JK2 source code based on the Quake III engine. The intent was to patch many highly exploited bugs.",
-        "body": "",
-        "links": ["/coding#jdfix", "https://github.com/evan1715/JDFix-for-JK2"]
+        "body": "I used to work on a few mods for the video games Star Wars Jedi Knight II: Jedi Outcast and Star Wars: Jedi Knight: Jedi Academy, abbreviated JK2 and JKA/JK3. The primary goal of the mods were to fix, create work-arounds, supplement, and more to counter bugs, crashes, as well as expand limited features, and others too. The main way of doing it was through the source code written in C based on the Quake III Engine, now called the id Tech 3 engine. Due to multiple versions of each game, not every fix was as easy as changing the source code. Some involved reverse engineering, hex editing, injecting .dll files, using scripts, or other means. JDFix is for the source code. I used to host a forum website for the mod, the community, and more where users would post questions, talk about code, and what else could we do with the limited tools given. JDFix got popular enough, other creators wanted to simply integrate my mod into theirs because it was a background mod and didn't change much of the original game. The efforts that were on my forum, my mod, and some others, have evolved from mine into a much larger projects after the official source code was released. If you go to the source link, the readme will give an overview of the folders. For the folder the official mod, and not just all the works, you can click the JDFix link to read the readme and version history.",
+        "links": ["/coding#jdfix", "https://github.com/evan1715/JDFix-for-JK2", "", "https://github.com/evan1715/JDFix-for-JK2/tree/master/JDFix%20Mod/JDFix%201.04%20Mod/JediDog%20Fix"]
     }, {
         "id": "my-website",
         "imageVariable": "myWebsite",
