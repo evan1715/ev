@@ -16,6 +16,15 @@
     -moz-transform: rotate(-90deg);
 }
 
+.form-inputs {
+    background-color: $dark-theme-4;
+    // border-width: 2px;
+    border-color: $color-theme-turq;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 0.5rem 0.75rem;
+}
+
 .bg-light-gray {
     background-color: #333;
 }
