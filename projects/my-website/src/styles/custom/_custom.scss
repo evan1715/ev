@@ -36,6 +36,17 @@
     background-color: #333;
 }
 
+.button-theme {
+    border-color: $color-theme-turq;
+    color: $color-theme-turq;
+    &:hover {
+        border-color: $color-theme-orange;
+        box-shadow: 0 0 0.5rem $color-theme-orange;
+        color: $color-theme-orange;
+        outline: 0 none;
+    }
+}
+
 //General pointer class
 .cursor-pointer {
     cursor: pointer;
@@ -118,6 +129,8 @@
 }
 
 .project-body {
+    display: flex;
+    flex-direction: column;
     max-width: 80%;
     word-wrap: break-word;
 }
@@ -131,17 +144,6 @@
     flex-direction: column;
     justify-content: center;
     max-width: 600px;
-    button {
-        border-color: $color-theme-turq;
-        color: $color-theme-turq;
-        &:hover {
-            border-color: $color-theme-orange;
-            box-shadow: 0 0 0.5rem $color-theme-orange;
-            color: $color-theme-orange;
-            outline: 0 none;
-        }
-        
-    }
 }
 .form-inputs {
     background-color: $dark-theme-4;

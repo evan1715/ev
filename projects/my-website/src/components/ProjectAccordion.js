@@ -51,6 +51,7 @@ const ProjectAccordion = () => {
     const [selectedProject, setSelectedProject] = useState(5);
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
+    const [showReadme, setShowReadme] = useState(false);
     const [selectedImage, setSelectedImage] = useState(0);
     //Images
     const chatApp = [chat_app, chat_app2, chat_app3];
@@ -173,7 +174,12 @@ const ProjectAccordion = () => {
                             {/* Body text section */}
                             <section className="project-body">
                                 { project.body }
-                                { project.id === 'recipe-project' && <RecipeReadme /> }
+                                { project.id === 'recipe-project' && 
+                                    <div className="mt-4">
+                                        <button className="btn button-theme" onClick={ () => setShowReadme(!showReadme) }>Click here to view the readme!</button>
+                                        { showReadme && <RecipeReadme />}
+                                    </div>
+                                }
                                 { project.list && 
                                     <ul>
                                         { project.list.map((item, index) => <li key={ index }>{ item }</li>) }
