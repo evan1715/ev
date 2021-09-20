@@ -48,7 +48,7 @@ const ProjectAccordion = () => {
     //Router via NextJS
     const router = useRouter();
     //State
-    const [selectedProject, setSelectedProject] = useState(5);
+    const [selectedProject, setSelectedProject] = useState();
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
     const [showReadme, setShowReadme] = useState(false);
