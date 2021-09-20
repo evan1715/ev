@@ -27,10 +27,14 @@ const Home = () => (
         <div className="card-animation"><i /></div>
 
         {/* Last section  */}
-        {/* <section className="border-start border-end border-info m-2 min-vh-100 d-flex flex-column justify-content-center align-items-center"> */}
         <section className="m-2 bottom-section">
-            <h2>Technologies</h2>
-            <Technologies mobile={ false } />
+            <p>Next adventures? As of 9-20-2021
+                <ul>
+                    <li>To finish this website and continue learning NextJS and Bootstrap, as well as expanding my current knowledge.</li>
+                    <li>Learn MySQL and PHP</li>
+                    <li>Thoroughly learn the proper ways to make a website full accessible to the highest standards there are.</li>
+                </ul>
+            </p>
         </section>
     </>
 );
