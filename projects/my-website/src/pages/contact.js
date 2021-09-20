@@ -2,6 +2,7 @@
 // import { useEffect } from 'react';
 import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
+// import LinkedInBadge from '../components/LinkedInBadge';
 
 const Contact = () => {
     const [name, setName] = useState();
@@ -10,10 +11,10 @@ const Contact = () => {
     const [message, setMessage] = useState();
 
     return (
-        <Container className="border border-info p-1 d-flex flex-column justify-content-center">
-            Evan's contact page
-            
-            <form className="d-flex flex-column p-2">
+        <Container className="p-1 contact-container">
+            <h1 className="text-center">Contact</h1>
+
+            <form className="d-flex flex-column p-2" onSubmit={ (e) => e.preventDefault() }>
                 <label htmlFor="name">Name</label>
                 <input
                     className="form-inputs"
@@ -61,9 +62,14 @@ const Contact = () => {
                     onChange={ (e) => setMessage(e.target.value) }
                     placeholder="..."
                     required
+                    rows="8"
                     title="Message"
                     value={ message }
                 />
+
+                <div className="text-center">
+                    <button className="btn m-4 w-25" type="submit">Submit</button>
+                </div>
             </form>
             
         </Container>

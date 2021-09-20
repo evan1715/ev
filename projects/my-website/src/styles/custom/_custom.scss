@@ -42,6 +42,24 @@
     }
 }
 
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    button {
+        border-color: $color-theme-turq;
+        color: $color-theme-turq;
+        &:hover {
+            border-color: $color-theme-orange;
+            box-shadow: 0 0 0.5rem $color-theme-orange;
+            color: $color-theme-orange;
+            outline: 0 none;
+        }
+        
+    }
+}
+
 //Zoom in for images
 .zoom-zoom {
     cursor: zoom-in;
