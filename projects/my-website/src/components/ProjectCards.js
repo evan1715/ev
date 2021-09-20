@@ -50,7 +50,7 @@ const ProjectCards = () => {
                             <Card.Title>{ project.cardTitle }</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">{ project.subtitle }</Card.Subtitle>
                             <Card.Text>{ project.text }</Card.Text>
-                            <div className="flex-column">
+                            <div className="flex-column mb-3 mt-1">
                                 { project.links[1] && 
                                     <Card.Link className="external-link" href={ project.links[1] } target="_blank">Repository <Image src={ external } /></Card.Link>
                                 }
