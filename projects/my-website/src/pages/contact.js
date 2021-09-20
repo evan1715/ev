@@ -13,6 +13,7 @@ const Contact = () => {
     return (
         <Container className="p-1 contact-container">
             <h1 className="text-center">Contact</h1>
+            <h4 className="text-center">pending completion - need to wire up the mailer</h4>
 
             <form className="d-flex flex-column p-2" onSubmit={ (e) => e.preventDefault() }>
                 <label htmlFor="name">Name</label>
