@@ -7,6 +7,7 @@ const Home = () => (
         <section className="border-start border-end border-success m-2 d-flex flex-column align-items-center justify-content-center vh-100">
             <>
                 <h1 className="h-50 main-title">Evan McHugh</h1>
+                <h2>~~ WEBSITE IS INCOMPLETE -- STILL WORKING ON IT. APOLOGIES FOR THE CONSTRUCTION ~~</h2>
                 <p>Self-learning software developer.</p>
             </>
             <>
