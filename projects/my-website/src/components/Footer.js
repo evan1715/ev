@@ -6,12 +6,11 @@ const Footer = () => {
     return (
         <footer className="navbar navbar-dark bg-dark bg-gradient fixed-bottom py-1">
             <Container>
-                <div className="d-flex justify-content-center">
-                    {/* fs-4 is for the font size */}
-                    <span className="fs-4">Evan McHugh</span>
+                <div>
+                    <span className="footer-brand">Evan McHugh</span>
                 </div>
 
-                <div className="d-flex flex-row justify-content-center">
+                <div className="d-flex flex-row">
                     <a href="https://github.com/evan1715" target="_blank">
                         <span className="external-link nav-link">
                             GitHub <Image src={ external } />

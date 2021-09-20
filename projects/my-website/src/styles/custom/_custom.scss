@@ -16,23 +16,32 @@
     -moz-transform: rotate(-90deg);
 }
 
-.form-inputs {
-    background-color: $dark-theme-4;
-    // border-width: 2px;
-    border-color: $color-theme-turq;
-    border-radius: 0.3rem;
-    color: white;
-    padding: 0.5rem 0.75rem;
+.text-theme-cyan {
+    color: $color-theme-cyan;
+}
+
+.text-theme-turq {
+    color: $color-theme-turq;
+}
+
+.text-theme-green {
+    color: $color-theme-green;
+}
+
+.text-theme-orange {
+    color: $color-theme-orange;
 }
 
 .bg-light-gray {
     background-color: #333;
 }
 
+//General pointer class
 .cursor-pointer {
     cursor: pointer;
 }
 
+//External link theme for color & hover
 .external-link {
     color: $color-theme-turq;
     &:hover {
@@ -42,29 +51,20 @@
     }
 }
 
-.contact-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 600px;
-    button {
-        border-color: $color-theme-turq;
-        color: $color-theme-turq;
-        &:hover {
-            border-color: $color-theme-orange;
-            box-shadow: 0 0 0.5rem $color-theme-orange;
-            color: $color-theme-orange;
-            outline: 0 none;
-        }
-        
-    }
-}
-
 //Zoom in for images
 .zoom-zoom {
     cursor: zoom-in;
 }
 
+
+// ~~~ Footer section ~~~ //
+.footer-brand {
+    font-size: larger;
+}
+
+
+
+// ~~~ Homepage section ~~~ //
 //First section of homepage
 .main-title {
     font-family: "Gravity-Regular";
@@ -95,6 +95,10 @@
     min-height: 75vh;
 }
 
+
+
+
+// ~~~ Coding Page ~~~ //
 //Coding page -- projects section
 .image-container {
     display: flex;
@@ -118,25 +122,39 @@
     word-wrap: break-word;
 }
 
-.text-theme-cyan {
-    color: $color-theme-cyan;
+
+
+
+// ~~~ Contact page ~~~ //
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 600px;
+    button {
+        border-color: $color-theme-turq;
+        color: $color-theme-turq;
+        &:hover {
+            border-color: $color-theme-orange;
+            box-shadow: 0 0 0.5rem $color-theme-orange;
+            color: $color-theme-orange;
+            outline: 0 none;
+        }
+        
+    }
+}
+.form-inputs {
+    background-color: $dark-theme-4;
+    // border-width: 2px;
+    border-color: $color-theme-turq;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 0.5rem 0.75rem;
 }
 
-.text-theme-turq {
-    color: $color-theme-turq;
-}
-
-.text-theme-green {
-    color: $color-theme-green;
-}
-
-.text-theme-orange {
-    color: $color-theme-orange;
-}
 
 
-
-// ~~~ Media queries ~~~
+// ~~~ Media queries section ~~~ //
 
 //QHD 2560x1440
 @media (max-width: $screen-QHD) {
