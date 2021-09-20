@@ -28,13 +28,13 @@ const Home = () => (
 
         {/* Last section  */}
         <section className="m-2 bottom-section">
-            <p>Next adventures? As of 9-20-2021
+            <div>Next adventures? As of 9-20-2021
                 <ul>
                     <li>To finish this website and continue learning NextJS and Bootstrap, as well as expanding my current knowledge.</li>
                     <li>Learn MySQL and PHP</li>
                     <li>Thoroughly learn the proper ways to make a website full accessible to the highest standards there are.</li>
                 </ul>
-            </p>
+            </div>
         </section>
     </>
 );
