@@ -45,7 +45,7 @@ const Coding = () => {
             {/* Certifications section */}
             <section className="m-4 w-100">
                 <h2 className="p-2">Certifications</h2>
-                <div className="d-flex flex-wrap justify-content-around">
+                <div className="d-flex flex-wrap justify-content-around mb-5">
                     <Image className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
                     <Image className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
                     <Image className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
