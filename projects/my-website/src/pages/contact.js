@@ -1,21 +1,39 @@
-// import nodemailer from 'nodemailer';
-// import { useEffect } from 'react';
 import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 // import LinkedInBadge from '../components/LinkedInBadge';
 
 const Contact = () => {
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [subject, setSubject] = useState();
-    const [message, setMessage] = useState();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+    const [response, setResponse] = useState('');
+
+    const sendEmail = async (e) => {
+        e.preventDefault();
+       
+        fetch('/api/mailer', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message })
+        })
+        .then(res => {
+            if (res.ok) {
+                console.log(res.status, 'Server response:', res);
+                setResponse('Email was successfully sent.');
+            } else {
+                console.log(res.status, 'Server response:', res);
+                setResponse('Email was unsuccessful. Try again. If problem persists, use another method of contact like LinkedIn.')
+            }
+        })
+        .catch(error => console.log('Catch error:', error));
+    }
 
     return (
         <Container className="p-1 contact-container">
             <h1 className="text-center">Contact</h1>
-            <h4 className="text-center">pending completion - need to wire up the mailer</h4>
 
-            <form className="d-flex flex-column p-2" onSubmit={ (e) => e.preventDefault() }>
+            <form className="d-flex flex-column p-2" onSubmit={ (e) => sendEmail(e) }>
                 <label htmlFor="name">Name</label>
                 <input
                     className="form-inputs"
@@ -72,7 +90,7 @@ const Contact = () => {
                     <button className="btn button-theme m-4 w-25" type="submit">Submit</button>
                 </div>
             </form>
-            
+            <p className="text-center h3">{ response && response }</p>
         </Container>
     );
 }
