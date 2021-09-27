@@ -90,7 +90,7 @@ const Contact = () => {
                     <button className="btn button-theme m-4 w-25" type="submit">Submit</button>
                 </div>
             </form>
-            <p className="text-center h3">{ response && response }</p>
+            { response && <p className="text-center h3">{ response }</p> }
         </Container>
     );
 }
