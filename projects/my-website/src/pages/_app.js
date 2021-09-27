@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
             </Head>
 
             <Navigation />
-            <Container fluid as="main" className="mb-5 mt-1 p-3">
+            <Container fluid as="main" className="mb-5 mt-1 px-2 py-3">
                 <Component {...pageProps} />
             </Container>
             <Footer />
