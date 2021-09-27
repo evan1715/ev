@@ -27,13 +27,15 @@ const Home = () => (
         <div className="card-animation"><i /></div>
 
         {/* Last section  */}
-        <section className="m-2 bottom-section">
+        <section className="m-2 bottom-section p-2">
             <div>Next adventures? As of 9-20-2021
                 <ul>
                     <li>To finish this website and continue learning NextJS and Bootstrap, as well as expanding my current knowledge.</li>
                     <li>Learn MySQL and PHP</li>
-                    <li>Thoroughly learn the proper ways to make a website full accessible to the highest standards there are.</li>
+                    <li>Learn the proper ways to make a website fully accessible.</li>
                 </ul>
+                Note: You may have noticed the displaced mustache on the side-scrolling technology images. 
+                I left the moustache like this on purpose because I found it humorous to have a displaced mustache.
             </div>
         </section>
     </>
