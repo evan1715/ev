@@ -48,7 +48,7 @@ const ProjectAccordion = () => {
     //Router via NextJS
     const router = useRouter();
     //State
-    const [selectedProject, setSelectedProject] = useState();
+    const [selectedProject, setSelectedProject] = useState(5);
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
     const [showReadme, setShowReadme] = useState(false);
@@ -59,13 +59,24 @@ const ProjectAccordion = () => {
     const jdMod = [jd_mod];
     const myWebsite = [my_website];
     const taskManager = [task_manager, task_manager2, task_manager3];
-    const recipeProject = [recipe_project1, recipe_project2, recipe_project3, recipe_project4, recipe_project5, recipe_project6, recipe_project7, recipe_project8, recipe_project9, recipe_project10, recipe_project11, recipe_project12, recipe_project13, recipe_project14, recipe_project15];
+    const recipeProject = [recipe_project1, recipe_project2, recipe_project3, recipe_project4, recipe_project5, 
+        recipe_project6, recipe_project7, recipe_project8, recipe_project9, recipe_project10, recipe_project11, 
+        recipe_project12, recipe_project13, recipe_project14, recipe_project15];
     const weatherApp = [weather_app, weather_app2];
 
     const handleShow = (selected) => {
         setSelectedImage(selected);
         setFullscreen('');
         setShow(true);
+    }
+
+    const handleSelected = (index, route) => {
+        setSelectedProject(index);
+        if (route) {
+            setTimeout(() => {
+                router.push(`/coding#${route}`);
+            }, 300);
+        }
     }
 
     useEffect(() => {
@@ -84,9 +95,9 @@ const ProjectAccordion = () => {
                 { pjInfo.map((project, index) => 
                     <Accordion.Item className="bg-light-gray" eventKey={ `${index}` } id={ project.id } key={ index }>
                         <Accordion.Header className="bg-light-gray" onClick={ selectedProject === index ? 
-                            () => setSelectedProject(-1)
+                            () => handleSelected(-1, '')
                             : 
-                            () => setSelectedProject(index)
+                            () => handleSelected(index, project.id)
                         }>
                             { project.descriptiveTitle } <div className="ps-2 text-muted">- { project.subtitle }</div>
                         </Accordion.Header>
