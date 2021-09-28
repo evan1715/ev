@@ -11,6 +11,7 @@ const Contact = () => {
 
     const sendEmail = async (e) => {
         e.preventDefault();
+        setResponse('Sending...');
        
         fetch('/api/mailer', {
             method: 'POST',
