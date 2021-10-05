@@ -42,8 +42,13 @@ const Navigation = () => {
                             <div /><div />Contact
                         </Nav.Link>
 
-                        <Nav.Link active={ isActive === '/about' && true } eventKey="about" onClick={ (e) => handleRoute(e, '/about') }>
-                            <div /><div />About
+                        <Nav.Link 
+                        // active={ isActive === '/about' && true } 
+                        eventKey="about" 
+                        // onClick={ (e) => handleRoute(e, '/about') }
+                        >
+                            {/* <div /><div /> */}
+                            About (work in progress)
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
