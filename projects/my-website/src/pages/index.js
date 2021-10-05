@@ -44,12 +44,13 @@ const Home = () => {
                         <h6>Next adventures? As of 9-20-2021</h6>
                         <ul>
                             <li>To finish this website and continue learning NextJS and Bootstrap, as well as expanding my current knowledge.</li>
-                            <li>Learn MySQL and PHP</li>
+                            <li>Learn PHP and improve my skills in SQL.</li>
                             <li>Learn the proper ways to make a website fully accessible.</li>
                         </ul>
                     </div>
 
-                    <div className="m-1 p-1 my-5 py-5 border-top border-bottom">
+                    {/* <div className="m-1 p-1 my-5 py-5 border-top border-bottom"> */}
+                    <div className="m-1 p-1 my-5 py-5 border-top">
                         <h6>Need more information?</h6>
                         <ul>
                             <li>View my contact page to get in contact with me!</li>
@@ -57,11 +58,11 @@ const Home = () => {
                         </ul>
                     </div>
 
-                    <div className="m-1 p-1">
+                    {/* <div className="m-1 p-1">
                         <h6>Side note</h6>
                         <p className="m-0">You may have noticed the displaced mustache on the side-scrolling technology images.</p>
                         <p className="m-0">I left the moustache like this on purpose because I found it humorous to have a displaced mustache.</p>
-                    </div>
+                    </div> */}
                 </Container>
             </section>
         </>
