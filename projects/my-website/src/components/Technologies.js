@@ -12,7 +12,7 @@ import html from '../images/logos/html5.svg';
 import javascript from '../images/logos/javascript.svg';
 import mongodb from '../images/logos/mongodb.svg';
 import mongoose from '../images/logos/mongoosejs.png';
-// import mustache from '../images/logos/mustache.png';
+import mustache from '../images/logos/mustache2.png';
 import nextjs from '../images/logos/nextjs.svg';
 import nodejs from '../images/logos/nodejs.svg';
 import react from '../images/logos/react.svg';
@@ -62,7 +62,13 @@ const Technologies = (props) => {
                             return (
                                 <Carousel.Item className="p-4 text-center ms-3" key={ tech }>
                                     <h3>{ tech }</h3>
-                                    <span id="mustache-logo">{'}'}</span>
+                                <span id="mustache-logo">{'}'}</span>
+                                {/* <Image
+                                    alt={ `${tech} icon` }
+                                    src={ mustache } 
+                                    height={ 128 } 
+                                    width={ 128 } 
+                                /> */}
                                 </Carousel.Item>
                             );
                         }
@@ -91,7 +97,14 @@ const Technologies = (props) => {
                         return (
                             <Carousel.Item className="p-4 text-center ms-3" key={ tech }>
                                 <h3>{ tech }</h3>
-                                <span id="mustache-logo">{'}'}</span>
+                                {/* <span id="mustache-logo">{'}'}</span> */}
+                                <Image
+                                    className="rounded"
+                                    alt={ `${tech} icon` }
+                                    src={ mustache } 
+                                    height={ 128 } 
+                                    width={ 128 } 
+                                />
                             </Carousel.Item>
                         );
                     }

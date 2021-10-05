@@ -76,6 +76,20 @@
 
 
 // ~~~ Homepage section ~~~ //
+.intro {
+    background-image: url("../../images/background/code_coffee.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    &:before {
+        background-color: #000;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+}
+
 //First section of homepage
 .main-title {
     font-family: "Gravity-Regular";
@@ -83,6 +97,15 @@
     font-weight: 500;
     letter-spacing: 20px;
     margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.main-center {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
 }
 
 //Middle section of homepage
@@ -176,6 +199,7 @@
             width: 96vw;
         }
     }
+
 }
 
 //HD 1280x720
@@ -185,6 +209,15 @@
             animation-duration: 6s;
             width: 94vw;
         }
+    }
+    .intro {
+        &:before {
+            content: "";
+            opacity: 40%;
+        }
+    }
+    .main-center {
+        width: 65%;
     }
 }
 
@@ -196,8 +229,17 @@
             width: 92vw;
         }
     }
+    .intro {
+        &:before {
+            content: "";
+            opacity: 60%;
+        }
+    }
     .main-title {
         letter-spacing: 10px;
+    }
+    .main-center {
+        width: 80%;
     }
     .image-container {
         max-height: 450px;
@@ -215,6 +257,9 @@
     .main-title {
         font-size: 2em;
         letter-spacing: 0;
+    }
+    .main-center {
+        width: 100%;
     }
     .image-container {
         max-height: 180px;

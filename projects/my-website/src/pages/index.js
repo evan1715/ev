@@ -10,11 +10,11 @@ const Home = () => {
     return (
         <>
             {/* Intro section */}
-            <section className="border-start border-end border-success m-2 d-flex flex-column align-items-center justify-content-center vh-100">
+            <section className="border-start border-end border-success m-2 d-flex flex-column align-items-center justify-content-center vh-100 intro">
 
                 <h1 className="main-title h-25">Evan McHugh</h1>
 
-                <div className="d-flex flex-column align-items-center h-25 px-4">
+                <div className="h-25 px-4 main-center">
                     <p className="h4">Self-learning software developer through research and development with a high interest in technology.</p>
                     <div className="h4 link-info mt-1" onClick={ () => router.push('/coding#recipe-project') }>
                         Check out my highlighted work!
