@@ -171,17 +171,19 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
-    height: 80vh;
     justify-content: center;
+    min-height: 80vh;
 }
 .contact-container {
     background-color: rgba($color: black, $alpha: 0.5);
     max-width: 600px;
+    margin: 10px;
 }
 .contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 540px;
     max-width: 600px;
     min-width: 260px;
     padding: 5px;
