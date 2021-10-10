@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import Container from 'react-bootstrap/Container';
+import EmailMe from '../components/EmailMe.js';
+import LinkedInBadge from '../components/LinkedInBadge.js';
 import ProjectCards from '../components/ProjectCards.js';
 import Technologies from '../components/Technologies.js';
 
@@ -41,28 +43,33 @@ const Home = () => {
             <section className="m-2 bottom-section p-2">
                 <Container className="d-flex flex-column py-5">
                     <div className="m-1 p-1">
-                        <h6>Next adventures? As of 9-20-2021</h6>
+                        <h5>Next adventures?</h5>
                         <ul>
-                            <li>To finish this website and continue learning NextJS and Bootstrap, as well as expanding my current knowledge.</li>
                             <li>Learn PHP and improve my skills in SQL.</li>
                             <li>Learn the proper ways to make a website fully accessible.</li>
                         </ul>
                     </div>
 
-                    {/* <div className="m-1 p-1 my-5 py-5 border-top border-bottom"> */}
-                    <div className="m-1 p-1 my-5 py-5 border-top">
-                        <h6>Need more information?</h6>
+                    <div className="m-1 p-1 my-5 py-5 border-top border-bottom">
+                    {/* <div className="m-1 p-1 my-5 py-5 border-top"> */}
+                        <h5>Need more information?</h5>
                         <ul>
-                            <li>View my contact page to get in contact with me!</li>
                             <li>Look at my coding page to get a view of project and more!</li>
+                            <li>Contact me!</li>
                         </ul>
                     </div>
 
-                    {/* <div className="m-1 p-1">
-                        <h6>Side note</h6>
-                        <p className="m-0">You may have noticed the displaced mustache on the side-scrolling technology images.</p>
-                        <p className="m-0">I left the moustache like this on purpose because I found it humorous to have a displaced mustache.</p>
-                    </div> */}
+                    <div className="m-1 p-1 d-flex flex-column align-items-center">
+                        <h5>Want to chat?</h5>
+                        <div className="d-flex flex-row flex-wrap w-100">
+                            <div className="flex-grow-1">
+                                <EmailMe />
+                            </div>
+                            <div className="d-flex flex-grow-1 mt-3 pt-3 align-items-start justify-content-center">
+                                <LinkedInBadge />
+                            </div>
+                        </div>
+                    </div>
                 </Container>
             </section>
         </>

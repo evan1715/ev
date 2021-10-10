@@ -39,6 +39,7 @@
 .button-theme {
     border-color: $color-theme-turq;
     color: $color-theme-turq;
+    min-width: 100px;
     &:hover {
         border-color: $color-theme-orange;
         box-shadow: 0 0 0.5rem $color-theme-orange;
@@ -177,11 +178,12 @@
     background-color: rgba($color: black, $alpha: 0.5);
     max-width: 600px;
 }
-.contact-form-container {
+.contact-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 600px;
+    min-width: 300px;
     padding: 5px;
     button {
         background-color: $dark-theme-4;

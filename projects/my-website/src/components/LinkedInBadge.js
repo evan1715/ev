@@ -25,7 +25,7 @@ const LinkedInBadge = () => (
         <img className="artdeco-entity-image artdeco-entity-image--circle-4  profile-badge__content-profile-image" src="https://media-exp1.licdn.com/dms/image/C4E03AQGkvK-WX4JHqg/profile-displayphoto-shrink_200_200/0/1567447486314?e=1637798400&amp;v=beta&amp;t=H3sHz46FBndfiCwAJhJ7i3h1tizI3dn8T9VXg18Rmmw" alt="Evan McHugh" />
 
         <h3 className="profile-badge__content-profile-name" itemProp="name">
-            <a className="profile-badge__content-profile-name-link profile-badge__content-profile-name-link--dark" href="https://www.linkedin.com/in/evan-mchugh-8013a6142?trk=public-profile-badge-profile-badge-profile-name" data-tracking-control-name="public-profile-badge-profile-badge-profile-name" data-tracking-will-navigate="">
+            <a className="profile-badge__content-profile-name-link profile-badge__content-profile-name-link--dark" href="https://www.linkedin.com/in/evan-mchugh-8013a6142">
             Evan McHugh
             </a>
         </h3>
@@ -35,10 +35,13 @@ const LinkedInBadge = () => (
             </h4>
 
             <h4 className="profile-badge__content-profile-company-school-info">
-            <a href="https://www.linkedin.com/company/starbucks?trk=public-profile-badge-profile-badge_company-name" className="profile-badge__content-profile-company-school-info-link profile-badge__content-profile-company-school-info-link--dark" data-tracking-control-name="public-profile-badge-profile-badge_company-name" data-tracking-will-navigate="true">Starbucks</a> | <a href="https://www.linkedin.com/school/florida-state-university/?trk=public-profile-badge-profile-badge_school-name" className="profile-badge__content-profile-company-school-info-link profile-badge__content-profile-company-school-info-link--dark" data-tracking-control-name="public-profile-badge-profile-badge_school-name" data-tracking-will-navigate="true">Florida State University</a>
+                <a href="https://www.linkedin.com/school/florida-state-university" className="profile-badge__content-profile-company-school-info-link profile-badge__content-profile-company-school-info-link--dark" 
+                target="_blank">
+                    Florida State University
+                </a>
             </h4>
         </div>
-        <a className="profile-badge__cta-btn profile-badge__cta-btn--dark" href="https://www.linkedin.com/in/evan-mchugh-8013a6142?trk=public-profile-badge-profile-badge-view-profile-cta" target="_blank" data-tracking-control-name="public-profile-badge-profile-badge-view-profile-cta" data-tracking-will-navigate="">
+        <a className="profile-badge__cta-btn profile-badge__cta-btn--dark" href="https://www.linkedin.com/in/evan-mchugh-8013a6142" target="_blank">
             View profile
         </a>
     </div>
