@@ -1,164 +1,67 @@
-
-.artdeco-entity-image {
- display:inline-block;
- -ms-flex-negative:0;
- flex-shrink:0
+.image--circle-4 {
+    width:56px;
+    height:56px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background-clip:content-box;
+    border:2px solid rgba(0,0,0,0);
+    border-radius:49.9%
 }
-
-.artdeco-entity-image--circle-4 {
- width:56px;
- height:56px;
- -webkit-box-sizing:border-box;
- box-sizing:border-box;
- background-clip:content-box;
- border:2px solid rgba(0,0,0,0);
- border-radius:49.9%
-}
-.artdeco-entity-image--square-4 {
- width:56px;
- height:56px;
- -webkit-box-sizing:border-box;
- box-sizing:border-box;
- background-clip:content-box;
- border:4px solid rgba(0,0,0,0);
- border-radius:6px
+.image--square-4 {
+    width:56px;
+    height:56px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background-clip:content-box;
+    border:4px solid rgba(0,0,0,0);
+    border-radius:6px
 }
 
 
 .profile-badge {
- background-color:#fff;
- border-radius:8px;
- overflow:hidden;
- -webkit-box-shadow:0px -1px 1px rgba(0,0,0,0.08),1px 0px 1px rgba(0,0,0,0.08),-1px 0px 1px rgba(0,0,0,0.08),0px 1px 1px rgba(0,0,0,0.08);
- box-shadow:0px -1px 1px rgba(0,0,0,0.08),1px 0px 1px rgba(0,0,0,0.08),-1px 0px 1px rgba(0,0,0,0.08),0px 1px 1px rgba(0,0,0,0.08);
- padding:0
+    background-color: #000;
+    border-radius: 8px;
+    color: #fff;
+    overflow:hidden;
+    padding: 0;
 }
 .profile-badge--width-250 {
- width:250px
+    width: 250px;
 }
 .profile-badge--width-280 {
- width:280px
+    width: 280px;
 }
 .profile-badge--width-300 {
- width:300px
+    width: 300px;
 }
 .profile-badge--width-330 {
- width:330px
+    width: 330px;
 }
 
-.profile-badge--dark {
- background-color:#000;
- color:#fff
-}
 .profile-badge__header {
- padding:12px 16px
+    background-color: #38434f;
+    padding: 12px 16px;
 }
 
-.profile-badge__header--dark {
- background-color:#38434f
-}
+//LinkedIn label
 .profile-badge__header-logo-icon {
- width:84px;
- height:21px;
- display:inline-block
+    color: #fff;
+    display: inline-block;
+    height: 21px;
+    width: 84px;
 }
 
-.profile-badge__header-logo-icon--dark {
- color:#fff
-}
 .profile-badge__content {
- padding:0 16px
-}
-.profile-badge__content-profile-image {
- margin:12px 0 8px
-}
-.profile-badge__content-profile-name {
- padding:0 0 4px;
- color:inherit
-}
-.profile-badge__content-profile-name-link {
- font-size:1.6rem;
- line-height:1.5;
- font-weight:600;
- color:rgba(0,0,0,0.9);
- color:inherit
+    padding: 0 16px;
 }
 
-.profile-badge__content-profile-headline {
- padding:0 0 4px;
- font-size:1.4rem;
- line-height:1.42857;
- font-weight:400;
- color:rgba(0,0,0,0.9);
- color:inherit
-}
-.profile-badge__content-profile-company-school-info {
- padding:0 0 4px;
- font-size:1.2rem;
- line-height:1.33333;
- font-weight:400;
- color:rgba(0,0,0,0.6);
- color:inherit
-}
-.profile-badge__content-profile-company-school-info-link {
- font-size:1.2rem;
- line-height:1.33333;
- font-weight:400;
- color:rgba(0,0,0,0.6);
- color:inherit
-}
-
-
-.profile-badge__cta-btn {
- margin:4px 16px 12px;
- color:inherit
-}
-
-
-.profile-badge__cta-btn--dark {
- background-color:rgba(0,0,0,0);
- border:0;
- border-radius:2px;
- -webkit-box-sizing:border-box;
- box-sizing:border-box;
- color:#fff;
- cursor:pointer;
- display:inline-block;
- font-size:1.6rem;
- font-weight:600;
- font-family:inherit;
- height:32px;
- line-height:32px;
- overflow:hidden;
- outline-width:2px;
- padding:0 16px;
- position:relative;
- text-align:center;
- text-decoration:none;
- -webkit-transition-duration:167ms;
- transition-duration:167ms;
- -webkit-transition-property:background-color,color,-webkit-box-shadow;
- transition-property:background-color,color,-webkit-box-shadow;
- transition-property:background-color,box-shadow,color;
- transition-property:background-color,box-shadow,color,-webkit-box-shadow;
- -webkit-transition-timing-function:cubic-bezier(0, 0, 0.2, 1);
- transition-timing-function:cubic-bezier(0, 0, 0.2, 1);
- vertical-align:middle;
- z-index:0;
- -webkit-box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7),inset 0 0 0 2px rgba(0,0,0,0),inset 0 0 0 1px rgba(0,0,0,0);
- box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7),inset 0 0 0 2px rgba(0,0,0,0),inset 0 0 0 1px rgba(0,0,0,0);
- border-radius:24px;
- -webkit-box-shadow:inset 0 0 0 1px #fff;
- box-shadow:inset 0 0 0 1px #fff;
- box-shadow:inset 0 0 0 1px #fff
-}
-@media only screen and (-ms-high-contrast: active) {
- .profile-badge__cta-btn--dark {
-  border:1px solid currentColor;
-  line-height:30px
- }
+.profile-badge__name {
+    color: white;
+    font-size:1.6rem;
+    line-height:1.5;
+    font-weight:600;
 }
 
 .profile-badge {
- margin-left:1px
+    margin-left:1px;
 }
