@@ -1,7 +1,6 @@
 dev.env
 notes.txt
 lib
-EmailMe.js
 
 # dependencies
 /node_modules
