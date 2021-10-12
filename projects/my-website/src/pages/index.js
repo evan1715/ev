@@ -13,7 +13,6 @@ const Home = () => {
         <>
             {/* Intro section */}
             <section className="m-2 intro">
-
                 <h1 className="main-title h-25">Evan McHugh</h1>
 
                 <div className="h-25 px-4 main-center">
