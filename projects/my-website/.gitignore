@@ -1,6 +1,9 @@
 dev.env
 notes.txt
 lib
+src/images/misc/coding_guy.gif
+src/images/misc/neural.gif
+src/images/misc/studying.png
 
 # dependencies
 /node_modules

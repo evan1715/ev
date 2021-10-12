@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import me from '../images/me.jpg';
+import me from '../images/misc/me.jpg';
 
 const LinkedInBadge = () => (
     <div className="profile-badge profile-badge--width-250">
