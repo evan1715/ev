@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <>
             {/* Intro section */}
-            <section className="border-start border-end border-success m-2 d-flex flex-column align-items-center justify-content-center vh-100 intro">
+            <section className="m-2 intro">
 
                 <h1 className="main-title h-25">Evan McHugh</h1>
 
@@ -32,7 +32,7 @@ const Home = () => {
             <div className="card-animation"><i /></div>
 
             {/* Middle section: Project cards */}
-            <section className="middle-section bg-dark bg-opacity-50 border-orange m-2 d-flex align-items-center justify-content-center min-vh-100">
+            <section className="middle-section border-orange m-2">
                 <div className="middle-sub">
                     <ProjectCards />
                     </div>
@@ -53,10 +53,9 @@ const Home = () => {
                     </div>
 
                     <div className="m-1 p-1 my-5 py-5 border-top border-bottom">
-                    {/* <div className="m-1 p-1 my-5 py-5 border-top"> */}
                         <h5>Need more information?</h5>
                         <ul>
-                            <li>Look at my coding page to get a view of project and more!</li>
+                            <li>Look at my coding page to get a view of projects and more!</li>
                             <li>Contact me!</li>
                         </ul>
                     </div>

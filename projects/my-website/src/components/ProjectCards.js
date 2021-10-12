@@ -44,7 +44,7 @@ const ProjectCards = () => {
             <h2>Software Summary</h2>
             <Row className="align-items-center justify-content-around">
                 { cardsInfo.map((project, index) => 
-                    <Card border="success" className="bg-light-gray bg-gradient m-2" key={ index } style={{ width: '18rem' }}>
+                    <Card border="success" className="bg-light-gray-transparent bg-gradient m-2" key={ index } style={{ width: '18rem' }}>
                         <Card.Img as={ Image } className="mt-2 zoom-zoom" layout="responsive" onClick={ () => handleShow(projects[index]) } src={ projects[index] } variant="top" />
                         <Card.Body className="d-flex flex-column align-items-center">
                             <Card.Title>{ project.cardTitle }</Card.Title>

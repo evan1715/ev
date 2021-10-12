@@ -39,6 +39,10 @@ a {
     background-color: $dark-theme-4;
 }
 
+.bg-light-gray-transparent {
+    background-color: rgba($color: $dark-theme-4, $alpha: 0.5);
+}
+
 .button-theme {
     border-color: $color-theme-turq;
     color: $color-theme-turq;

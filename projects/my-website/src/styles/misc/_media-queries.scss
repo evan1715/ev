@@ -63,12 +63,6 @@ $screen-UHD: 3840px; //UHD 3840x2160
             width: 92vw;
         }
     }
-    .intro {
-        &:before {
-            content: "";
-            opacity: 60%;
-        }
-    }
     .main-title {
         letter-spacing: 10px;
     }
