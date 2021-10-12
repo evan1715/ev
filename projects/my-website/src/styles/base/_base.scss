@@ -18,3 +18,55 @@ a {
 * {
     box-sizing: border-box;
 }
+
+.text-theme-cyan {
+    color: $color-theme-cyan;
+}
+
+.text-theme-turq {
+    color: $color-theme-turq;
+}
+
+.text-theme-green {
+    color: $color-theme-green;
+}
+
+.text-theme-orange {
+    color: $color-theme-orange;
+}
+
+.bg-light-gray {
+    background-color: $dark-theme-4;
+}
+
+.button-theme {
+    border-color: $color-theme-turq;
+    color: $color-theme-turq;
+    min-width: 100px;
+    &:hover {
+        border-color: $color-theme-orange;
+        box-shadow: 0 0 0.5rem $color-theme-orange;
+        color: $color-theme-orange;
+        outline: 0 none;
+    }
+}
+
+//General pointer class
+.cursor-pointer {
+    cursor: pointer;
+}
+
+//External link theme for color & hover
+.external-link {
+    color: $color-theme-turq;
+    &:hover {
+        color: $color-theme-green;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+//Zoom in for images
+.zoom-zoom {
+    cursor: zoom-in;
+}

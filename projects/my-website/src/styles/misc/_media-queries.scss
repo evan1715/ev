@@ -1,0 +1,119 @@
+
+// ~~~ Media queries ~~~ //
+/*
+// Variables chart 
+//Screen width, 16:9 aspect ratio
+$screen-nHD: 640px; //nHD 640x360
+$screen-768: 768px; //768x432
+$screen-FW: 854px; //FW 854x480
+$screen-qHD: 960px; //qHD 960x540
+$screen-HD: 1280px; //HD 1280x720
+$screen-HDp: 1600px; //HD+ 1600x900
+$screen-FHD: 1920px; //FHD 1920x1080
+$screen-QHD: 2560px; //QHD 2560X1440
+$screen-QHDp: 3200px; //QHD+ 3200x1800
+$screen-UHD: 3840px; //UHD 3840x2160
+*/
+
+//QHD 2560x1440
+@media (max-width: $screen-QHD) {
+    .card-animation {
+        i:before {
+            animation-duration: 7s;
+            width: 97vw
+        }
+    }
+}
+
+//FHD 1920x1080
+@media (max-width: $screen-FHD) {
+    .card-animation {
+        i:before {
+            animation-duration: 7s;
+            width: 96vw;
+        }
+    }
+
+}
+
+//HD 1280x720
+@media (max-width: $screen-HD) {
+    .card-animation {
+        i:before {
+            animation-duration: 6s;
+            width: 94vw;
+        }
+    }
+    .intro {
+        &:before {
+            content: "";
+            opacity: 40%;
+        }
+    }
+    .main-center {
+        width: 65%;
+    }
+}
+
+//qHD 960x540
+@media (max-width: $screen-qHD) {
+    .card-animation {
+        i:before {
+            animation-duration: 5s;
+            width: 92vw;
+        }
+    }
+    .intro {
+        &:before {
+            content: "";
+            opacity: 60%;
+        }
+    }
+    .main-title {
+        letter-spacing: 10px;
+    }
+    .main-center {
+        width: 80%;
+    }
+    .middle-section {
+        background-size: 90%;
+    }
+    .middle-sub {
+        background-color: rgba($color: $dark-theme-2, $alpha: 0.6);
+    }
+    .image-container {
+        max-height: 450px;
+    }
+}
+
+//nHD 640x360
+@media (max-width: $screen-nHD) {
+    .card-animation {
+        i:before {
+            animation-duration: 4s;
+            width: 83vw;
+        }
+    }
+    .main-title {
+        font-size: 2em;
+        letter-spacing: 0;
+    }
+    .main-center {
+        width: 100%;
+    }
+    .middle-sub {
+        background-color: rgba($color: $dark-theme-2, $alpha: 0.4);
+    }
+    .image-container {
+        max-height: 180px;
+    }
+    .mobile {
+        display: none;
+    }
+}
+
+@media (min-width: $screen-nHD) {
+    .desktop {
+        display: none;
+    }
+}

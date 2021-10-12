@@ -1,0 +1,15 @@
+// ~~~ Coding Page ~~~ //
+//Coding page -- projects section
+.image-container {
+    display: flex;
+    justify-content: center;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    word-wrap: break-word;
+}
