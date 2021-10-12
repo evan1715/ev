@@ -32,8 +32,10 @@ const Home = () => {
             <div className="card-animation"><i /></div>
 
             {/* Middle section: Project cards */}
-            <section className="bg-dark bg-opacity-50 border-orange m-2 d-flex align-items-center justify-content-center min-vh-100">
-                <ProjectCards />
+            <section className="middle-section bg-dark bg-opacity-50 border-orange m-2 d-flex align-items-center justify-content-center min-vh-100">
+                <div className="middle-sub">
+                    <ProjectCards />
+                    </div>
             </section>
 
             {/* Animated border between sections */}

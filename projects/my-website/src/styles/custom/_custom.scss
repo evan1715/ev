@@ -33,7 +33,7 @@
 }
 
 .bg-light-gray {
-    background-color: #333;
+    background-color: $dark-theme-4;
 }
 
 .button-theme {
@@ -78,9 +78,9 @@
 
 // ~~~ Homepage section ~~~ //
 .intro {
+    background-attachment: fixed;
     background-image: url("../../images/background/code_coffee.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
     position: relative;
     &:before {
@@ -117,6 +117,18 @@
 .border-orange {
     border-left: 1px solid $color-theme-orange;
     border-right: 1px solid $color-theme-orange;
+}
+
+.middle-section {
+    background-attachment: fixed;
+    background-image: url("../../images/background/matrix.gif");
+    background-repeat: repeat;
+    background-size: 40%;
+    position: relative;
+}
+.middle-sub {
+    background-color: rgba($color: $dark-theme-2, $alpha: 0.75);
+    width: 100%;
 }
 
 //Bottom section of homepage
@@ -263,6 +275,12 @@
     .main-center {
         width: 80%;
     }
+    .middle-section {
+        background-size: 90%;
+    }
+    .middle-sub {
+        background-color: rgba($color: $dark-theme-2, $alpha: 0.6);
+    }
     .image-container {
         max-height: 450px;
     }
@@ -282,6 +300,9 @@
     }
     .main-center {
         width: 100%;
+    }
+    .middle-sub {
+        background-color: rgba($color: $dark-theme-2, $alpha: 0.4);
     }
     .image-container {
         max-height: 180px;
