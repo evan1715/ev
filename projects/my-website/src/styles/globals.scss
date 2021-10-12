@@ -1,17 +1,13 @@
-//1. Load Bootstrap SCSS first so we can override settings after.
-@import '/node_modules/bootstrap/scss/bootstrap.scss';
-//2. Load settings for variables to be used throughout.
-@import './base/settings.scss';
-//3. Load base.
-@import './base/base.scss';
+@import '/node_modules/bootstrap/scss/bootstrap.scss'; //1. Load Bootstrap SCSS first so we can override settings after.
+@import './base/settings.scss'; //2. Load settings for variables to be used throughout.
+@import './base/base.scss'; //3. Load base.
 @import './base/mixins.scss';
-//4. Load the rest.
-@import './components/email-me.scss';
+@import './components/email-me.scss'; //4. Load the main.
 @import './components/footer.scss';
 @import './components/linkedin-badge.scss';
 @import './components/project-accordion.scss';
 @import './misc/bootstrap-changes.scss';
-@import './misc/media-queries.scss';
 @import './misc/mustache-logo.scss';
 @import './pages/home.scss';
 @import './pages/contact.scss';
+@import './misc/media-queries.scss'; //5. Load the media queries last
