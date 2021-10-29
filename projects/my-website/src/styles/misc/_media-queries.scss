@@ -33,7 +33,6 @@ $screen-UHD: 3840px; //UHD 3840x2160
             width: 96vw;
         }
     }
-
 }
 
 //HD 1280x720
@@ -53,6 +52,9 @@ $screen-UHD: 3840px; //UHD 3840x2160
     .main-center {
         width: 65%;
     }
+    .card-bg {
+        background-size: 60%;
+    }
 }
 
 //qHD 960x540
@@ -62,6 +64,9 @@ $screen-UHD: 3840px; //UHD 3840x2160
             animation-duration: 5s;
             width: 92vw;
         }
+    }
+    .card-bg {
+        background-size: 80%;
     }
     .main-title {
         letter-spacing: 10px;
@@ -87,6 +92,9 @@ $screen-UHD: 3840px; //UHD 3840x2160
             animation-duration: 4s;
             width: 83vw;
         }
+    }
+    .card-bg {
+        background-size: 110%;
     }
     .main-title {
         font-size: 2em;
