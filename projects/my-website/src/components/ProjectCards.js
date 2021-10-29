@@ -44,22 +44,37 @@ const ProjectCards = () => {
             <h2>Software Summary</h2>
             <Row className="align-items-center justify-content-around">
                 { cardsInfo.map((project, index) => 
-                    <Card border="success" className="bg-light-gray-transparent bg-gradient m-2" key={ index } style={{ width: '18rem' }}>
-                        <Card.Img as={ Image } className="mt-2 zoom-zoom" layout="responsive" onClick={ () => handleShow(projects[index]) } src={ projects[index] } variant="top" />
-                        <Card.Body className="d-flex flex-column align-items-center">
-                            <Card.Title>{ project.cardTitle }</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">{ project.subtitle }</Card.Subtitle>
-                            <Card.Text>{ project.text }</Card.Text>
-                            <div className="flex-column mb-3 mt-1">
-                                { project.links[1] && 
-                                    <Card.Link className="external-link" href={ project.links[1] } target="_blank">Repository <Image src={ external } /></Card.Link>
-                                }
-                                { project.links[2] && 
-                                    <Card.Link className="external-link" href={ project.links[2] } target="_blank">Deployment <Image src={ external } /></Card.Link>
-                                }
-                            </div>
-                            <Card.Link className="link-info" onClick={ (e) => handleRoute(e, project.links[0]) }>Learn more</Card.Link>
-                        </Card.Body>
+                    <Card border="success" className="m-2 card-bg" key={ index } style={{ width: '18rem' }}>
+                        <div className="card-transparent-bg bg-gradient px-2">
+                            <Card.Img 
+                                as={ Image } 
+                                className="mt-2 zoom-zoom" 
+                                layout="responsive" 
+                                onClick={ () => handleShow(projects[index]) } 
+                                src={ projects[index] } 
+                                variant="top" 
+                            />
+                            <Card.Body className="d-flex flex-column align-items-center">
+                                <Card.Title>{ project.cardTitle }</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">{ project.subtitle }</Card.Subtitle>
+                                <Card.Text>{ project.text }</Card.Text>
+                                <div className="flex-column mb-3 mt-1">
+                                    { project.links[1] && 
+                                        <Card.Link className="external-link" href={ project.links[1] } target="_blank">
+                                            Repository <Image src={ external } />
+                                        </Card.Link>
+                                    }
+                                    { project.links[2] && 
+                                        <Card.Link className="external-link" href={ project.links[2] } target="_blank">
+                                            Deployment <Image src={ external } />
+                                        </Card.Link>
+                                    }
+                                </div>
+                                <Card.Link className="link-info" onClick={ (e) => handleRoute(e, project.links[0]) }>
+                                    Learn more
+                                </Card.Link>
+                            </Card.Body>
+                        </div>
                     </Card>
                 )}
             </Row>

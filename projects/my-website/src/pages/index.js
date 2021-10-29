@@ -5,7 +5,6 @@ import LinkedInBadge from '../components/LinkedInBadge.js';
 import ProjectCards from '../components/ProjectCards.js';
 import Technologies from '../components/Technologies.js';
 
-
 const Home = () => {
     const router = useRouter();
 
@@ -32,9 +31,7 @@ const Home = () => {
 
             {/* Middle section: Project cards */}
             <section className="middle-section border-orange m-2">
-                <div className="middle-sub">
-                    <ProjectCards />
-                    </div>
+                <ProjectCards />
             </section>
 
             {/* Animated border between sections */}
@@ -44,7 +41,7 @@ const Home = () => {
             <section className="m-2 bottom-section p-2">
                 <Container className="d-flex flex-column py-5">
                     <div className="m-1 p-1">
-                        <h5>Next adventures?</h5>
+                        <h3>Next adventures?</h3>
                         <ul>
                             <li>Learn PHP and improve my skills in SQL.</li>
                             <li>Learn the proper ways to make a website fully accessible.</li>
@@ -52,7 +49,7 @@ const Home = () => {
                     </div>
 
                     <div className="m-1 p-1 my-5 py-5 border-top border-bottom">
-                        <h5>Need more information?</h5>
+                        <h3>Need more information?</h3>
                         <ul>
                             <li>Look at my coding page to get a view of projects and more!</li>
                             <li>Contact me!</li>
@@ -60,7 +57,7 @@ const Home = () => {
                     </div>
 
                     <div className="m-1 p-1 d-flex flex-column align-items-center">
-                        <h5>Want to chat?</h5>
+                        <h3>Want to chat?</h3>
                         <div className="d-flex flex-row flex-wrap w-100">
                             <div className="flex-grow-1">
                                 <EmailMe />
