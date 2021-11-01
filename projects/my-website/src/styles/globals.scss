@@ -2,12 +2,11 @@
 @import './base/settings.scss'; //2. Load settings for variables to be used throughout.
 @import './base/base.scss'; //3. Load base.
 @import './base/mixins.scss';
-@import './components/email-me.scss'; //4. Load the main.
+@import './components/contact.scss'; //4. Load the main.
 @import './components/footer.scss';
 @import './components/linkedin-badge.scss';
 @import './components/project-accordion.scss';
 @import './misc/bootstrap-changes.scss';
 @import './misc/mustache-logo.scss';
 @import './pages/home.scss';
-@import './pages/contact.scss';
 @import './misc/media-queries.scss'; //5. Load the media queries last

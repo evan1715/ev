@@ -1,0 +1,46 @@
+// ~~~ Contact container ~~~ //
+.contact-background {
+    align-items: center;
+    background-image: url("../../images/background/switchboard.jpg");
+    background-repeat: no-repeat;
+    background-attachment:scroll;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+    min-height: 80vh;
+}
+.contact-container {
+    background-color: rgba($color: black, $alpha: 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 5%;
+}
+
+// ~~~ Contact form ~~~ //
+.form-container {
+    max-width: 600px;
+    margin: 10px;
+}
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 540px;
+    max-width: 600px;
+    min-width: 260px;
+    padding: 5px;
+    button {
+        background-color: rgba($color: $dark-theme-4, $alpha: 0.9);
+    }
+}
+.form-inputs {
+    background-color: rgba($color: $dark-theme-4, $alpha: 0.9);
+    border-color: $color-theme-turq;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 0.5rem 0.75rem;
+}
