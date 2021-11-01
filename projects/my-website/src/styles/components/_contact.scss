@@ -1,9 +1,9 @@
 // ~~~ Contact container ~~~ //
 .contact-background {
     align-items: center;
+    background-attachment: fixed;
     background-image: url("../../images/background/switchboard.jpg");
     background-repeat: no-repeat;
-    background-attachment:scroll;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,8 @@
     min-height: 80vh;
     padding: 5%;
 }
+
+
 
 // ~~~ Contact form ~~~ //
 .form-container {
@@ -42,4 +44,73 @@
     border-radius: 0.3rem;
     color: white;
     padding: 0.5rem 0.75rem;
+}
+
+
+// ~~~ LinkedIn badge ~~~ //
+.image--circle-4 {
+    background-clip: content-box;
+    border: 2px solid rgba(0,0,0,0);
+    border-radius: 49.9%;
+    box-sizing: border-box;
+    height: 56px;
+    width: 56px;
+    -webkit-box-sizing:border-box;
+}
+.image--square-4 {
+    background-clip:content-box;
+    border:4px solid rgba(0,0,0,0);
+    border-radius:6px;
+    box-sizing:border-box;
+    height:56px;
+    width:56px;
+    -webkit-box-sizing:border-box;
+}
+
+.profile-badge {
+    background-color: rgba($color: #000, $alpha: 0.75);
+    border-radius: 8px;
+    color: #fff;
+    overflow:hidden;
+    padding: 0;
+}
+.profile-badge--width-250 {
+    width: 250px;
+}
+.profile-badge--width-280 {
+    width: 280px;
+}
+.profile-badge--width-300 {
+    width: 300px;
+}
+.profile-badge--width-330 {
+    width: 330px;
+}
+
+.profile-badge__header {
+    background-color: rgba($color: #38434f, $alpha: 0.8);
+    padding: 12px 16px;
+}
+
+//LinkedIn label
+.profile-badge__header-logo-icon {
+    color: #fff;
+    display: inline-block;
+    height: 21px;
+    width: 84px;
+}
+
+.profile-badge__content {
+    padding: 0 16px;
+}
+
+.profile-badge__name {
+    color: white;
+    font-size:1.6rem;
+    line-height:1.5;
+    font-weight:600;
+}
+
+.profile-badge {
+    margin-left:1px;
 }
