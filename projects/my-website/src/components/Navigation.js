@@ -36,12 +36,17 @@ const Navigation = () => {
                     {/* <Nav className="justify-content-around w-100" variant="tabs"> */}
                     <Nav className=" justify-content-between w-100" variant="tabs">
                         <div></div>
-                        <Nav.Link active={ isActive === '/coding' && true } eventKey="coding" onClick={ (e) => handleRoute(e, '/coding') }>
-                            <div /><div />Coding
+
+                        <Nav.Link active={ isActive === '/#software-summary' && true } eventKey="#software-summary" onClick={ (e) => handleRoute(e, '/#software-summary') }>
+                            <div /><div />Software Summary
                         </Nav.Link>
 
                         <Nav.Link active={ isActive === '/#contact' && true } eventKey="#contact" onClick={ (e) => handleRoute(e, '/#contact') }>
                             <div /><div />Contact
+                        </Nav.Link>
+
+                        <Nav.Link active={ isActive === '/coding' && true } eventKey="coding" onClick={ (e) => handleRoute(e, '/coding') }>
+                            <div /><div />Coding Details
                         </Nav.Link>
 
                         {/* <Nav.Link active={ isActive === '/about' && true } eventKey="about" onClick={ (e) => handleRoute(e, '/about') }>

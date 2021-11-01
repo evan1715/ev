@@ -26,7 +26,7 @@ const Home = () => {
             </section>
 
             {/* Animated border between sections */}
-            <div className="card-animation"><i /></div>
+            <div className="card-animation" id="software-summary"><i /></div>
 
             {/* Middle section: Project cards */}
             <section className="middle-section border-orange m-2">

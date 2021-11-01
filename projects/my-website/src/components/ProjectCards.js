@@ -43,7 +43,7 @@ const ProjectCards = () => {
         <Container className="d-flex flex-column align-items-center p-4">
             <h2>Software Summary</h2>
             <Row className="align-items-center justify-content-around">
-                { cardsInfo.map((project, index) => 
+                { cardsInfo.map((project, index) => /* index !== 2 && */
                     <Card border="success" className="m-2 card-bg" key={ index } style={{ width: '18rem' }}>
                         <div className="card-transparent-bg bg-gradient px-2">
                             <Card.Img 
