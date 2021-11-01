@@ -5,7 +5,7 @@ const LinkedInBadge = () => (
     <div className="profile-badge profile-badge--width-250">
         <div className="profile-badge__header">
         
-            <icon className="profile-badge__header-logo-icon" aria-hidden="true">
+            <span className="profile-badge__header-logo-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 21" preserveAspectRatio="xMinYMin meet" version="1.1" focusable="false">
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                         <path d="M19.479,0 L1.583,0 C0.727,0 0,0.677 0,1.511 L0,19.488 C0,20.323 0.477,21 1.333,21 L19.229,21 C20.086,21 21,20.323 21,19.488 L21,1.511 C21,0.677 20.336,0 19.479,0" className="bug-text-color" transform="translate(63.000000, 0.000000)"></path>
@@ -20,7 +20,7 @@ const LinkedInBadge = () => (
                         <polygon fill="currentColor" points="3 3 0 3 0 18 9 18 9 15 3 15"></polygon>
                     </g>
                 </svg>
-            </icon>
+            </span>
         </div>
 
         <div className="profile-badge__content">
