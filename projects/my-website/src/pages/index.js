@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import Container from 'react-bootstrap/Container';
-import EmailMe from '../components/EmailMe.js';
-import LinkedInBadge from '../components/LinkedInBadge.js';
+import Contact from '../components/Contact.js';
 import ProjectCards from '../components/ProjectCards.js';
 import Technologies from '../components/Technologies.js';
 
@@ -56,17 +55,8 @@ const Home = () => {
                         </ul>
                     </div>
 
-                    <div className="m-1 p-1 d-flex flex-column align-items-center">
-                        <h3>Want to chat?</h3>
-                        <div className="d-flex flex-row flex-wrap w-100">
-                            <div className="flex-grow-1">
-                                <EmailMe />
-                            </div>
-                            <div className="d-flex flex-grow-1 mt-3 pt-3 align-items-start justify-content-center">
-                                <LinkedInBadge />
-                            </div>
-                        </div>
-                    </div>
+                    <Contact />
+
                 </Container>
             </section>
         </>

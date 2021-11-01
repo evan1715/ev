@@ -18,8 +18,8 @@ const Navigation = () => {
 
     useEffect(() => {
         //This is here so that whenever a user is on a page, the active navbar will still display.
-        setIsActive(router.pathname);
-    }, [router.pathname]);
+        setIsActive(router.asPath);
+    }, [router.asPath]);
 
     return (
         <Navbar bg="navbar navbar-dark bg-dark bg-gradient" collapseOnSelect expand="lg" sticky="top" variant="dark">
@@ -40,7 +40,7 @@ const Navigation = () => {
                             <div /><div />Coding
                         </Nav.Link>
 
-                        <Nav.Link active={ isActive === '/contact' && true } eventKey="contact" onClick={ (e) => handleRoute(e, '/contact') }>
+                        <Nav.Link active={ isActive === '/#contact' && true } eventKey="#contact" onClick={ (e) => handleRoute(e, '/#contact') }>
                             <div /><div />Contact
                         </Nav.Link>
 

@@ -29,7 +29,7 @@ const EmailMe = () => {
     }
 
     return (
-        <form className="contact-form" onSubmit={ (e) => sendEmail(e) }>
+        <form className="form-contact" onSubmit={ (e) => sendEmail(e) }>
             <label htmlFor="name">Name</label>
             <input
                 className="form-inputs"
