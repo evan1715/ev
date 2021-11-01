@@ -23,7 +23,6 @@
 // ~~~ Contact form ~~~ //
 .form-container {
     max-width: 600px;
-    margin: 10px;
 }
 .form-contact {
     display: flex;
@@ -31,7 +30,7 @@
     justify-content: center;
     min-height: 540px;
     max-width: 600px;
-    min-width: 260px;
+    min-width: 240px;
     padding: 5px;
     button {
         background-color: rgba($color: $dark-theme-4, $alpha: 0.9);
