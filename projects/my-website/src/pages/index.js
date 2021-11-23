@@ -42,8 +42,9 @@ const Home = () => {
                     <div className="m-1 p-1">
                         <h3>Next adventures?</h3>
                         <ul>
-                            <li>Learn PHP and improve my skills in SQL.</li>
-                            <li>Learn the proper ways to make a website fully accessible.</li>
+                            <li>Build a React Native app utilizing TypeScript and SQL.</li>
+                            <li>Learn the proper ways of accessibility for a website.</li>
+                            <li>Start a new chapter by diving deep into ASP.NET and C#.</li>
                         </ul>
                     </div>
 
