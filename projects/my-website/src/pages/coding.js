@@ -47,18 +47,18 @@ const Coding = () => {
             <section className="m-4 w-100">
                 <h2 className="p-2">Certifications</h2>
                 <div className="d-flex flex-wrap justify-content-around mb-5">
-                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
-                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
-                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_js) } src={ udemy_js } height={ 225 } width={ 300 } />
-                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
-                    <Image className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_reactjs) } src={ udemy_reactjs } height={ 225 } width={ 300 } />
+                    <Image alt="FCC HTML CSS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
+                    <Image alt="FCC JS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
+                    <Image alt="Udemy JS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_js) } src={ udemy_js } height={ 225 } width={ 300 } />
+                    <Image alt="Udemy NodeJS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
+                    <Image alt="Udemy ReactJS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_reactjs) } src={ udemy_reactjs } height={ 225 } width={ 300 } />
                 </div>
             </section>
 
             {/* Modal used for pop up images to view a whole selected photo. */}
             <Modal className="d-flex" fullscreen={ fullscreen } onHide={ () => setShow(false) } size="lg" show={ show }>
                 <Modal.Header className="bg-dark bg-gradient" closeButton closeVariant="white" />
-                <Modal.Body className="bg-dark bg-gradient"><Image src={ selectedImage } /></Modal.Body>
+                <Modal.Body className="bg-dark bg-gradient"><Image alt="enlarged image" src={ selectedImage } /></Modal.Body>
             </Modal>
         </Container>
     )

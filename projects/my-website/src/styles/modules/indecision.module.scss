@@ -1,0 +1,243 @@
+/*============================================
+                    Settings
+==============================================*/
+
+//Colors
+$off-black: #20222b;
+$dark-blue: #333745;
+$blue: #3c4251;
+$light-blue: #464b5e;
+$off-white: #a5afd7;
+$purple: #8357c5;
+
+//Spacing size
+$s-size: 1.0rem;
+$m-size: 1.2rem;
+$l-size: 2.0rem;
+$xl-size: 4.4rem;
+$desktop-breakpoint: 45rem;
+
+
+/*============================================
+                Add Option Error
+==============================================*/
+
+.add-option-error {
+    color: $off-white;
+    font-style: italic;
+    margin: $m-size 0 0 0; //top right bottom left
+    padding: 0 $m-size;
+}
+
+.add-option {
+    display: flex;
+    flex-direction: column; //row is default
+    padding: $m-size;
+}
+
+.add-option__input {
+    background: $dark-blue;
+    border: none;
+    border-bottom: .3rem solid darken($dark-blue, 10%);
+    color: $off-white;
+    flex-grow: 1; //grow to fill up the area.
+    margin: 0 0 $s-size 0;
+    padding: $s-size;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .add-option {
+        flex-direction: row;
+    }
+
+    .add-option__input {
+        margin: 0 $s-size 0 0;
+    }
+}
+
+/*============================================
+                    Buttons
+==============================================*/
+
+.big-button {
+    background: $purple;
+    border: none;
+    border-bottom: .6rem solid darken($purple, 10%);
+    color: white;
+    font-weight: bold;
+    font-size: $l-size;
+    margin-bottom: $m-size;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.big-button:disabled {
+    opacity: 0.5;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .big-button {
+        margin-bottom: $xl-size;
+    }
+}
+
+//Button
+.indecision-button {
+    background: $purple;
+    border: none;
+    border-bottom: .3rem solid darken($purple, 10%);
+    color: white;
+    font-weight: 500;
+    padding: $s-size;
+}
+
+.button--link {
+    border-bottom: .3rem solid darken($purple, 10%);
+    font-weight: 500;
+    padding: $s-size;
+
+    background: none;
+    border: none;
+    color: $off-white;
+    padding: 0;
+}
+
+/*============================================
+                Container
+==============================================*/
+
+.indecision-master {
+    font-size: $m-size;
+    background: $dark-blue;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.indecision-container {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 $m-size;
+}
+
+/*============================================
+                    Header
+==============================================*/
+
+.indecision-header {
+    background: $off-black;
+    color: white;
+    margin-bottom: $m-size;
+    padding: $m-size 0; //1.6 above and below, 0 left and right
+}
+
+.header__title {
+    font-size: $l-size;
+    margin: 0;
+}
+
+.header__subtitle {
+    color: $off-white;
+    font-size: $m-size;
+    font-weight: 500; //font-weight is the thickness
+    margin: 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .indecision-header {
+        margin-bottom: $xl-size;
+    }
+}
+
+/*============================================
+                    Modal
+==============================================*/
+
+//This section will change the react-modal module.
+//We use the greater than sign to only target any div that are direct descendants (as opposed to children of children).
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center; //flex box
+    display: flex; //flex box
+    justify-content: center;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.indecision-modal {
+    background: $light-blue;
+    color: white;
+    max-width: 30rem;
+    outline: none;
+    padding: $l-size;
+    text-align: center;
+}
+
+.modal__title {
+    margin: 0 0 $m-size 0; //top right bottom left
+}
+
+.modal__body {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 $l-size 0; //top right bottom left
+    word-break: break-all; //break really long text into multiple lines instead of going out of the UI
+}
+
+/*============================================
+                    Option
+==============================================*/
+
+.option {
+    border-bottom: 1px solid lighten($light-blue, 10%);
+    display: flex;
+    justify-content: space-between;
+    padding: $l-size $m-size; //top & bottom for $l-size, left & right for $m-size
+}
+
+.option__text {
+    color: white;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0;
+    word-break: break-all;
+}
+
+/*============================================
+                    Widget
+==============================================*/
+
+.widget {
+    background: $light-blue;
+    margin-bottom: $xl-size;
+}
+
+.widget__message {
+    border-bottom: 1px solid lighten($light-blue, 10%);
+    color: $off-white;
+    margin: 0;
+    padding: $l-size;
+    text-align: center;
+}
+
+//Widget Header
+.widget-header {
+    background: $blue;
+    color: $off-white;
+    display: flex; //flexbox
+    justify-content: space-between; //flexbox
+    padding: $m-size;
+}
+
+.widget-header__title {
+    font-size: x-large;
+    margin: 0;
+}

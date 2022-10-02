@@ -120,37 +120,37 @@ const ProjectAccordion = () => {
                                     >
                                         { index === 0 && chatApp.map((image, inx) => 
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image onClick={ () => handleShow(index) } src={ image } />
+                                                <Image alt="screenshot of project" onClick={ () => handleShow(index) } src={ image } />
                                             </Carousel.Item>
                                         )}
                                         { index === 1 && indecisionApp.map((image, inx) =>
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image src={ image } />
+                                                <Image alt="screenshot of project" src={ image } />
                                             </Carousel.Item>
                                         )}
                                         { index === 2 && jdMod.map((image, inx) =>
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image src={ image } />
+                                                <Image alt="screenshot of project" src={ image } />
                                             </Carousel.Item>
                                         )}
                                         { index === 3 && myWebsite.map((image, inx) =>
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image src={ image } />
+                                                <Image alt="screenshot of project" src={ image } />
                                             </Carousel.Item>
                                         )}
                                         { index === 4 && taskManager.map((image, inx) =>
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image src={ image } />
+                                                <Image alt="screenshot of project" src={ image } />
                                             </Carousel.Item>
                                         )}
                                         { index === 5 && recipeProject.map((image, inx) =>
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image src={ image } />
+                                                <Image alt="screenshot of project" src={ image } />
                                             </Carousel.Item>
                                         )}
                                         { index === 6 && weatherApp.map((image, inx) =>
                                             <Carousel.Item className="text-center" key={ inx }>
-                                                <Image src={ image } />
+                                                <Image alt="screenshot of project" src={ image } />
                                             </Carousel.Item>
                                         )}
                                     </Carousel>
@@ -158,25 +158,25 @@ const ProjectAccordion = () => {
                             </section>
 
                             <section className="link-info" onClick={ () => handleShow(index) }>
-                                <div className="m-2 p-2">View full size photos <Image height="20" src={ expand } /></div>
+                                <div className="m-2 p-2">View full size photos <Image alt="expand photos" height="20" src={ expand } /></div>
                             </section>
 
                             {/* Links section */}
                             <section className="d-flex mb-3">
                                 { project.links[1] && 
-                                    <a href={ project.links[1] } target="_blank">
-                                        <span className="external-link nav-link">Source <Image src={ external } /></span>
+                                    <a href={ project.links[1] } rel="noreferrer" target="_blank">
+                                        <span className="external-link nav-link">Source <Image alt="external link" src={ external } /></span>
                                     </a>
                                 }
                                 { project.links[2] &&
-                                    <a as="a" href={ project.links[2] } target="_blank">
-                                        <span className="external-link nav-link">Deployment <Image src={ external } /></span>
+                                    <a as="a" href={ project.links[2] } rel="noreferrer" target="_blank">
+                                        <span className="external-link nav-link">Deployment <Image alt="external link" src={ external } /></span>
                                     </a>
                                 }
                                 { project.id === 'jdfix' &&
                                     <div className="d-flex justify-content-center">
-                                        <a className="" href={ project.links[3] } target="_blank">
-                                            <span className="external-link nav-link">JDFix <Image src={ external } /></span>
+                                        <a className="" href={ project.links[3] } rel="noreferrer" target="_blank">
+                                            <span className="external-link nav-link">JDFix <Image alt="external link" src={ external } /></span>
                                         </a>
                                     </div>
                                 }
@@ -209,37 +209,37 @@ const ProjectAccordion = () => {
                     <Carousel interval={ null }>
                         { selectedImage === 0 && chatApp.map((image, inx) => 
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                         { selectedImage === 1 && indecisionApp.map((image, inx) =>
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                         { selectedImage === 2 && jdMod.map((image, inx) =>
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                         { selectedImage === 3 && myWebsite.map((image, inx) =>
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                         { selectedImage === 4 && taskManager.map((image, inx) =>
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                         { selectedImage === 5 && recipeProject.map((image, inx) =>
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                         { selectedImage === 6 && weatherApp.map((image, inx) =>
                             <Carousel.Item className="text-center" key={ inx }>
-                                <Image src={ image } />
+                                <Image alt="screenshot of project" src={ image } />
                             </Carousel.Item>
                         )}
                     </Carousel>

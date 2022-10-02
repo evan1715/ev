@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
-                <title>Evan's Website</title>
+                <title>Evan&apos;s Website</title>
                 <meta name="description" content="Evan's website" />
             </Head>
 

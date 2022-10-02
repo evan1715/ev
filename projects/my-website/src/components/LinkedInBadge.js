@@ -28,7 +28,7 @@ const LinkedInBadge = () => (
             <Image className="image--circle-4 p-1" height="100" width="100" src={ me } alt="Evan McHugh" />
 
             <h3 className="py-2">
-                <a className="profile-badge__name text-white external-link" href="https://www.linkedin.com/in/evan-mchugh-8013a6142" target="_blank">
+                <a className="profile-badge__name text-white external-link" href="https://www.linkedin.com/in/evan-mchugh-8013a6142" rel="noreferrer" target="_blank">
                     Evan McHugh
                 </a>
             </h3>
@@ -36,13 +36,13 @@ const LinkedInBadge = () => (
             <h4>Web Developer</h4>
 
             <h5>
-                <a href="https://www.linkedin.com/school/florida-state-university" className="external-link text-white" target="_blank">
+                <a href="https://www.linkedin.com/school/florida-state-university" className="external-link text-white" rel="noreferrer" target="_blank">
                     Florida State University
                 </a>
             </h5>
         </div>
 
-        <a className="btn btn-outline-light m-2 ms-3" href="https://www.linkedin.com/in/evan-mchugh-8013a6142" target="_blank">
+        <a className="btn btn-outline-light m-2 ms-3" href="https://www.linkedin.com/in/evan-mchugh-8013a6142" rel="noreferrer" target="_blank">
             View profile
         </a>
     </div>

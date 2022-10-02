@@ -61,12 +61,12 @@ const ProjectCards = () => {
                                 <div className="flex-column mb-3 mt-1">
                                     { project.links[1] && 
                                         <Card.Link className="external-link" href={ project.links[1] } target="_blank">
-                                            Repository <Image src={ external } />
+                                            Repository <Image alt="external link" src={ external } />
                                         </Card.Link>
                                     }
                                     { project.links[2] && 
                                         <Card.Link className="external-link" href={ project.links[2] } target="_blank">
-                                            Deployment <Image src={ external } />
+                                            Deployment <Image alt="external link" src={ external } />
                                         </Card.Link>
                                     }
                                 </div>
@@ -82,7 +82,7 @@ const ProjectCards = () => {
             {/* Modal used for pop up images to view a whole selected photo. */}
             <Modal className="d-flex" fullscreen={ fullscreen } onHide={ () => setShow(false) } size="lg" show={ show }>
                 <Modal.Header className="bg-dark bg-gradient" closeButton closeVariant="white" />
-                <Modal.Body className="bg-dark bg-gradient"><Image src={ selectedImage } /></Modal.Body>
+                <Modal.Body className="bg-dark bg-gradient"><Image alt="larger project preview" src={ selectedImage } /></Modal.Body>
             </Modal>
         </Container>
     );
