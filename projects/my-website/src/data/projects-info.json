@@ -7,7 +7,7 @@
         "subtitle": "NodeJS/Express, Socket.IO, Mustache templating",
         "text": "This was created while learning NodeJS. It features real-time live chat with socket.io, chat room, names, and utilizing a user's location.",
         "body": "This is a simple app that uses socket.io to create a WebSocket (TCP) connection to the server for live chat between users. A user can join a group that's already created or they can create a new one. It features autoscroll but won't autoscroll when there's a new message and you're scrolling upwards. Chats can be sent as well as a user's location. Users will be added and removed as they login and exit the tab so that they do not forever remain in the session. This app features NodeJS with Express, Socket.IO for the WebSocket, a profanity filter, and front-end vanilla JavaScript with templating using Mustache.",
-        "links": ["/coding#chat-app", "https://github.com/evan1715/ChatApp", "https://jd1715-chat-app.herokuapp.com"]
+        "links": ["/coding#chat-app", "https://github.com/evan1715/ChatApp", "https://jd1715-chat.azurewebsites.net"]
     }, {
         "id": "indecision-app",
         "imageVariable": "indecisionApp",
@@ -34,7 +34,7 @@
         "subtitle": "NextJS, Bootstrap, SCSS",
         "text": "That's this website! This website uses NextJS and bootstrap with the intent to showcase.",
         "body": "It's this website you're using now! This project expanded my knowledge of React, styling, and NodeJS by using and learning NextJS and Bootstrap. There's also included subtle animations at random spots. Feel free to explore the website and my pages.",
-        "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite", "https://jd1715.herokuapp.com"]
+        "links": ["/coding#my-website", "https://github.com/evan1715/MyWebsite", "https://www.evanmchugh.us/"]
     }, {
         "id": "task-manager",
         "imageVariable": "taskManager",
@@ -42,7 +42,7 @@
         "descriptiveTitle": "Task Manager - API",
         "subtitle": "NodeJS/Express, MongoDB/Mongoose, Authentication",
         "text": "The task manager app is an API-based project created while learning NodeJS. It includes middleware, user authentication, login tokens, database usage, user avatars, and more.",
-        "body": "The Task Manager app is an API-only app. Meaning that when you click the Deployment link, it won't go to an actual website because there is no front-end. To access the API, you use Postman or something similar to access the NodeJS API. The app features NodeJS with Express, active connection to MongoDB using Mongoose, and even authentication with hashed passwords. The active login token is stored in the database. The idea is you create an account, add tasks, and see what you need to do. Sort of like a to-do list. A user can create a user, login, logout, logout of all locations, read their profile, user, tasks, delete user or tasks, upload avatar, or update existing user info or task info.",
+        "body": "The Task Manager app is an API-only app. Meaning that when you click the Deployment link, it won't go to an actual website because there is no front-end. To access the API, you use Postman or something similar to access the NodeJS API. The app features NodeJS with Express, active connection to MongoDB using Mongoose, and even authentication with hashed passwords. The active login token is stored in the database. The idea is you create an account, add tasks, and see what you need to do. Sort of like a to-do list. A user can create a user, login, logout, logout of all locations, read their profile, user, tasks, delete user or tasks, upload avatar, or update existing user info or task info. Note that this project is no longer deployed for production. The reasons are Heroku ending its free tier, this merely just an API, and the RecipeProject can do all of this plus more.",
         "list": [
             "/user is a POST that creates a user", 
             "/users/login is a POST that will log you in with your email and password,", 
@@ -60,7 +60,7 @@
             "/users/me/avatar is a POST to upload an avatar for the user",
             "/users/me/avatar is a DELETE to delete the current avatar for the user"
         ],
-        "links": ["/coding#task-manager", "https://github.com/evan1715/task-manager-api", "https://jd1715-task-manager.herokuapp.com"]
+        "links": ["/coding#task-manager", "https://github.com/evan1715/task-manager-api"]
     }, {
         "id": "recipe-project",
         "imageVariable": "recipeProject",
@@ -69,7 +69,7 @@
         "subtitle": "React/Redux, Node/Express, MongoDB/Mongoose, SCSS, Webpack, Authentication",
         "text": "This is the largest project I've done. It is a full-stack, user-based recipe website. There's too much to say to fit it on a card, so go ahead and click that 'Learn more' link.",
         "body": "This is my largest project I've done so far. It's a full-stack, user-based recipe website. It uses NodeJS with Express as the server and API, React with Redux as the front-end, MongoDB with Mongoose for the database, SCSS for styling, advance Webpack configuration, and authentication. The website was designed to be an account-focused website, so to view the most of the features, you'll have to create an account. Passwords are fully hashed and stored with bcrypt. One can create an account, upload an icon, submit recipes, modify recipes, upload multiple recipe pictures at a time, view another user's profile, and many more features. I also ensured code and network efficiency by storing things in Redux and only calling for information after a check to see if we didn't already have it. I've placed the readme below this for a very detailed description of the project.",
-        "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe-project.herokuapp.com"]
+        "links": ["/coding#recipe-project", "https://github.com/evan1715/RecipeProject", "https://jd1715-recipe.azurewebsites.net"]
     }, {
         "id": "weather-app",
         "imageVariable": "weatherApp",
@@ -78,6 +78,6 @@
         "subtitle": "NodeJS/Express, Handlebars templating",
         "text": "This is a small app that utilizes an external weather API to display weather information based on a search. It's uses Handlebars templating to serve pages from the server.",
         "body": "This is a small utility that uses Mapbox and Weatherstack API to deliver weather information to the user based on a search term. Pages are rendered with vanilla JavaScript and Handlebars templating to serve pages from the server.",
-        "links": ["/coding#weather-app", "https://github.com/evan1715/WeatherApp", "https://jd1715-weather-app.herokuapp.com"]
+        "links": ["/coding#weather-app", "https://github.com/evan1715/WeatherApp", "https://jd1715-weather.azurewebsites.net/"]
     }
 ]
