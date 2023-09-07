@@ -1,0 +1,11 @@
+.next/**
+.next
+node_modules/**
+README.md
+*.png
+*.jpg
+*.webp
+*.gif
+*.bat
+*.sh
+*.txt

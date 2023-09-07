@@ -1,0 +1,19 @@
+{
+    "name": "@1715/passage",
+    "version": "1.0.0",
+    "description": "reusable utility for console logging, fetching, misc utils",
+    "author": "Evan McHugh",
+    "license": "MIT",
+    "private": false,
+    "scripts": {
+        "build": "webpack --mode production"
+    },
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "fetch-retry": "^5.0.6"
+    },
+    "devDependencies": {
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4"
+    }
+}

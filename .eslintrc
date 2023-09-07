@@ -1,0 +1,73 @@
+{
+    "plugins": [
+        "import", //eslint-plugin-import
+        // "jest", //eslint-plugin-jest
+        "promise", //eslint-plugin-promise
+        "react", //eslint-plugin-react
+        "react-hooks" //eslint-plugin-react-hooks
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "ecmaFeatures": {
+            "modules": true
+        },
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "es2022": true,
+        // "jest": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended", //eslint
+        "plugin:import/recommended", //eslint-plugin-import
+        // "plugin:jest/recommended", //eslint-plugin-jest
+        "plugin:promise/recommended", //eslint-plugin-promise
+        "plugin:react/recommended", //eslint-plugin-react
+        "plugin:react-hooks/recommended" //eslint-plugin-react-hooks
+        // "plugin:@next/next/recommended" //disabled at the moment because it's linting outside of desired folder
+    ],
+    // "settings": {
+    // "next": {
+    //     "rootDir": "projects/my-website/" //not integrated into this repo at the moment
+    // }
+    // },
+    "rules": {
+        //https://github.com/import-js/eslint-plugin-import#rules
+        "import/default": 0,
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "import/namespace": 0,
+        "import/no-unresolved": [0, { "commonjs": true, "amd": true }],
+
+        //https://github.com/jest-community/eslint-plugin-jest#rules
+        // "jest/no-commented-out-tests": 0,
+        // "jest/no-disabled-tests": 0,
+
+        //https://github.com/jsx-eslint/eslint-plugin-react#list-of-supported-rules
+        "react/react-in-jsx-scope": 0,
+
+        //https://www.npmjs.com/package/eslint-plugin-react-hooks
+        "react-hooks/exhaustive-deps": 0,
+
+        //https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
+        "react/prop-types": [0, { "skipUndeclared": true }],
+
+        //https://eslint.org/docs/rules/space-before-function-paren
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ]
+    },
+    "globals": {
+        "AbortController": "readonly",
+        "google": "readonly",
+        "Intl": "readonly",
+        "Uint8Array": "readonly"
+    }
+}

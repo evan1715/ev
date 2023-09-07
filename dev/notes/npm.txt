@@ -1,0 +1,12 @@
+Workspaces - https://docs.npmjs.com/cli/v9/using-npm/workspaces 
+
+Initialize monorepo workspace with:
+npm init -w ./packages/a
+
+Install dependency to a scoped package:
+npm install package-name -w a
+
+Run a command:
+npm run cmd --workspace=a
+or
+cd packages/a && npm run cmd
