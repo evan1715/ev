@@ -4,7 +4,11 @@
     "description": "reusable utility for console logging, fetching, misc utils",
     "author": "Evan McHugh",
     "license": "MIT",
+    "main": "index.js",
     "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "build": "webpack --mode production"
     },

@@ -9,6 +9,5 @@ module.exports = {
     delay,
     ...fruit,
     ...store,
-    callFetch: callFetch.callFetch,
-    configureFetch: callFetch.configureFetch,
+    callFetch,
 };

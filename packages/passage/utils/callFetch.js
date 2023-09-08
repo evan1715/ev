@@ -2,42 +2,21 @@ const fetchRetry = require('fetch-retry')(fetch);
 const browserFruit = require('../fruit/browser');
 const nodeFruit = require('../fruit');
 
-let configuration = {
-    baseURL: '',
-    timer: 10000,
-    environment: 'browser',
-};
-
-const configureFetch = (data) => {
-    configuration = {
-        ...configuration,
-        baseURL: data?.baseURL || '',
-        timer: data?.timer || 10000,
-        environment: data?.environment || 'browser',
-    };
-};
-
 //If there's a body, convert it. If it throws an error, then it didn't have a body.
 const convertBody = (res) => res.json().catch(() => res);
 
 //This is where the actual fetch call is made.
-const callFetch = async ({ path, options, retries = 0 }) => {
+const callFetch = async ({ path, options, retries = 0, config }) => {
     const controller = new AbortController();
-    const fruit = configuration.environment === 'browser' ? browserFruit : nodeFruit;
-    const url = configuration.baseURL;
-    const timer = configuration.timer;
-    const body = options?.body;
-    let headers = options?.headers;
-
-    headers = headers || { Authorization: headers?.token, 'Content-type': 'application/json' };
+    const fruit = config.environment === 'browser' ? browserFruit : nodeFruit;
 
     //If the timer runs out, abort the call.
-    setTimeout(() => controller.abort(), timer);
+    setTimeout(() => controller.abort(), config.timer);
 
-    return fetchRetry(url + path, {
+    return fetchRetry(config.baseURL + path, {
         ...options,
-        headers,
-        body: body ? JSON.stringify(body) : undefined,
+        headers: options?.headers ?? { 'Content-type': 'application/json' },
+        body: options.body ? JSON.stringify(options.body) : undefined,
         signal: controller.signal,
     })
         .then((res) => {
@@ -59,4 +38,4 @@ const callFetch = async ({ path, options, retries = 0 }) => {
         });
 };
 
-module.exports = { callFetch, configureFetch };
+module.exports = callFetch;

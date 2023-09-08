@@ -5,6 +5,9 @@ dist
 node_modules/
 public\bundle.js
 
+packages/passage/components
+packages/passage/pending
+
 # dependencies
 /node_modules
 /.pnp
