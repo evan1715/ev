@@ -6,14 +6,16 @@ const nodeFruit = require('../fruit');
 const convertBody = (res) => res.json().catch(() => res);
 
 //This is where the actual fetch call is made.
-const callFetch = async ({ path, options, retries = 0, config }) => {
+const callFetch = ({ path, options, retries = 0, config }) => {
     const controller = new AbortController();
     const fruit = config.environment === 'browser' ? browserFruit : nodeFruit;
+    const rethrow = config.rethrow ?? false;
+    let response, hasError;
 
     //If the timer runs out, abort the call.
     setTimeout(() => controller.abort(), config.timer);
 
-    return fetchRetry(config.baseURL + path, {
+    response = fetchRetry(config.baseURL + path, {
         ...options,
         headers: options?.headers ?? { 'Content-type': 'application/json' },
         body: options.body ? JSON.stringify(options.body) : undefined,
@@ -31,11 +33,17 @@ const callFetch = async ({ path, options, retries = 0, config }) => {
         })
         .catch((error) => {
             fruit.cherror('callFetch', error);
+            hasError = true;
             if (retries > 0) {
                 return callFetch({ path, options, retries: retries - 1 });
             }
             return error;
         });
+
+    if (rethrow && hasError) {
+        throw response;
+    }
+    return response;
 };
 
 module.exports = callFetch;
