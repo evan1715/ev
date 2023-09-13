@@ -1,6 +1,6 @@
 const fetchRetry = require('fetch-retry')(fetch);
 const browserFruit = require('../fruit/browser');
-const nodeFruit = require('../fruit');
+const nodeFruit = require('../fruit/node');
 
 //If there's a body, convert it. If it throws an error, then it didn't have a body.
 const convertBody = (res) => res.json().catch(() => res);
@@ -25,26 +25,27 @@ const convertBody = (res) => res.json().catch(() => res);
  * @param {number} [arg.retries=0] - The number of times to retry the call (optional).
  * @returns {Promise<(object|string)>} - The response from the API call.
  */
-const callFetch = ({ path, options, retries = 0, config }) => {
+const callFetch = ({ path, options, retries = 0, config }, environment) => {
     const controller = new AbortController();
-    const fruit = config.environment === 'browser' ? browserFruit : nodeFruit;
+    const fruit = environment === 'browser' ? browserFruit : nodeFruit;
     const rethrow = config.rethrow ?? false;
-    let response, hasError;
+    const timer = config.timer ?? 10000;
 
     //If the timer runs out, abort the call.
-    setTimeout(() => controller.abort(), config.timer);
+    setTimeout(() => controller.abort(), timer);
 
-    response = fetchRetry(config.baseURL + path, {
+    return fetchRetry(config.baseURL + path, {
         ...options,
         headers: options?.headers ?? { 'Content-type': 'application/json' },
         body: options.body ? JSON.stringify(options.body) : undefined,
         signal: controller.signal,
+        //fetch-retry options
+        retryDelay: 500,
     })
         .then((res) => {
             if (res.ok) {
                 return convertBody(res);
-            }
-            if (retries > 0) {
+            } else if (retries > 0) {
                 fruit.banana(`retrying ${path}`);
                 return callFetch({ path, options, retries: retries - 1 });
             }
@@ -52,17 +53,13 @@ const callFetch = ({ path, options, retries = 0, config }) => {
         })
         .catch((error) => {
             fruit.cherror('callFetch', error);
-            hasError = true;
             if (retries > 0) {
                 return callFetch({ path, options, retries: retries - 1 });
+            } else if (rethrow) {
+                throw error;
             }
             return error;
         });
-
-    if (rethrow && hasError) {
-        throw response;
-    }
-    return response;
 };
 
 module.exports = callFetch;

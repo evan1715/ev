@@ -1,8 +1,11 @@
 const clunk = require('./utils/clunk');
 const delay = require('./utils/delay');
-const fruit = require('./fruit/browser');
+const fruit = require('./fruit/node');
 const store = require('./store');
-const callFetch = require('./utils/callFetch');
+const fetcher = require('./utils/callFetch');
+const tokens = require('./tokens/tokens.native');
+
+const callFetch = (arg) => fetcher(arg, 'node');
 
 module.exports = {
     clunk,
@@ -10,4 +13,5 @@ module.exports = {
     ...fruit,
     ...store,
     callFetch,
+    ...tokens,
 };

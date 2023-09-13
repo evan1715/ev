@@ -3,11 +3,23 @@
     "version": "1.0.0",
     "description": "reusable utility for console logging, fetching, misc utils",
     "author": "Evan McHugh",
+    "repository": "https://github.com/evan1715/1715/tree/master/packages/passage",
     "license": "MIT",
-    "main": "index.js",
     "private": false,
     "publishConfig": {
         "access": "public"
+    },
+    "main": "index.js",
+    "browser": "index.browser.js",
+    "react-native": "index.native.js",
+    "exports": {
+        ".": {
+            "react-native": "./index.native.js",
+            "node": "./index.js",
+            "browser": "./index.browser.js",
+            "require": "./index.js",
+            "default": "./index.js"
+        }
     },
     "scripts": {
         "build": "webpack --mode production"
@@ -19,5 +31,8 @@
     "devDependencies": {
         "webpack": "^5.88.2",
         "webpack-cli": "^5.1.4"
+    },
+    "engines": {
+        "node": ">=18"
     }
 }

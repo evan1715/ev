@@ -22,5 +22,8 @@
     },
     "workspaces": [
         "packages\\passage"
-    ]
+    ],
+    "engines": {
+        "node": ">=18"
+    }
 }
