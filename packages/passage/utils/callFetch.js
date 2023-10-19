@@ -28,8 +28,8 @@ const convertBody = (res) => res.json().catch(() => res);
 const callFetch = ({ path, options, retries = 0, config }, environment) => {
     const controller = new AbortController();
     const fruit = environment === 'browser' ? browserFruit : nodeFruit;
-    const rethrow = config.rethrow ?? false;
-    const timer = config.timer ?? 10000;
+    const rethrow = config?.rethrow ?? false;
+    const timer = config?.timer ?? 10000;
 
     //If the timer runs out, abort the call.
     setTimeout(() => controller.abort(), timer);
