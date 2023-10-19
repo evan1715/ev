@@ -1,3 +1,4 @@
+const base64ToBlob = require('./utils/base64ToBlob');
 const clunk = require('./utils/clunk');
 const delay = require('./utils/delay');
 const fruit = require('./fruit/node');
@@ -8,6 +9,7 @@ const tokens = require('./tokens/tokens.native');
 const callFetch = (arg) => fetcher(arg, 'node');
 
 module.exports = {
+    base64ToBlob,
     clunk,
     delay,
     ...fruit,
