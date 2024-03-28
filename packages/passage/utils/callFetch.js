@@ -47,14 +47,24 @@ const callFetch = ({ path, options, retries = 0, config }, environment) => {
                 return convertBody(res);
             } else if (retries > 0) {
                 fruit.banana(`retrying ${path}`);
-                return callFetch({ path, options, retries: retries - 1 });
+                return callFetch({ path, options, retries: retries - 1, config });
             }
             return convertBody(res);
+        })
+        .then((data) => {
+            if (data.error) {
+                throw new Error(data.error);
+            } else if (data.ok === false && data.statusText) {
+                throw new Error(data.statusText);
+            } else if (data.ok === false) {
+                throw new Error('API call failed.');
+            }
+            return data;
         })
         .catch((error) => {
             fruit.cherror('callFetch', error);
             if (retries > 0) {
-                return callFetch({ path, options, retries: retries - 1 });
+                return callFetch({ path, options, retries: retries - 1, config });
             } else if (rethrow) {
                 throw error;
             }

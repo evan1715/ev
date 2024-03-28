@@ -26,13 +26,18 @@
     },
     "dependencies": {
         "chalk": "^4.1.2",
-        "fetch-retry": "^5.0.6"
+        "fetch-retry": "^5.0.6",
+        "morgan": "^1.10.0"
     },
     "devDependencies": {
+        "@types/morgan": "^1.9.9",
         "webpack": "^5.88.2",
         "webpack-cli": "^5.1.4"
     },
+    "peerDependencies": {
+        "@react-native-async-storage/async-storage": "*"
+    },
     "engines": {
-        "node": ">=18"
+        "node": ">=20"
     }
 }

@@ -7,4 +7,4 @@ const base64ToBlob = (base64String, mimeType) => {
     return new Blob([bytes], { type: mimeType });
 };
 
-export default base64ToBlob;
+module.exports = base64ToBlob;

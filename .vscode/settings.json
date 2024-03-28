@@ -3,7 +3,6 @@
     "editor.formatOnSave": true,
     "editor.formatOnPaste": false,
     "cSpell.words": [],
-    "java.configuration.updateBuildConfiguration": "disabled",
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }

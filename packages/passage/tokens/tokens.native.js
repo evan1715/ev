@@ -8,7 +8,7 @@ const accessKey = 'act';
 const accessExpKey = 'act_exp';
 const refreshKey = 'rft';
 const refreshExpKey = 'rft_exp';
-const twentyFiveMinutes = 1500000; //1500000 = 25 minutes
+const sixtyMinutes = 3600000; //3600000 = 60 minutes
 
 /*============================================
         Saving, Reading, Writing Tokens
@@ -23,10 +23,10 @@ const twentyFiveMinutes = 1500000; //1500000 = 25 minutes
 const saveTokens = async (tokens) => {
     const rightMeow = Date.now();
     const ninetyDays = rightMeow + 7776000000;
-    const nowPlus25 = rightMeow + twentyFiveMinutes;
+    const nowPlusSixty = rightMeow + sixtyMinutes;
     const { access, refresh } = tokens;
     const acc_t = [accessKey, access];
-    const acc_e = [accessExpKey, nowPlus25.toString()];
+    const acc_e = [accessExpKey, nowPlusSixty.toString()];
     const ref_t = [refreshKey, refresh];
     const ref_e = [refreshExpKey, ninetyDays.toString()];
 

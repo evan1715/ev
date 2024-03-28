@@ -6,4 +6,4 @@ const clunk =
     (action) =>
         typeof action === 'function' ? action(dispatch, getState) : next(action);
 
-module.export = clunk;
+module.exports = clunk;
