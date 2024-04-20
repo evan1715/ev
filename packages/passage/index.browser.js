@@ -6,6 +6,7 @@ const store = require('./store');
 const fetcher = require('./utils/callFetch');
 const tokens = require('./tokens/tokens');
 
+/** @type {import('./utils/callFetch')} */
 const callFetch = (arg) => fetcher(arg, 'browser');
 
 module.exports = {

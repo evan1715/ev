@@ -19,10 +19,10 @@ const convertBody = (res) => res.json().catch(() => res);
  * @param {object} arg.config - The config object.
  * @param {string} arg.config.baseURL - The base URL for the API.
  * @param {number} [arg.config.timer=10000] - The timer for the fetch call. Default is 10000 (optional).
- * @param {string} arg.config.environment - The environment for the fetch call.
  * @param {boolean} [arg.config.rethrow=false] - Whether to rethrow the error. Default is false (optional).
- *
  * @param {number} [arg.retries=0] - The number of times to retry the call (optional).
+ *
+ * @param {string} [environment] - The environment to run in.
  * @returns {Promise<(object|string)>} - The response from the API call.
  */
 const callFetch = ({ path, options, retries = 0, config }, environment) => {
@@ -34,6 +34,7 @@ const callFetch = ({ path, options, retries = 0, config }, environment) => {
     //If the timer runs out, abort the call.
     setTimeout(() => controller.abort(), timer);
 
+    /** @type {GlobalFetch} */
     return fetchRetry(config.baseURL + path, {
         ...options,
         headers: options?.headers ?? { 'Content-type': 'application/json' },

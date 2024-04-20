@@ -46,18 +46,13 @@ const httpLogger = function ({ ['response-time']: responseTime }, req, res) {
     const { method, url } = req;
     const { statusCode: status } = res;
     const contentLength = contentLengthStr(res);
-
-    const responseTimed = Number(responseTime(req, res)).toFixed(0);
-
-    if (Number.isNaN(responseTimed)) {
-        console.log('Response time is NaN', responseTimed);
-    }
+    const responseTimeAdjusted = responseTime && Number(responseTime(req, res)).toFixed(0);
 
     return [
         plum(method),
         Number(status) < 400 ? lime(url) : cherry(url),
         teal(status),
-        orange(Number(responseTime(req, res)).toFixed(0) + 'ms'),
+        orange(responseTime ? responseTimeAdjusted + 'ms' : '-'),
         banana(contentLength || '-'),
         bodyConverter(res.statusMessage),
     ].join(' ');

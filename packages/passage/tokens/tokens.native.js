@@ -1,6 +1,6 @@
-/*
-    Async Storage docs - https://react-native-async-storage.github.io/async-storage/docs/api
-*/
+/**
+ * Async Storage docs - @see https://react-native-async-storage.github.io/async-storage/docs/api
+ */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import fruit from '../fruit/node';
 
@@ -43,20 +43,21 @@ const saveTokens = async (tokens) => {
 
 /**
  * Reads the access and refresh tokens from AsyncStorage.
- * @returns {Promise<object>} - The access and refresh tokens.
+ * @returns {Promise<{ [key: string]: string|null }>} - The access and refresh tokens.
  */
 const readTokens = async () => {
     try {
         const values = await AsyncStorage.multiGet([accessKey, accessExpKey, refreshKey, refreshExpKey]);
 
         return {
-            access: values[0][1],
-            accessExp: values[1][1],
-            refresh: values[2][1],
-            refreshExp: values[3][1],
+            access: values[0]?.[1] ?? '',
+            accessExp: values[1]?.[1] || '',
+            refresh: values[2]?.[1] || '',
+            refreshExp: values[3]?.[1] || '',
         };
     } catch (error) {
         fruit.cherror('readTokens', error);
+        return {};
     }
 };
 
