@@ -1,6 +1,4 @@
 const fetchRetry = require('fetch-retry')(fetch);
-const browserFruit = require('../fruit/browser');
-const nodeFruit = require('../fruit/node');
 
 //If there's a body, convert it. If it throws an error, then it didn't have a body.
 const convertBody = (res) => res.json().catch(() => res);
@@ -27,7 +25,7 @@ const convertBody = (res) => res.json().catch(() => res);
  */
 const callFetch = ({ path, options, retries = 0, config }, environment) => {
     const controller = new AbortController();
-    const fruit = environment === 'browser' ? browserFruit : nodeFruit;
+    const fruit = environment === 'browser' ? require('../fruit/browser') : require('../fruit/node');
     const rethrow = config?.rethrow ?? false;
     const timer = config?.timer ?? 20000;
 

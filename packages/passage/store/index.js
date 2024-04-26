@@ -1,19 +1,35 @@
+const bodyConverter = require('../utils/bodyConverter');
+
 /*============================================
                     Store
 ==============================================*/
 
 //Actions
+/** @param {string} data */
 const error = (data) => ({ type: 'ERROR', error: data });
 const clearError = () => ({ type: 'CLEAR_ERROR' });
 const showLoading = () => ({ type: 'SHOW_LOADING' });
 const hideLoading = () => ({ type: 'HIDE_LOADING' });
-const resetLoading = () => ({ type: 'HIDE_LOADING' });
 const processing = () => ({ type: 'PROCESSING' });
 const processed = () => ({ type: 'PROCESSED' });
 const resetPassage = () => ({ type: 'RESET_PASSAGE' });
 const toast = ({ toastMsg }) => ({ type: 'TOAST', toastMsg });
 
-//Initial state for the reducer.
+/**
+ * Initial state for the reducer.
+ * @typedef {object} PassageInitialState
+ * @property {null|string} error
+ * @property {boolean} loading
+ * @property {string|number|null} loadingCode
+ * @property {string|number|null} loadingMsg
+ * @property {number} loadingScope
+ * @property {string} loadingType
+ * @property {boolean} processing
+ * @property {boolean} toast
+ * @property {string|null} toastMsg
+ */
+
+/** @type {PassageInitialState} */
 const initialState = {
     error: null,
     loading: false,
@@ -27,12 +43,13 @@ const initialState = {
 };
 
 //Reducer
+/** @param {typeof initialState} state */
 const passageReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ERROR':
             return {
                 ...initialState,
-                error: action.error?.toString(),
+                error: bodyConverter(action.error),
             };
         case 'CLEAR_ERROR':
             return {
@@ -45,7 +62,7 @@ const passageReducer = (state = initialState, action) => {
                 loading: true,
                 loadingCode: action.loadingCode ? action.loadingCode : initialState.loadingCode,
                 loadingMsg: action.loadingMsg ? action.loadingMsg : initialState.loadingMsg,
-                loadingScope: action.loadingScope ? action.loadingScope : initialState,
+                loadingScope: action.loadingScope ? action.loadingScope : initialState.loadingScope,
                 loadingType: action.loadingType ? action.loadingType : initialState.loadingType,
                 processing: true,
             };
@@ -55,7 +72,6 @@ const passageReducer = (state = initialState, action) => {
                 loading: initialState.loading,
                 loadingCode: initialState.loadingCode,
                 loadingMsg: initialState.loadingMsg,
-                loadingPassive: initialState.loadingPassive,
                 loadingScope: initialState.loadingScope,
                 loadingType: initialState.loadingType,
                 processing: false,
@@ -95,7 +111,6 @@ module.exports = {
     clearError,
     showLoading,
     hideLoading,
-    resetLoading,
     resetPassage,
     toast,
     processing,

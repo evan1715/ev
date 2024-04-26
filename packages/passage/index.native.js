@@ -1,20 +1,22 @@
-const base64ToBlob = require('./utils/base64ToBlob');
-const clunk = require('./utils/clunk');
-const delay = require('./utils/delay');
-const fruit = require('./fruit/node');
-const store = require('./store');
-const fetcher = require('./utils/callFetch');
-const tokens = require('./tokens/tokens.native');
+import base64ToBlob from './utils/base64ToBlob';
+import bodyConverter from './utils/bodyConverter';
+import delay from './utils/delay';
+import fruit from './fruit/node';
+import * as store from './store';
+import fetcher from './utils/callFetch';
+import * as tokens from './tokens/tokens.native';
 
 /** @type {import('./utils/callFetch')} */
 const callFetch = (arg) => fetcher(arg, 'node');
 
-module.exports = {
+const passage = {
     base64ToBlob,
-    clunk,
+    bodyConverter,
     delay,
     ...fruit,
     ...store,
     callFetch,
     ...tokens,
 };
+
+export { passage as default, base64ToBlob, bodyConverter, delay, fruit, store, callFetch, tokens };
