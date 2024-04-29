@@ -1,4 +1,4 @@
-/** @typedef {string|object|undefined|null} body */
+/** @typedef {string|number|object|undefined|null} body */
 
 /**
  * Will convert the given argument as needed.
