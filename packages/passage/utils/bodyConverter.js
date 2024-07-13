@@ -1,4 +1,4 @@
-/** @typedef {string|number|object|undefined|null} body */
+/** @typedef {string|number|object|undefined|null|unknown|any} body */
 
 /**
  * Will convert the given argument as needed.
@@ -13,9 +13,10 @@
  * prototype ability to be converted into a string.
  *
  * @param {body} body
+ * @param {boolean} [noColon=false]
  * @returns {string}
  */
-const bodyConverter = (body) => {
+const bodyConverter = (body, noColon = false) => {
     let text = '';
     try {
         if (!body) {
@@ -27,6 +28,10 @@ const bodyConverter = (body) => {
             text = ': ' + JSON.stringify(body);
         } else {
             text = ': ' + body;
+        }
+
+        if (noColon && text.slice(0, 2) === ': ') {
+            text = text.slice(2);
         }
         return text;
     } catch (error) {

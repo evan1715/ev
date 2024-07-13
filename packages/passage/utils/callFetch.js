@@ -1,10 +1,12 @@
 /**
  * @typedef {function} fetchRetry
  * @param {RequestInfo | URL} input - The URL or request object.
- * @param {import('fetch-retry').RequestInitRetryParams<fetch} init - The options for the fetch call.
+ * @param {import('fetch-retry').RequestInitRetryParams<fetch>} init - The options for the fetch call.
  */
 /** @type {fetchRetry} */
+// @ts-ignore
 const fetchRetry = require('fetch-retry')(fetch);
+const fruit = require('../fruit');
 
 /**
  * If there's a body, convert it. If it throws an error, then it didn't have a body.
@@ -12,7 +14,7 @@ const fetchRetry = require('fetch-retry')(fetch);
  * @returns {Promise<(object|string)>} - The response from the API call.
  * @throws {Response} - The response from the API call.
  */
-const convertBody = (res) => res.json().catch(() => res);
+// const convertBody = (res) => res.json().catch(() => res);
 
 /**
  * This is where the actual fetch call is made.
@@ -31,12 +33,10 @@ const convertBody = (res) => res.json().catch(() => res);
  * @param {boolean} [arg.config.rethrow=true] - Whether to rethrow the error. Default is true (optional).
  * @param {number} [arg.retries=0] - The number of times to retry the call (optional).
  *
- * @param {string} [environment] - The environment to run in.
  * @returns {Promise<(object|string)>} - The response from the API call.
  */
-const callFetch = ({ path, options, retries = 0, config }, environment) => {
+const callFetch = ({ path, options, retries = 0, config }) => {
     const controller = new AbortController();
-    const fruit = environment === 'browser' ? require('../fruit/browser') : require('../fruit/node');
     const appJson = 'application/json';
     const { rethrow = true, timer = 20000 } = config ?? {};
 
@@ -54,29 +54,22 @@ const callFetch = ({ path, options, retries = 0, config }, environment) => {
          * don't need to set it here. */
         // retries: 3,
     })
-        .then((/** @type {Response} */ res) => {
+        .then(async (/** @type {Response} */ res) => {
             const contentType = res.headers.get('content-type')?.trim();
+            const contentLength = res.headers.get('content-length')?.trim();
+            let data;
 
-            if (res.ok && contentType?.includes(appJson)) {
-                return convertBody(res);
-            } else if (res.ok && contentType?.includes('text')) {
-                return res.text();
+            if (contentType?.includes(appJson)) {
+                data = await res.json();
+            } else if (contentType?.includes('text') && contentLength !== '0') {
+                data = await res.text();
+            } else {
+                data = res;
             }
-            return res;
-        })
-        .then((/** @type {string|object} */ data) => {
-            if (typeof data === 'object') {
-                const notOk = 'ok' in data && data.ok === false;
 
-                if ('error' in data) {
-                    throw new Error(String(data.error));
-                } else if (notOk && 'statusText' in data) {
-                    throw new Error(String(data.statusText));
-                } else if (notOk) {
-                    throw new Error(String(data));
-                }
-            } else if (typeof data === 'string' && data.includes('error')) {
-                throw new Error(data);
+            if (!res.ok) {
+                const errorMessage = data.error || data.statusText || String(data);
+                throw new Error(errorMessage);
             }
             return data;
         })
