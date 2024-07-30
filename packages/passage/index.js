@@ -1,5 +1,6 @@
 const base64ToBlob = require('./utils/base64ToBlob');
 const bodyConverter = require('./utils/bodyConverter');
+const calculateBroadcastAddress = require('./utils/calculateBroadcastAddress');
 const delay = require('./utils/delay');
 const errorToString = require('./utils/errorToString');
 const fetcher = require('./utils/callFetch');
@@ -14,6 +15,7 @@ const callFetch = (arg) => fetcher(arg);
 module.exports = {
     base64ToBlob,
     bodyConverter,
+    calculateBroadcastAddress,
     callFetch,
     delay,
     errorToString,
