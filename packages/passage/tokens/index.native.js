@@ -2,7 +2,7 @@
  * Async Storage docs - @see https://react-native-async-storage.github.io/async-storage/docs/api
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as fruit from '../fruit/index';
+import * as fruit from '../fruit/index.js';
 
 const accessKey = 'act';
 const accessExpKey = 'act_exp';

@@ -4,7 +4,7 @@
  * @param {import('fetch-retry').RequestInitRetryParams<fetch>} init - The options for the fetch call.
  */
 import fetchRetry from 'fetch-retry';
-import * as fruit from '../fruit';
+import * as fruit from '../fruit/index.browser.js';
 
 /** @type {fetchRetry} */
 // @ts-ignore
