@@ -1,45 +1,48 @@
-const {
-    yellow: banana,
-    blue: blueberry,
-    red: cherror,
-    red: cherry,
-    magenta: grape,
-    greenBright: lime,
-    green: pear,
-    magentaBright: plum,
-    cyan: teal,
-    bgYellow: bgBanana,
-    bgBlue: bgBlueberry,
-    bgRed: bgCherror,
-    bgRed: bgCherry,
-    bgMagenta: bgGrape,
-    bgGreenBright: bgLime,
-    bgGreen: bgPear,
-    bgMagentaBright: bgPlum,
-    bgCyan: bgTeal,
-} = require('chalk');
-const orange = require('chalk').hex('#FFA500');
-const bgOrange = require('chalk').bgHex('#FFA500');
+import chalk from 'chalk';
 
-module.exports = {
-    banana,
-    blueberry,
-    cherror,
-    cherry,
-    grape,
-    lime,
+chalk.level = 2;
+
+const {
+    yellow,
+    blue,
+    red,
+    magenta,
+    greenBright,
+    green,
+    magentaBright,
+    cyan,
+    bgYellow,
+    bgBlue,
+    bgRed,
+    bgMagenta,
+    bgGreenBright,
+    bgGreen,
+    bgMagentaBright,
+    bgCyan,
+} = chalk;
+
+const orange = chalk.hex('#FFA500');
+const bgOrange = chalk.bgHex('#FFA500');
+
+export {
+    yellow as banana,
+    blue as blueberry,
+    red as cherror,
+    red as cherry,
+    magenta as grape,
+    greenBright as lime,
+    green as pear,
     orange,
-    pear,
-    plum,
-    teal,
-    bgBanana,
-    bgBlueberry,
-    bgCherror,
-    bgCherry,
-    bgGrape,
-    bgLime,
+    magentaBright as plum,
+    cyan as teal,
+    bgYellow as bgBanana,
+    bgBlue as bgBlueberry,
+    bgRed as bgCherror,
+    bgRed as bgCherry,
+    bgMagenta as bgGrape,
+    bgGreenBright as bgLime,
     bgOrange,
-    bgPear,
-    bgPlum,
-    bgTeal,
+    bgGreen as bgPear,
+    bgMagentaBright as bgPlum,
+    bgCyan as bgTeal,
 };

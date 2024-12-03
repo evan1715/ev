@@ -36,7 +36,6 @@ const saveTokens = (tokens) => {
 
 /**
  * Reads the access and refresh tokens from localStorage.
- * @returns {object} - The access and refresh tokens.
  */
 const readTokens = () => ({
     access: localStorage.getItem(accessKey),
@@ -55,8 +54,4 @@ const removeTokens = () => {
     localStorage.removeItem(refreshExpKey);
 };
 
-module.exports = {
-    saveTokens,
-    readTokens,
-    removeTokens,
-};
+export { saveTokens, readTokens, removeTokens };

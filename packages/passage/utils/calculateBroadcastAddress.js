@@ -18,4 +18,4 @@ const calculateBroadcastAddress = (ip, subnet) => {
     return partsBroadcast.join('.');
 };
 
-module.exports = calculateBroadcastAddress;
+export default calculateBroadcastAddress;

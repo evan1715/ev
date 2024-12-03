@@ -24,4 +24,4 @@ const errorToString = (error) => {
     }
 };
 
-module.exports = errorToString;
+export default errorToString;

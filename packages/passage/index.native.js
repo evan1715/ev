@@ -4,7 +4,7 @@ import calculateBroadcastAddress from './utils/calculateBroadcastAddress';
 import delay from './utils/delay';
 import errorToString from './utils/errorToString';
 import fetcher from './utils/callFetch';
-import fruit from './fruit';
+import * as fruit from './fruit';
 import * as store from './store';
 import * as tokens from './tokens';
 

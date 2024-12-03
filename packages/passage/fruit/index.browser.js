@@ -1,7 +1,7 @@
 /**
- * @typedef {import('../utils/bodyConverter').body} body
+ * @typedef {import('../utils/bodyConverter.js').body} body
  */
-const bodyConverter = require('../utils/bodyConverter');
+import bodyConverter from '../utils/bodyConverter.js';
 
 /*============================================
                 Fruit Bearers
@@ -54,7 +54,7 @@ const bgPlum = (title, body) => console.log(`%c${title}`, 'background-color: pur
 /** @param {string} title @param {body} [body] */
 const bgTeal = (title, body) => console.log(`%c${title}`, 'background-color: cyan', bodyConverter(body));
 
-module.exports = {
+export {
     banana,
     blueberry,
     cherror,

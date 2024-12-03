@@ -3,10 +3,12 @@
  * @param {RequestInfo | URL} input - The URL or request object.
  * @param {import('fetch-retry').RequestInitRetryParams<fetch>} init - The options for the fetch call.
  */
+import fetchRetry from 'fetch-retry';
+import * as fruit from '../fruit';
+
 /** @type {fetchRetry} */
 // @ts-ignore
-const fetchRetry = require('fetch-retry')(fetch);
-const fruit = require('../fruit');
+const fetchWithRetry = fetchRetry(fetch);
 
 /**
  * If there's a body, convert it. If it throws an error, then it didn't have a body.
@@ -32,8 +34,6 @@ const fruit = require('../fruit');
  * @param {number} [arg.config.timer=20000] - The timer for the fetch call. Default is 20000 (optional).
  * @param {boolean} [arg.config.rethrow=true] - Whether to rethrow the error. Default is true (optional).
  * @param {number} [arg.retries=0] - The number of times to retry the call (optional).
- *
- * @returns {Promise<(object|string)>} - The response from the API call.
  */
 const callFetch = ({ path, options, retries = 0, config }) => {
     const controller = new AbortController();
@@ -43,7 +43,7 @@ const callFetch = ({ path, options, retries = 0, config }) => {
     //If the timer runs out, abort the call.
     setTimeout(() => controller.abort(), timer);
 
-    return fetchRetry(config.baseURL + path, {
+    return fetchWithRetry(config.baseURL + path, {
         ...options,
         headers: options?.headers ?? { 'Content-type': appJson },
         body: options.body ? JSON.stringify(options.body) : undefined,
@@ -85,4 +85,4 @@ const callFetch = ({ path, options, retries = 0, config }) => {
         });
 };
 
-module.exports = callFetch;
+export default callFetch;

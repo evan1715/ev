@@ -7,9 +7,9 @@
  *
  * @import { Middleware } from '@reduxjs/toolkit';
  */
-const fruit = require('../fruit');
-const errorToString = require('../utils/errorToString');
-const bodyConverter = require('../utils/bodyConverter');
+import * as fruit from '../fruit';
+import errorToString from '../utils/errorToString';
+import bodyConverter from '../utils/bodyConverter';
 
 /*============================================
                     Middleware
@@ -182,7 +182,7 @@ const passageReducer = (state = initialState, action) => {
     }
 };
 
-module.exports = {
+export {
     //Middleware
     reduxLoggerMiddleware,
     //Actions

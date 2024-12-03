@@ -1,13 +1,8 @@
 /**
- * @typedef {import('../utils/bodyConverter').body} body
- * @typedef {import('chalk').Chalk} Chalk
+ * @typedef {import('../utils/bodyConverter.js').body} body
  */
-/** @type {Chalk} */
-const chalk = require('chalk');
-const colors = require('./colors');
-const bodyConverter = require('../utils/bodyConverter');
-
-chalk.level = 2;
+import * as colors from './colors.js';
+import bodyConverter from '../utils/bodyConverter.js';
 
 const orangeHex = colors.orange;
 
@@ -17,50 +12,49 @@ const orangeHex = colors.orange;
 
 //Powdered fruit
 /** @param {string} title @param {body} [body] */
-const banana = (title, body) => console.log(chalk.yellow(title), bodyConverter(body));
+const banana = (title, body) => console.log(colors.banana(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const blueberry = (title, body) => console.log(chalk.blue(title), bodyConverter(body));
+const blueberry = (title, body) => console.log(colors.blueberry(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const cherror = (title, body) => console.log(chalk.red(title, 'error:'), bodyConverter(body));
+const cherror = (title, body) => console.log(colors.cherror(title, 'error:'), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const cherry = (title, body) => console.log(chalk.red(title), bodyConverter(body));
+const cherry = (title, body) => console.log(colors.cherry(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const grape = (title, body) => console.log(chalk.magenta(title), bodyConverter(body));
+const grape = (title, body) => console.log(colors.grape(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const lime = (title, body) => console.log(chalk.greenBright(title), bodyConverter(body));
+const lime = (title, body) => console.log(colors.lime(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
 const orange = (title, body) => console.log(orangeHex(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const pear = (title, body) => console.log(chalk.green(title), bodyConverter(body));
+const pear = (title, body) => console.log(colors.pear(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const plum = (title, body) => console.log(chalk.magentaBright(title), bodyConverter(body));
+const plum = (title, body) => console.log(colors.plum(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const teal = (title, body) => console.log(chalk.cyan(title), bodyConverter(body));
+const teal = (title, body) => console.log(colors.teal(title), bodyConverter(body));
 
 //Chalky fruit
 /** @param {string} title @param {body} [body] */
-const bgBanana = (title, body) => console.log(chalk.bgYellow(title), bodyConverter(body));
+const bgBanana = (title, body) => console.log(colors.bgBanana(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgBlueberry = (title, body) => console.log(chalk.bgBlue(title), bodyConverter(body));
+const bgBlueberry = (title, body) => console.log(colors.bgBlueberry(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgCherror = (title, body) => console.log(chalk.bgRed(title, 'error:'), bodyConverter(body));
+const bgCherror = (title, body) => console.log(colors.bgCherror(title, 'error:'), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgCherry = (title, body) => console.log(chalk.bgRed(title), bodyConverter(body));
+const bgCherry = (title, body) => console.log(colors.bgCherry(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgGrape = (title, body) => console.log(chalk.bgMagenta(title), bodyConverter(body));
+const bgGrape = (title, body) => console.log(colors.bgGrape(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgLime = (title, body) => console.log(chalk.bgGreenBright(title), bodyConverter(body));
+const bgLime = (title, body) => console.log(colors.bgLime(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
 const bgOrange = (title, body) => console.log(orangeHex(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgPear = (title, body) => console.log(chalk.bgGreen(title), bodyConverter(body));
+const bgPear = (title, body) => console.log(colors.bgPear(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgPlum = (title, body) => console.log(chalk.bgMagentaBright(title), bodyConverter(body));
+const bgPlum = (title, body) => console.log(colors.bgPlum(title), bodyConverter(body));
 /** @param {string} title @param {body} [body] */
-const bgTeal = (title, body) => console.log(chalk.bgCyan(title), bodyConverter(body));
+const bgTeal = (title, body) => console.log(colors.bgTeal(title), bodyConverter(body));
 
-module.exports = {
-    //Chalks
+export {
     banana,
     blueberry,
     cherror,

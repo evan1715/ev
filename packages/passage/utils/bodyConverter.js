@@ -40,4 +40,4 @@ const bodyConverter = (body, noColon = false) => {
     }
 };
 
-module.exports = bodyConverter;
+export default bodyConverter;

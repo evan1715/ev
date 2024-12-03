@@ -23,9 +23,9 @@
  * @property {(req: Request, res: Response, field: string) => string} res - response header
  */
 
-const morgan = require('morgan');
-const bodyConverter = require('../utils/bodyConverter');
-const colors = require('./colors');
+import morgan from 'morgan';
+import bodyConverter from '../utils/bodyConverter.js';
+import * as colors from './colors.js';
 
 /** @param {Response} res */
 const contentLengthStr = (res) => {
@@ -58,4 +58,4 @@ const httpLogger = function ({ ['response-time']: responseTime }, req, res) {
     ].join(' ');
 };
 
-module.exports = morgan(httpLogger);
+export default morgan(httpLogger);
