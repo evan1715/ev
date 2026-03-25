@@ -1,10 +1,10 @@
 {
-    "name": "@1715/passage",
+    "name": "@ev/passage",
     "version": "1.0.0",
     "description": "reusable utility for console logging, fetching, misc utils",
     "author": "Evan McHugh",
-    "repository": "https://github.com/evan1715/1715/tree/master/packages/passage",
-    "license": "MIT",
+    "repository": "https://github.com/evan1715/ev/tree/master/packages/passage",
+    "license": "AGPL-3.0-WITH-Common-Clause",
     "private": false,
     "publishConfig": {
         "access": "public"
@@ -23,12 +23,12 @@
         }
     },
     "dependencies": {
-        "chalk": "^5.3.0",
+        "chalk": "^5.6.2",
         "fetch-retry": "^6.0.0",
-        "morgan": "^1.10.0"
+        "morgan": "^1.10.1"
     },
     "devDependencies": {
-        "@types/morgan": "^1.9.9"
+        "@types/morgan": "^1.9.10"
     },
     "peerDependencies": {
         "@react-native-async-storage/async-storage": "*",
@@ -43,6 +43,6 @@
         }
     },
     "engines": {
-        "node": ">=20"
+        "node": ">=24"
     }
 }

@@ -1,8 +1,8 @@
 /**
  * @typedef {import('../utils/bodyConverter.js').body} body
  */
-import * as colors from './colors.js';
 import bodyConverter from '../utils/bodyConverter.js';
+import * as colors from './colors.js';
 
 const orangeHex = colors.orange;
 

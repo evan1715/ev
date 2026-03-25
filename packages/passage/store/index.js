@@ -8,8 +8,8 @@
  * @import { Middleware } from '@reduxjs/toolkit';
  */
 import * as fruit from '../fruit/index.browser.js';
-import errorToString from '../utils/errorToString.js';
 import bodyConverter from '../utils/bodyConverter.js';
+import errorToString from '../utils/errorToString.js';
 
 /*============================================
                     Middleware

@@ -13,4 +13,4 @@ const useRenderCheck = (componentName = 'Component') => {
     return renderCount.current;
 };
 
-module.exports = useRenderCheck;
+export default useRenderCheck;
