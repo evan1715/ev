@@ -4,7 +4,7 @@
 
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
-const messageOne = document.querySelector('#message-1') //we use # instead of . because # is for id and . is for class
+const messageOne = document.querySelector('#message-1'); //we use # instead of . because # is for id and . is for class
 const messageTwo = document.querySelector('#message-2');
 
 //It's common to see the event callback simply called e instead of event
@@ -13,11 +13,11 @@ weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const searchedLocation = search.value;
 
-    messageOne.textContent = "Loading...";
-    messageTwo.textContent = "";
+    messageOne.textContent = 'Loading...';
+    messageTwo.textContent = '';
 
     //Fetch data from this url and then run this function
-    fetch('/weather?address=' +searchedLocation).then((response) => {
+    fetch('/weather?address=' + searchedLocation).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = data.error;

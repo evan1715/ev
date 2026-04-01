@@ -1,12 +1,13 @@
 //require the core modules before the npm modules, like path before express, in order to stay organized
-const path = require('path'); //core module
-const express = require('express'); //npm module
-const hbs = require('hbs'); //npm module
-const geocode = require('./utils/geocode.js');
-const forecast = require('./utils/forecast.js');
+import path from 'node:path'; //core module
+import express from 'express'; //npm module
+import hbs from 'hbs'; //npm module
+import { forecast } from './utils/forecast.js';
+import { geocode } from './utils/geocode.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
+const __dirname = import.meta.dirname;
 
 //Define paths for Express configuration
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -28,94 +29,84 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicDirectoryPath));
 
 //Set up the route for handlebars
-app.get('', (req, res) => {
+app.get('', (_req, res) => {
     //instead of res.send, we use res.render to render one of our views
     res.render('index.hbs', {
         title: 'Weather App',
-        name: 'Evan'
+        name: 'Evan',
     });
 });
 
-app.get('/about', (req, res) => {
+app.get('/about', (_req, res) => {
     res.render('about.hbs', {
         title: 'About me',
-        name: 'Evan'
+        name: 'Evan',
     });
 });
 
-app.get('/help', (req, res) => {
+app.get('/help', (_req, res) => {
     res.render('help.hbs', {
         title: 'Help page',
         message: 'Just type in a city or area in the search and it will come up!',
-        name: 'Evan'
+        name: 'Evan',
     });
 });
 
-
 //.get takes in two arguments, the first is the route/partial URL, and a function
-app.get('/weather', (req, res) => {
-    const locationInput = req.query.address;
-    
+app.get('/weather', async (req, res) => {
+    const locationInput = /** @type {string} */ (req.query.address);
+
     if (!locationInput) {
         return res.send({
-            error: "You must provide an address."
+            error: 'You must provide an address.',
         });
     }
 
-    //adding = {} creates a default in case the object values are empty/undefined so that geocode does not crash with an error
-    geocode(locationInput, (error, { latitude, longitude, location } = {} ) => {
-        if (error) {
-            return res.send({ error });
-        }
-
-        forecast(latitude, longitude, (error, forecastData) => {
-            if (error) {
-                return res.send({ error });
-            }
-
-            res.send({
-                forecast: forecastData,
-                location: location,
-                address: locationInput
-            });
+    try {
+        const { latitude, longitude, location } = await geocode(locationInput);
+        const forecastData = await forecast(latitude, longitude);
+        res.send({
+            forecast: forecastData,
+            location,
+            address: locationInput,
         });
-    });
+    } catch (/** @type {any} */ err) {
+        res.send({ error: err.message });
+    }
 });
 
 app.get('/products', (req, res) => {
     //we can only respond to a request once, so we add "return" to stop the function execution instead of continuing to the next res.send
     if (!req.query.search) {
         return res.send({
-            error: "You must provide a search term."
+            error: 'You must provide a search term.',
         });
     }
 
     console.log(req.query);
     console.log(req.query.search);
 
-    res.send({
-        products: []
-    });
+    res.send({ products: [] });
 });
 
 //This is going to match any help page that hasn't been matched so far
-app.get('/help/*', (req, res) => {
+app.get('/help/*', (_req, res) => {
     res.render('404.hbs', {
         title: '404',
         message: 'Help article not found.',
-        name: 'Evan'
+        name: 'Evan',
     });
 });
 
 //'*' is a wildcard character in Express that we can use to mean, "match anything that we haven't matched so far."
-app.get('*',  (req, res) => {
+app.get('*', (_req, res) => {
     res.render('404.hbs', {
         title: '404',
         message: 'Page not found.',
-        name: 'Evan'
+        name: 'Evan',
     });
 });
 
 app.listen(port, () => {
-    console.log("Server is up on port " +port +".");
+    console.log('Server is up on port ' + port + '.');
 });

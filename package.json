@@ -9,7 +9,9 @@
     "scripts": {
         "build:passage": "npm run build --workspace=@ev/passage",
         "dev:chat-app": "npm run dev --workspace=@ev/chat-app",
-        "start:chat-app": "npm run start --workspace=@ev/chat-app"
+        "dev:weather-app": "npm run dev --workspace=@ev/weather-app",
+        "start:chat-app": "npm run start --workspace=@ev/chat-app",
+        "start:weather-app": "npm run start --workspace=@ev/weather-app"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.4",
@@ -36,7 +38,8 @@
     },
     "workspaces": [
         "packages\\passage",
-        "projects\\chat-app"
+        "projects\\chat-app",
+        "projects\\weather-app"
     ],
     "engines": {
         "node": ">=24"

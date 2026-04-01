@@ -1,20 +1,34 @@
-const request = require('request');
+const weatherstack = 'http://api.weatherstack.com/current?access_key=';
+const access = '8084de13b9137fc0a77272d776798647';
 
-const forecast = (latitude, longitude, callback) => {
-    const url = "http://api.weatherstack.com/current?access_key=8084de13b9137fc0a77272d776798647&query=" +latitude +"," +longitude +"&units=f";
+/**
+ * @param {number} latitude
+ * @param {number} longitude
+ * @returns {Promise<string>}
+ */
+const forecast = async (latitude, longitude) => {
+    const url = weatherstack + access + '&query=' + latitude + ',' + longitude + '&units=f';
+    const res = await fetch(url);
+    const body = await res.json();
 
-    request ({ url, json: true }, (error, { body }) => {
-        const cr = body.current;
+    if (body.error) {
+        throw new Error('Unable to find location. Try another search.');
+    }
 
-        if (error) {
-            callback("Unable to access location service.", undefined);
-        } else if (body.error) {
-            callback("Unable to find location. Try another search.", undefined);
-        } else {
-            callback(undefined, cr.weather_descriptions[0] +". It is currently " +cr.temperature +"F degrees out at. It feels like " +cr.feelslike +"F degrees. Humidity is at " +cr.humidity +"% with a " +cr.precip +"% chance of raining.");
-        }
+    const cr = body.current;
 
-    })
-}
+    return (
+        cr.weather_descriptions[0] +
+        '. It is currently ' +
+        cr.temperature +
+        'F degrees out at. It feels like ' +
+        cr.feelslike +
+        'F degrees. Humidity is at ' +
+        cr.humidity +
+        '% with a ' +
+        cr.precip +
+        '% chance of raining.'
+    );
+};
 
-module.exports = forecast;
+export { forecast };
