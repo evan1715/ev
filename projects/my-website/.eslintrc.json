@@ -1,0 +1,31 @@
+{
+    "plugins": [
+        "import" //eslint-plugin-import
+    ],
+    "extends": [
+        "next/core-web-vitals", //nextjs
+        "plugin:import/recommended" //eslint-plugin-import
+    ],
+    "rules": {
+        //https://github.com/import-js/eslint-plugin-import#rules
+        "import/default": 0,
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "import/namespace": 0,
+        "import/no-unresolved": [0, { "commonjs": true, "amd": true }],
+
+        //https://eslint.org/docs/rules/space-before-function-paren
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ]
+    },
+    "globals": {
+        "AbortController": "readonly",
+        "Uint8Array": "readonly"
+    }
+}

@@ -1,0 +1,71 @@
+// ~~~ Homepage section ~~~ //
+.intro {
+    align-items: center;
+    background-attachment: fixed;
+    background-image: url("../../images/background/code_coffee.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-left: 1px solid $color-theme-green;
+    border-right: 1px solid $color-theme-green;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    position: relative;
+    &:before {
+        background-color: #000;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+//First section of homepage
+.main-title {
+    font-family: "Gravity-Regular";
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 20px;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.main-center {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 50%;
+}
+
+//Middle section of homepage
+.card-animation {
+    @include animation-border(white);
+}
+
+.middle-section {
+    border-left: 1px solid $color-theme-orange;
+    border-right: 1px solid $color-theme-orange;
+    min-height: 100vh;
+}
+.card-bg {
+    background-attachment: fixed;
+    background-image: url("../../images/background/matrix.gif");
+    background-repeat: repeat;
+    background-size: 30%;
+    padding: 0;
+}
+.card-transparent-bg {
+    background-color: rgba($color: $dark-theme-2, $alpha: 0.75);
+}
+
+//Bottom section of homepage
+.bottom-section {
+    align-items: center;
+    border-left: 1px solid $color-theme-cyan;
+    border-right: 1px solid $color-theme-cyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 75vh;
+}

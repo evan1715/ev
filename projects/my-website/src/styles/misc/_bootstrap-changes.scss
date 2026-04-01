@@ -1,0 +1,123 @@
+// ~~~ Bootstrap nav-tabs ~~~ //
+.nav-tabs {
+    border-bottom: none;
+
+    .nav-link {
+        @include border-radius($nav-tabs-border-radius);
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        @include animation-lines-tb($color-theme-light-green, none);
+        background-color: inherit;
+        border-bottom: none;
+        border-color: $color-theme-cyan;
+        border-top: none;
+    }
+}
+
+
+// ~~~ Bootstrap navbar-dark ~~~ //
+.navbar-dark {
+    .navbar-brand {
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px $color-theme-dark-orange;
+        color: $color-theme-orange;
+        padding: 0.6rem 1.1rem;  //top right bottom left || top&bot left&right
+        &:hover,
+        &:focus {
+            @include animation-lines($color-theme-cyan, white, $color-theme-cyan, $color-theme-dark-green);
+        }
+    }
+    .navbar-brand-active {
+        @include animation-lines($color-theme-orange, $color-theme-orange, none, none);
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px $color-theme-dark-orange;
+        color: $color-theme-orange;
+        padding: 0.6rem 1.1rem;  //top right bottom left || top&bot left&right
+        &:hover,
+        &:focus {
+            @include animation-lines($color-theme-cyan, white, $color-theme-cyan, $color-theme-dark-green);
+        }
+        
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: $color-theme-cyan;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            &:hover,
+            &:focus {
+                color: $color-theme-light-green;
+            }
+        }
+        .show > .nav-link,
+            .nav-link.active {
+                color: $color-theme-light-green;
+            }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .link-#{$color} {
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+// ~~~ Accordion styles ~~~ //
+//Bootstrap accordion button color override
+$bt-abi: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$color-theme-orange}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$bt-abi-active: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$color-theme-light-green}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+
+.accordion-button {
+    color: white; //header text collapsed
+    background-color: $dark-theme-2; //#282828
+    &:not(.collapsed) {
+        color: $color-theme-light-green; //header text, not collapsed
+        background-color: $dark-theme-7; //#444
+        box-shadow: inset 0 ($accordion-border-width * -1) 0 $dark-theme-4;
+
+        &::after {
+            background-image: escape-svg($bt-abi-active);
+        }
+    }
+    // Accordion icon
+    &::after {
+        background-image: escape-svg($bt-abi);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.15rem $color-theme-dark-green;
+    }
+}
+
+.accordion-item {
+    border: $accordion-border-width solid $color-theme-cyan;
+}
+
+//Focus border color
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+    box-shadow: 0 0 0.5rem $color-theme-green;
+    outline: 0 none;
+}
