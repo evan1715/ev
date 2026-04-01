@@ -1,11 +1,50 @@
 {
+    "$schema": "https://json.schemastore.org/prettierrc",
     "arrowParens": "always",
     "bracketSameLine": false,
     "bracketSpacing": true,
+    "jsxSingleQuote": false,
+    "objectWrap": "preserve",
     "printWidth": 110,
+    "quoteProps": "as-needed",
     "semi": true,
+    "singleAttributePerLine": false,
     "singleQuote": true,
     "tabWidth": 4,
     "trailingComma": "es5",
-    "useTabs": false
+    "useTabs": false,
+    "overrides": [
+        {
+            "files": "*.hbs",
+            "options": { "parser": "angular" }
+        },
+        {
+            "files": "*.yml",
+            "options": { "parser": "yaml", "tabWidth": 2 }
+        }
+    ],
+
+    "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+    "importOrder": [
+        "<BUILTIN_MODULES>",
+        "^react$",
+        "^react-dom",
+        "^react-native$",
+        "^react-router-dom$",
+        "^reselect",
+        "^@reduxjs/toolkit",
+        "^react-redux$",
+        "^next",
+        "express",
+        "mongodb$",
+        "mongoose$",
+        "<THIRD_PARTY_MODULES>",
+        "^@ev/passage$",
+        "^(?!.*assets)[./](.*)$",
+        "^(?!.*utils)[./](.*)$",
+        "^(?!.*[.]css$)[./].*$",
+        "^[./]assets/(.*)$"
+    ],
+    "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+    "importOrderTypeScriptVersion": "5.9.3"
 }
