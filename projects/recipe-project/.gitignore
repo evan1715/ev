@@ -1,0 +1,18 @@
+#node_modules
+node_modules/
+
+#config
+server/config/
+
+#database bat file
+startDB.bat
+
+#bundled/compiled
+public/
+
+#test folders
+client/tests/
+server/tests/
+
+#notes folder
+notes/

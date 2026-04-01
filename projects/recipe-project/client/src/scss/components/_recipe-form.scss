@@ -1,0 +1,61 @@
+.recipe-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: $footer-desktop;
+}
+
+.recipe-form__labels {
+    font-size: 18px;
+    font-weight: $font-weight;
+    padding: 10px;
+}
+
+.recipe-form__added-ingredients {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    button {
+        height: auto;
+        padding: 5px 30px 5px 30px; //top right bottom left
+    }
+}
+
+.recipe-form__added-ingredients--list {
+    margin: 20px;
+}
+
+.recipe-form__add-ingredients {
+    display: flex;
+}
+
+.recipe-form__response {
+    font-size: x-large;
+}
+
+.recipe-form__buttons {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: $screen-FW) {
+    .recipe_form {
+        min-height: $footer-desktop;
+    }
+
+    .recipe-form__add-ingredients, .recipe-form__added-ingredients {
+        flex-direction: column;
+    }
+    .recipe-form__add-ingredients {
+        button {
+            height: 40px;
+        }
+    }
+    .recipe-form__added-ingredients--list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 5px;
+    }
+}

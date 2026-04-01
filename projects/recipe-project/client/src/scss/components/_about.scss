@@ -1,0 +1,12 @@
+
+.about-container {
+    min-height: $footer-desktop;
+    margin: auto;
+    width: 70%;
+}
+
+@media screen and (max-width: 1420px) {
+    .about-container {
+        min-height: $footer-mobile;
+    }
+}

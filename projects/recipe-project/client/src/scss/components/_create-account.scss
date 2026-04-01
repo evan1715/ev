@@ -1,0 +1,67 @@
+.create-account {
+    background-image: url("https://i.ibb.co/Tt2pB4v/dust-scratches.png");
+    border-top: 2px solid lightgrey;
+    display: flex;
+    height: 500px;
+    justify-content: center;
+}
+
+.create-account__container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 1400px;
+}
+
+.create-account__container--left {
+    align-items: flex-start;
+    flex: 1;
+    flex-direction: column;
+    margin: 2%;
+    h1 {
+        color: #455059;
+        flex: 1;
+        font-weight: bold;
+    }
+    p {
+        font-size: larger;
+        padding: 0 20px 20px 0;
+    }
+    button {
+        margin-bottom: 30px;
+    }
+}
+
+.create-account__container--right {
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    max-height: 500px;
+    width: 100%;
+    img {
+        border: 2px solid black;
+        box-shadow: 2px 2px 2px 2px grey;
+        max-height: 454px;
+        width: 560px;
+    }
+}
+
+@media screen and (max-width: 1420px) {
+    .create-account {
+        height: 750px;
+        margin-bottom: 3%;
+    }
+    .create-account__container {
+        margin: 10px;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .create-account__container--right {
+        img {
+            width: 90%;
+        }
+    }
+}

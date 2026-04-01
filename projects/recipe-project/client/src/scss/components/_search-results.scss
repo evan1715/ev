@@ -1,0 +1,31 @@
+.search-results {
+    min-height: $footer-desktop;
+}
+
+.search-results__learn-more {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    #learn-more--question {
+        margin: 0;
+        width: 300px;
+    }
+    #learn-more--reason {
+        max-width: 800px;
+    }
+}
+
+.search-results--none {
+    align-items: center;
+    color: darkred;
+    display: flex;
+    font-size: x-large;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1420px) {
+    .search-results {
+        min-height: $footer-mobile;
+    }
+}

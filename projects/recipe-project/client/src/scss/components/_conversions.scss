@@ -1,0 +1,40 @@
+.conversions {
+    min-height: $footer-desktop;
+}
+
+.conversions__table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+tr:nth-child(even) {
+    background-color: darken($color: white, $amount: 20);
+}
+
+th {
+    border-bottom: thin double black;
+    font-size: larger;
+}
+
+td {
+    text-align: center;
+}
+
+.conversions__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.conversions__list--content {
+    margin: auto;
+    text-align: center;
+}
+
+@media screen and (max-width: 1420px) {
+    .conversions {
+        min-height: $footer-mobile;
+    }
+}

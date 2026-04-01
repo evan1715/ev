@@ -1,0 +1,45 @@
+//This file will effect the CreateAccount and SignIn modal, as well as any other modals we may add.
+
+//The greater than sign > is to only target any div that are direct descendants (as opposed to children of children).
+.ReactModalPortal > div {
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center; //flex box
+    display: flex; //flex box
+    justify-content: center;
+    transition: opacity 250ms ease-in-out;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
+}
+
+.modal {
+    background: darken(rgb(240, 240, 240), 40%);
+    color: white;
+    max-width: 350px;
+    padding: 32px;
+    text-align: center;
+}
+
+.modal__pictures {
+    background: darken(rgb(240, 240, 240), 40%);
+    color: white;
+    max-width: 650px;
+    padding: 32px;
+    text-align: center;
+}
+
+.modal__form--input {
+    font-family: $font-family;
+    font-size: 15px;
+    margin: 12px;
+    padding: 12px;
+    width: 80%;
+}

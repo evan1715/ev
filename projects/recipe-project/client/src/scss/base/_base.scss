@@ -1,0 +1,144 @@
+@import './mixins.scss';
+@import './settings.scss';
+
+body {
+    background: rgb(240, 240, 240);
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// All children <Link /> components being rendered from react router will have no underline
+
+li {
+    text-decoration: none;
+    list-style-type: none;
+    > * {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 98vw;
+}
+
+.cursor {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.link-blue {
+    color: darkblue;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.link {
+    &:hover {
+        letter-spacing: 1px;
+        text-decoration-line: underline;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+    font-weight: $font-weight;
+}
+
+//Removing arrows on number inputs:
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    //Chrome, Edge, Opera, Safari
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    //Firefox
+    -moz-appearance: textfield;
+}
+
+.button {
+    width: auto;
+    height: 50px;
+    padding: 0 30px 0 30px; //top right bottom left
+    margin: 10px;
+    color: white;
+    background: $color-theme-brown;
+    border: solid $color-theme-brown 1px;
+    border-radius: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+        background: rgb(240, 240, 240);
+        color: $color-theme-brown;
+        border: solid $color-theme-brown 1px;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
+.button__link {
+    background: $color-theme-brown;
+    border: solid $color-theme-brown 1px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-family: $font-family;
+    font-size: 20px;
+    height: 50px;
+    margin: 10px;
+    padding: 0;
+    width: auto;
+    &:hover {
+        background: rgb(240, 240, 240);
+        color: $color-theme-brown;
+        border: solid $color-theme-brown 1px;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
+.button__link--Link {
+    color: white;
+    padding: 14px 32px 14px 32px; //top right bottom left
+    &:hover {
+        color: $color-theme-brown;
+    }
+}

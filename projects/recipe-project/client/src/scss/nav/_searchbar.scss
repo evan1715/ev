@@ -1,0 +1,36 @@
+// SearchBar
+
+.searchbar {
+    @include flexCenter(space-between);
+    width: 70%; //modified from 90%
+    height: 45px; //modified from 50px
+    border: solid 0.5px black;
+    box-sizing: border-box;
+    input {
+        box-sizing: border-box;
+        width: 95%;
+        height: 100%;
+        font-size: 20px;
+        padding: 1%;
+        border: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        cursor: pointer;
+        min-width: 5%;
+        height: 100%;
+        background: white;
+        border: none;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1420px) {
+    .searchbar {
+        height: 40px;
+    }
+}
