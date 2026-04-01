@@ -120,6 +120,7 @@
     /* Reference other tsconfig files to enhance performance and avoid duplication. */
     "references": [
         { "path": "./packages/passage" },
+        { "path": "./projects/chat-app" },
         { "path": "./projects/weather-app" }
     ],
     "include": ["global.d.ts", "*.js", "*.jsx", "*.ts", "*.tsx"],
@@ -141,7 +142,6 @@
         "**/public",
         "dev",
         "dist",
-        "node_modules",
-
+        "node_modules"
     ]
 }

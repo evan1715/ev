@@ -28,7 +28,7 @@ const autoscroll = () => {
     if (containerHeight - newMessageHeight <= distanceScrolled) {
         $messages.scrollTop = $messages.scrollHeight; //<-- scroll to bottom
     }
-}
+};
 
 socket.on('message', (message) => {
     console.log(message);
@@ -36,7 +36,7 @@ socket.on('message', (message) => {
     const html = Mustache.render(messageTemplate, {
         username: message.username,
         message: message.text,
-        createdAt: moment(message.createdAt).format('h:mm a')
+        createdAt: moment(message.createdAt).format('h:mm a'),
     });
     //.insertAdjacentHTML will render stuff inside messages.
     //afterbegin would add it at the top, meaning newer messages would show up first inside the div.
@@ -52,7 +52,7 @@ socket.on('locationMessage', (message) => {
     const html = Mustache.render(locationMessageTemplate, {
         username: message.username,
         url: message.url,
-        createdAt: moment(message.createdAt).format('h:mm a')
+        createdAt: moment(message.createdAt).format('h:mm a'),
     });
     $messages.insertAdjacentHTML('beforeend', html);
     autoscroll();
@@ -61,7 +61,7 @@ socket.on('locationMessage', (message) => {
 socket.on('roomInfo', ({ room, users }) => {
     const html = Mustache.render(sidebarTemplate, {
         room: room,
-        users: users
+        users: users,
     });
     document.querySelector('#sidebar').innerHTML = html;
 });
@@ -74,7 +74,7 @@ $messageForm.addEventListener('submit', (e) => {
 
     //const message = document.querySelector('input').value;
     const message = e.target.elements.message.value; //alternative way to get the input
-    
+
     socket.emit('sendMessage', message, (error) => {
         //This will re-enable the button once it's been sent.
         $messageFormButton.removeAttribute('disabled');
@@ -93,7 +93,6 @@ $messageForm.addEventListener('submit', (e) => {
 //The name of the event here MUST match the name of the event in index.js, however the argument does not need to be the same.
 //To access the button from the .html file, we'll use document.querySelector('#increment');
 
-
 // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API
 $sendLocationButton.addEventListener('click', () => {
     if (!navigator.geolocation) {
@@ -106,14 +105,18 @@ $sendLocationButton.addEventListener('click', () => {
     //Does not support async, so will use callback method.
     navigator.geolocation.getCurrentPosition((position) => {
         // console.log(position);
-        socket.emit('sendLocation', {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-        }, () => {
-            //Remove the disabled button attribute, re-enabling it once completed.
-            $sendLocationButton.removeAttribute('disabled');
-            console.log("Location shared!");
-        });
+        socket.emit(
+            'sendLocation',
+            {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+            },
+            () => {
+                //Remove the disabled button attribute, re-enabling it once completed.
+                $sendLocationButton.removeAttribute('disabled');
+                console.log('Location shared!');
+            }
+        );
     });
 });
 
