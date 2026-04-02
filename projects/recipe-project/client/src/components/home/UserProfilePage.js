@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
@@ -14,21 +14,24 @@ const UserProfilePage = () => {
     const [userRecipes, setUserRecipes] = useState();
     const user_id = location.search.split('?id=')[1]; //get the user's id off the url string
 
-    useEffect(async () => {
-        //If we already have the same thing stored, no need to retrieve it.
-        if (userProfile.user._id !== user_id) {
-            dispatch(showLoading());
-            const user = await (await fetch(`/user/profile/${user_id}`)).json();
-            const recipes = await (await fetch(`/recipes/user/${user.username}`)).json();
-            dispatch(profileUserAction(user));
-            dispatch(profileRecipesAction(recipes));
-            setUsername(user.username);
-            setUserRecipes(recipes);
-            dispatch(hideLoading());
-        } else {
-            setUsername(userProfile.user.username);
-            setUserRecipes(userProfile.recipes);
-        }
+    useEffect(() => {
+        const run = async () => {
+            //If we already have the same thing stored, no need to retrieve it.
+            if (userProfile.user._id !== user_id) {
+                dispatch(showLoading());
+                const user = await (await fetch(`/user/profile/${user_id}`)).json();
+                const recipes = await (await fetch(`/recipes/user/${user.username}`)).json();
+                dispatch(profileUserAction(user));
+                dispatch(profileRecipesAction(recipes));
+                setUsername(user.username);
+                setUserRecipes(recipes);
+                dispatch(hideLoading());
+            } else {
+                setUsername(userProfile.user.username);
+                setUserRecipes(userProfile.recipes);
+            }
+        };
+        run();
     }, []);
 
     return (

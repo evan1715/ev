@@ -1,6 +1,6 @@
 import processData from '../utils/processData.js';
 
-//PROFILE_RECIPES
+/** @param {object[]} data - Array of recipe objects belonging to the viewed user. */
 const profileRecipesAction = (data) => {
     const recipes = processData(data);
 
@@ -10,7 +10,7 @@ const profileRecipesAction = (data) => {
     };
 };
 
-//PROFILE_USER
+/** @param {object} user - The public user profile object. */
 const profileUserAction = (user) => ({
     type: 'PROFILE_USER',
     user: user,

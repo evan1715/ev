@@ -1,5 +1,3 @@
-import React from 'react';
-
 const AboutPage = () => (
     <div className="about-container">
         <h1 className="center title">About</h1>

@@ -1,4 +1,3 @@
-import React from 'react';
 import CreateAccount from './CreateAccount.js';
 import RecipeRoulette from './RecipeRoulette.js';
 

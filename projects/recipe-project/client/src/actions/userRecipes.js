@@ -2,13 +2,13 @@ import processData from '../utils/processData.js';
 
 //This file deals with user created recipes.
 
-//Submit a recipe
+/** @param {object} data - The newly submitted recipe returned from the server. */
 const submitRecipeAction = (data) => ({
     type: 'SUBMIT_RECIPE',
     recipe: data,
 });
 
-//MY_RECIPES
+/** @param {object[]} data - Array of the authenticated user's recipe objects. */
 const myRecipesAction = (data) => {
     const recipes = processData(data);
 

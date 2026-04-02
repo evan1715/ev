@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearSelectedRecipeAction } from '../../actions/selectedRecipe.js';
 import { clearErrorAction } from '../../actions/serverError.js';
-import recipeServerAPI from '../../database/recipeServerAPI';
+import recipeServerAPI from '../../database/recipeServerAPI.js';
 
 const RecipeForm = (props) => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const userState = useSelector((state) => state.accountReducer);
     const selectedRecipe = useSelector((state) => state.selectedRecipeReducer);
     const serverError = useSelector((state) => state.serverErrorReducer);
@@ -45,7 +45,7 @@ const RecipeForm = (props) => {
     const handleCancel = () => {
         dispatch(clearErrorAction());
         dispatch(clearSelectedRecipeAction());
-        history.push('/myrecipes');
+        navigate('/myrecipes');
     };
 
     //Add the ingredients with the details of amount, measurement, item type to an array.

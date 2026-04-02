@@ -1,7 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+/**
+ * Right sidebar showing the user's profile icon and a link to their public profile.
+ * @param {{ isPublic: boolean }} props
+ */
 const RightColumn = (props) => {
     const { user } = useSelector((state) => state.accountReducer);
     const userProfile = useSelector((state) => state.userProfileReducer.user);

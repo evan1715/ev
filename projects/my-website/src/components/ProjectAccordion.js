@@ -1,3 +1,8 @@
+/**
+ * Project accordion component. Displays detailed project entries with carousels,
+ * links, descriptions, and an optional README viewer.
+ * @module components/ProjectAccordion
+ */
 //React
 import { useEffect, useState } from 'react';
 //NextJS
@@ -78,12 +83,21 @@ const ProjectAccordion = () => {
     ];
     const weatherApp = [weather_app, weather_app2];
 
+    /**
+     * Opens the fullscreen modal carousel for the given project index.
+     * @param {number} selected
+     */
     const handleShow = (selected) => {
         setSelectedImage(selected);
         setFullscreen('');
         setShow(true);
     };
 
+    /**
+     * Sets the active accordion item and optionally pushes a hash route.
+     * @param {number} index
+     * @param {string} route
+     */
     const handleSelected = (index, route) => {
         setSelectedProject(index);
         if (route) {

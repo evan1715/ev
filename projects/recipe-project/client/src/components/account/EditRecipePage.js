@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearSelectedRecipeAction } from '../../actions/selectedRecipe.js';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
@@ -7,7 +7,7 @@ import RecipeForm from './RecipeForm.js';
 
 const EditRecipePage = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const userRecipe = useSelector((state) => state.userRecipesReducer);
     const selectedRecipe = useSelector((state) => state.selectedRecipeReducer);
     const [approvePush, setApprovePush] = useState(false);
@@ -23,12 +23,12 @@ const EditRecipePage = () => {
 
     useEffect(() => {
         if (approvePush) {
-            history.push('/myrecipes');
+            navigate('/myrecipes');
             dispatch(clearSelectedRecipeAction());
         }
         //If a user is visiting this page without selecting it from /myrecipes, redirect them to /myrecipes.
         if (!selectedRecipe.title) {
-            history.push('/myrecipes');
+            navigate('/myrecipes');
         }
     }, [userRecipe]);
 

@@ -1,5 +1,10 @@
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 
+/**
+ * Redux thunk that fetches random recipes from the Spoonacular API.
+ * @param {string} url - The Spoonacular random recipes endpoint URL.
+ * @param {number} number - How many random recipes to fetch.
+ */
 const handleRecipeRoulette = (url, number) => async (dispatch) => {
     dispatch(showLoading());
 

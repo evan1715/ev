@@ -31,13 +31,18 @@ import { viewRecipeAction } from '../actions/selectedRecipe.js';
 import { serverErrorAction } from '../actions/serverError.js';
 import { deleteRecipeAction, myRecipesAction, submitRecipeAction } from '../actions/userRecipes.js';
 
-//Take in the call. Based on type, send it to a function as well as what's being passed into it (config).
+/**
+ * //Take in the call. Based on type, send it to a function as well as what's being passed into it (config).
+ * @param {string} type - The API action type.
+ * @param {any} [config] - The configuration payload for the action.
+ * @returns {any}
+ */
 const recipeServerAPI = (type, config) => {
     switch (type) {
         case 'submitRecipe': //post
             return submitRecipe(config); //token & recipe form
         case 'allRecipes': //get all recipes, non-auth
-            return allRecipes(config);
+            return allRecipes();
         case 'myRecipes': //get a user's recipes
             return myRecipes(config); //username
         case 'getRecipe': //get by recipe id
@@ -50,6 +55,8 @@ const recipeServerAPI = (type, config) => {
             return uploadPictures(config); //token & pictures
         case 'deletePictures': //delete
             return deletePictures(config); //token & id
+        default:
+            return;
     }
 };
 

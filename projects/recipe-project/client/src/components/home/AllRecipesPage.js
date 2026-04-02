@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showLoading } from 'react-redux-loading-bar';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
@@ -12,15 +12,18 @@ const AllRecipesPage = () => {
     const [userNames, setUsernames] = useState([]);
 
     useEffect(() => {
-        //Only get it if we don't already have it.
-        if (!allRecipes.length && allRecipes.length !== 0) {
-            dispatch(showLoading());
-            dispatch(recipeServerAPI('allRecipes'));
-        }
-        //Get the usernames if we have recipes and if we don't already have their usernames stored.
-        if (allRecipes.length && !recipeOwners.length) {
-            dispatch(processUsernames(allRecipes));
-        }
+        const run = async () => {
+            //Only get it if we don't already have it.
+            if (!allRecipes.length && allRecipes.length !== 0) {
+                dispatch(showLoading());
+                dispatch(recipeServerAPI('allRecipes'));
+            }
+            //Get the usernames if we have recipes and if we don't already have their usernames stored.
+            if (allRecipes.length && !recipeOwners.length) {
+                dispatch(processUsernames(allRecipes));
+            }
+        };
+        run();
     }, [allRecipes]);
 
     useEffect(() => {

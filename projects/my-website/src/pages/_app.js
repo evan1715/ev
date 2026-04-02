@@ -1,9 +1,14 @@
-import Head from 'next/head.js';
+/**
+ * Custom Next.js App component. Wraps all pages with Navigation, Footer, and global styles.
+ * @module pages/_app
+ */
+import Head from 'next/head';
 import Container from 'react-bootstrap/Container';
 import '../styles/globals.scss';
 import Footer from '../components/Footer.js';
 import Navigation from '../components/Navigation.js';
 
+/** @param {import('next/app').AppProps} props */
 function MyApp({ Component, pageProps }) {
     return (
         <>

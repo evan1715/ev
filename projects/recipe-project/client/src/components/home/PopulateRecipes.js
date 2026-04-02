@@ -1,6 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * Renders a grid of recipe cards with links, images, and metadata.
+ * @param {{ recipes: object[], users?: string[] }} props
+ */
 const PopulateRecipes = (props) => (
     <div className="grid-container">
         {props.recipes &&
@@ -8,9 +11,7 @@ const PopulateRecipes = (props) => (
                 <ol key={recipe._id ? recipe._id : recipe.id} className="grid-item">
                     <Link
                         className="link"
-                        to={() =>
-                            recipe._id ? `/recipe?id=${recipe._id}` : `/recipe?type=spoon?id=${recipe.id}`
-                        }
+                        to={recipe._id ? `/recipe?id=${recipe._id}` : `/recipe?type=spoon?id=${recipe.id}`}
                     >
                         <h3>{recipe.title}</h3>
                     </Link>

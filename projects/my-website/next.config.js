@@ -1,13 +1,14 @@
-module.exports = {
+/**
+ * Next.js configuration.
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
     reactStrictMode: true,
     images: {
         unoptimized: true,
     },
-    swcMinify: true,
-    
-    //NextJS builds up cache too much. Clean it up.
-    // webpack: (config, options) => {
-    //     config.output.clean = true;
-    //     return config;
-    // }
-}
+    // output: 'export' enables static HTML export (replaces `next export` CLI command)
+    output: 'export',
+};
+
+export default nextConfig;

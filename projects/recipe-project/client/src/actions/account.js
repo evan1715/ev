@@ -1,4 +1,7 @@
-//LOG_IN
+/**
+ * @param {object} user
+ * @param {string} [token]
+ */
 const loginAction = (user, token) => {
     if (token) {
         return {
@@ -23,32 +26,35 @@ const loginAction = (user, token) => {
     }
 };
 
-//LOG_OUT
+/** @param {string} token */
 const logoutAction = (token) => ({
     type: 'LOGOUT',
     token: token,
 });
 
-//GET_USER
+/** @param {object} profile */
 const getUserAction = (profile) => ({
     type: 'GET_USER',
     user: profile,
 });
 
-//UPDATE_USER
+/**
+ * @param {object} user
+ * @param {string} token
+ */
 const updateUserAction = (user, token) => ({
     type: 'UPDATE_USER',
     user: user,
     token: token,
 });
 
-//GET_USER_ICON
+/** @param {string} icon */
 const getIconAction = (icon) => ({
     type: 'GET_USER_ICON',
     icon: icon,
 });
 
-//DELETE_USER_ICON
+/** @param {object} [user] */
 const deleteUserIconAction = (user) => ({
     type: 'DELETE_USER_ICON',
     user: user,

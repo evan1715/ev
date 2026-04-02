@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearSelectedRecipeAction } from '../../actions/selectedRecipe.js';
 import { clearUserRecipesAction } from '../../actions/userRecipes.js';
@@ -10,7 +10,7 @@ import SignInModal from './SignInModal.js';
 
 const NavTop = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const { token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
     const [openCreateAccountModal, setOpenCreateAccountModal] = useState('');
     const [openSigninModal, setOpenSigninModal] = useState(false);
@@ -19,7 +19,7 @@ const NavTop = () => {
         dispatch(userServerAPI('logout', token)); //logout from local and server
         dispatch(clearSelectedRecipeAction());
         dispatch(clearUserRecipesAction());
-        history.push('/'); //redirect them to the homepage once logged out
+        navigate('/'); //redirect them to the homepage once logged out
     };
 
     return (

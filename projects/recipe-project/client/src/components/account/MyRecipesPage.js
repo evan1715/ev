@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { showLoading } from 'react-redux-loading-bar';
@@ -13,7 +13,7 @@ Modal.setAppElement('#root');
 
 const MyRecipesPage = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const { user, token } = useSelector((state) => state.accountReducer);
     const userRecipes = useSelector((state) => state.userRecipesReducer);
     const [selectedRecipe, setSelectedRecipe] = useState();
@@ -23,7 +23,7 @@ const MyRecipesPage = () => {
 
     const handleEditRecipe = (recipe) => {
         dispatch(editRecipeAction(recipe));
-        history.push(`/editrecipe?${recipe._id}`);
+        navigate(`/editrecipe?${recipe._id}`);
     };
 
     const handleDeleteRecipe = (recipe_id) => {

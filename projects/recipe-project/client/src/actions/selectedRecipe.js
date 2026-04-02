@@ -1,6 +1,6 @@
 import processData from '../utils/processData.js';
 
-//SELECTED_RECIPE
+/** @param {object} data - A single recipe object from the server. */
 const viewRecipeAction = (data) => {
     let recipe = data;
 
@@ -14,7 +14,7 @@ const viewRecipeAction = (data) => {
     };
 };
 
-//EDIT_RECIPE
+/** @param {object} recipe - The recipe to set for editing. */
 const editRecipeAction = (recipe) => ({
     type: 'EDIT_RECIPE',
     recipe,

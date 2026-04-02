@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { showLoading } from 'react-redux-loading-bar';
@@ -11,58 +11,64 @@ const ViewRecipePage = () => {
     const userRecipe = useSelector((state) => state.selectedRecipeReducer);
     const [username, setUsername] = useState('Account Not Found');
     const spoon = location.search.split('?type=')[1];
-    let slideIndex = 1;
+    const slideIndexRef = useRef(1);
 
-    const plusSlides = (n) => showSlides((slideIndex += n));
-    const currentSlide = (n) => showSlides((slideIndex = n));
+    const plusSlides = (n) => showSlides((slideIndexRef.current += n));
+    const currentSlide = (n) => showSlides((slideIndexRef.current = n));
     const showSlides = (n) => {
-        let slides = document.getElementsByClassName('pictures-slides');
+        const slides = document.getElementsByClassName('pictures-slides');
 
         //If n is more than the total slide because of "next" button, return to the first one.
         if (n > slides.length) {
-            slideIndex = 1;
+            slideIndexRef.current = 1;
         }
         //If n is less than one because of "prev" button, return to the last one.
         if (n < 1) {
-            slideIndex = slides.length;
+            slideIndexRef.current = slides.length;
         }
 
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = 'none';
+        for (const slide of slides) {
+            slide.style.display = 'none';
         }
 
-        slides[slideIndex - 1].style.display = 'block';
+        slides[slideIndexRef.current - 1].style.display = 'block';
     };
 
-    useEffect(async () => {
-        const id = location.search.split('?id=')[1];
-        const key = '?apiKey=3273002619e04c89b625192940c7dbb1';
+    useEffect(() => {
+        const run = async () => {
+            const id = location.search.split('?id=')[1];
+            const key = '?apiKey=3273002619e04c89b625192940c7dbb1';
 
-        //Check if this recipe is already stored before fetching again.
-        if (userRecipe._id !== id && !spoon) {
-            dispatch(showLoading());
-            dispatch(recipeServerAPI('getRecipe', id));
-        }
+            //Check if this recipe is already stored before fetching again.
+            if (userRecipe._id !== id && !spoon) {
+                dispatch(showLoading());
+                dispatch(recipeServerAPI('getRecipe', id));
+            }
 
-        if (spoon) {
-            const spoonRecipe = await (
-                await fetch(`https://api.spoonacular.com/recipes/${id}/information${key}`)
-            ).json();
-            dispatch(viewRecipeAction(spoonRecipe));
-            console.log(spoonRecipe);
-        }
+            if (spoon) {
+                const spoonRecipe = await (
+                    await fetch(`https://api.spoonacular.com/recipes/${id}/information${key}`)
+                ).json();
+                dispatch(viewRecipeAction(spoonRecipe));
+                console.log(spoonRecipe);
+            }
+        };
+        run();
     }, []);
 
-    useEffect(async () => {
-        //Only call the slideshow if there is any pictures.
-        if (userRecipe.pictures && userRecipe.pictures.length > 0) {
-            showSlides(slideIndex);
-        }
-        //Only send this out if we got anything.
-        if (location.search.split('?id=')[1] === userRecipe._id) {
-            const data = await (await fetch(`/user/username/${userRecipe.owner}`)).json();
-            setUsername(data.username);
-        }
+    useEffect(() => {
+        const run = async () => {
+            //Only call the slideshow if there is any pictures.
+            if (userRecipe.pictures && userRecipe.pictures.length > 0) {
+                showSlides(slideIndexRef.current);
+            }
+            //Only send this out if we got anything.
+            if (location.search.split('?id=')[1] === userRecipe._id) {
+                const data = await (await fetch(`/user/username/${userRecipe.owner}`)).json();
+                setUsername(data.username);
+            }
+        };
+        run();
     }, [userRecipe.pictures]);
 
     return (

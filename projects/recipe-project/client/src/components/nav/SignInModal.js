@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { clearErrorAction } from '../../actions/serverError.js';
@@ -7,6 +7,10 @@ import userServerAPI from '../../database/userServerAPI.js';
 //Modal requires us to pass in the main <div> to Modal.setAppElement. In this project's case, it's #root since that's what React is in the index.html.
 Modal.setAppElement('#root');
 
+/**
+ * Modal for signing in to an existing user account.
+ * @param {{ openSigninModal: boolean, handleCloseModal: function }} props
+ */
 const SignInModal = (props) => {
     const dispatch = useDispatch();
     const serverResponse = useSelector((state) => state.accountReducer);
@@ -27,14 +31,10 @@ const SignInModal = (props) => {
     };
 
     useEffect(() => {
-        if (serverError.error) {
-            setResponse(serverError.error);
-        }
         if (serverResponse.token) {
-            setResponse('');
             props.handleCloseModal();
         }
-    }, [serverResponse, serverError]);
+    }, [serverResponse.token, props.handleCloseModal]);
 
     return (
         <Modal
@@ -68,7 +68,7 @@ const SignInModal = (props) => {
             </form>
             {
                 /* If there's a response, then show the response to the user here. */
-                response && <p>{response}</p>
+                (response || serverError.error) && <p>{response || serverError.error}</p>
             }
             <button className="button" onClick={props.handleCloseModal} title="Close">
                 Close

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearSelectedRecipeAction } from '../../actions/selectedRecipe.js';
 import { clearUserRecipesAction } from '../../actions/userRecipes.js';
@@ -11,7 +11,7 @@ import SignInModal from './SignInModal.js';
 
 const NavPopout = () => {
     const dispatch = useDispatch();
-    const history = useHistory(); //hook that uses history npm package
+    const navigate = useNavigate(); //hook that uses history npm package
     const { user, token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
     const [openSigninModal, setOpenSigninModal] = useState(false);
     const [openCreateAccountModal, setOpenCreateAccountModal] = useState('');
@@ -23,16 +23,20 @@ const NavPopout = () => {
         dispatch(userServerAPI('logout', token)); //logout from local and server
         dispatch(clearSelectedRecipeAction());
         dispatch(clearUserRecipesAction());
-        history.push('/'); //redirect them to the homepage once logged out
+        navigate('/'); //redirect them to the homepage once logged out
     };
 
-    window.onclick = function () {
-        if (showMenu && toggle) {
-            setShowMenu(false);
-        } else {
-            setToggle(true);
-        }
-    };
+    useEffect(() => {
+        const handleClick = () => {
+            if (showMenu && toggle) {
+                setShowMenu(false);
+            } else {
+                setToggle(true);
+            }
+        };
+        window.addEventListener('click', handleClick);
+        return () => window.removeEventListener('click', handleClick);
+    }, [showMenu, toggle]);
 
     return (
         <div className="nav-popout">

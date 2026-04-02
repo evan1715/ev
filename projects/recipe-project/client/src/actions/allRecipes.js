@@ -2,7 +2,7 @@ import processData from '../utils/processData.js';
 
 //This file deals with all recipes.
 
-//ALL_RECIPES
+/** @param {object[]} data - Raw array of recipe objects from the server. */
 const allRecipesAction = (data) => {
     const recipes = processData(data);
 
@@ -12,13 +12,13 @@ const allRecipesAction = (data) => {
     };
 };
 
-//RECIPE_OWNERS
+/** @param {string[]} usernames - Array of owner usernames matching recipe order. */
 const recipeOwnersAction = (usernames) => ({
     type: 'RECIPE_OWNERS',
     usernames,
 });
 
-//SEARCH_RESULTS
+/** @param {object | object[]} data - Search result data from Spoonacular or server. */
 const searchResultsAction = (data) => {
     let recipes = data;
 

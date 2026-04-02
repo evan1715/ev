@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-//Account components/authorized only pages.
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import EditRecipePage from '../components/account/EditRecipePage.js';
 import MyAccountPage from '../components/account/MyAccountPage.js';
 import MyRecipesPage from '../components/account/MyRecipesPage.js';
@@ -8,8 +7,6 @@ import SubmitRecipePage from '../components/account/SubmitRecipePage.js';
 import AboutPage from '../components/home/AboutPage.js';
 import AllRecipesPage from '../components/home/AllRecipesPage.js';
 import ConversionsPage from '../components/home/ConversionsPage.js';
-//Normal import method.
-//Home components/non-authorized pages.
 import HomePage from '../components/home/HomePage.js';
 import SearchResultsPage from '../components/home/SearchResultsPage.js';
 import UserProfilePage from '../components/home/UserProfilePage.js';
@@ -36,33 +33,50 @@ import UserRoute from './UserRoute.js'; //private routes
 const AppRouter = () => (
     <Router>
         <Nav />
-        <React.Suspense fallback={<p className="center">Loading...</p>}>
-            <Switch>
-                <Route exact path={'/'} component={HomePage} />
-
-                <Route path={'/allrecipes'} component={AllRecipesPage} />
-
-                <Route path={'/conversions'} component={ConversionsPage} />
-
-                <Route path={'/about'} component={AboutPage} />
-
-                <Route path={'/recipe'} component={ViewRecipePage} />
-
-                <Route path={'/user'} component={UserProfilePage} />
-
-                <Route path={'/search'} component={SearchResultsPage} />
-
-                <UserRoute path="/editrecipe" component={EditRecipePage} />
-
-                <UserRoute path="/myaccount" component={MyAccountPage} />
-
-                <UserRoute path="/myrecipes" component={MyRecipesPage} />
-
-                <UserRoute path="/submitrecipe" component={SubmitRecipePage} />
-
-                <Route render={() => <h1 className="center">404: Page Not Found</h1>} />
-            </Switch>
-        </React.Suspense>
+        <Routes>
+            <React.Suspense fallback={<p className="center">Loading...</p>}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/allrecipes" element={<AllRecipesPage />} />
+                <Route path="/conversions" element={<ConversionsPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/recipe" element={<ViewRecipePage />} />
+                <Route path="/user" element={<UserProfilePage />} />
+                <Route path="/search" element={<SearchResultsPage />} />
+                <Route
+                    path="/editrecipe"
+                    element={
+                        <UserRoute>
+                            <EditRecipePage />
+                        </UserRoute>
+                    }
+                />
+                <Route
+                    path="/myaccount"
+                    element={
+                        <UserRoute>
+                            <MyAccountPage />
+                        </UserRoute>
+                    }
+                />
+                <Route
+                    path="/myrecipes"
+                    element={
+                        <UserRoute>
+                            <MyRecipesPage />
+                        </UserRoute>
+                    }
+                />
+                <Route
+                    path="/submitrecipe"
+                    element={
+                        <UserRoute>
+                            <SubmitRecipePage />
+                        </UserRoute>
+                    }
+                />
+                <Route path="*" element={<h1 className="center">404: Page Not Found</h1>} />
+            </React.Suspense>
+        </Routes>
         <Footer />
     </Router>
 );

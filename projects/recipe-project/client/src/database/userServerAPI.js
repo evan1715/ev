@@ -35,6 +35,12 @@ import {
 } from '../actions/account.js';
 import { serverErrorAction } from '../actions/serverError.js';
 
+/**
+ * Dispatches a user API action based on the given type.
+ * @param {string} type - The API action type.
+ * @param {any} [config] - The configuration payload for the action.
+ * @returns {any}
+ */
 const userServerAPI = (type, config) => {
     switch (type) {
         case 'createAccount':
@@ -57,9 +63,12 @@ const userServerAPI = (type, config) => {
             return getIcon(config);
         case 'deleteIcon':
             return deleteIcon(config);
+        default:
+            return;
     }
 };
 
+/** @param {Response} res */
 const handleResponse = (res) => {
     if (res.ok) {
         //if res.status = 200-299
@@ -72,16 +81,17 @@ const handleResponse = (res) => {
     return res.json();
 };
 
+/** @param {any} data */
 const handleMongoError = (data) => {
-    var message;
+    let message;
 
     if (data.keyPattern) {
         if (data.keyPattern.username) {
-            message = `The username \"${data.keyValue.username}\" is already taken!`;
+            message = `The username "${data.keyValue.username}" is already taken!`;
         }
 
         if (data.keyPattern.email) {
-            message = `The email \"${data.keyValue.email}\" is already being used!`;
+            message = `The email "${data.keyValue.email}" is already being used!`;
         }
     } else if (data.errors) {
         //email handler
@@ -138,8 +148,11 @@ const handleMongoError = (data) => {
     return message;
 };
 
+/**
+ * @param {unknown} error
+ */
 const handleCatchError = (error) => {
-    console.log('Response error message: ', error.message);
+    console.log('Response error message: ', error instanceof Error ? error.message : error);
 };
 
 //Contact the server to create an account and dispatch what the server responds with.

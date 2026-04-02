@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
@@ -20,9 +20,9 @@ const ModifyPicturesModal = (props) => {
         }
 
         //Check the file type
-        for (let i = 0; i < pictureFiles.length; i++) {
-            console.log('File type attempted to upload:', pictureFiles[i].type);
-            if (!pictureFiles[i].type.match(/(png|jpg|jpeg|bmp)/)) {
+        for (const file of pictureFiles) {
+            console.log('File type attempted to upload:', file.type);
+            if (!file.type.match(/(png|jpg|jpeg|bmp)/)) {
                 return setResponse('Not a supported file type.');
             }
         }

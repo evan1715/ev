@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { showLoading } from 'react-redux-loading-bar';
@@ -9,10 +9,9 @@ const MyLeftColumn = (props) => {
     const { user } = useSelector((state) => state.accountReducer);
     const userRecipes = useSelector((state) => state.userRecipesReducer);
     const userProfile = useSelector((state) => state.userProfileReducer);
-    const [recent, setRecent] = useState([]);
 
-    const recentRecipes = () => {
-        //Select which reducer on if we're viewing our own or a public profile.
+    //Select which reducer based on whether we're viewing our own or a public profile.
+    const recent = useMemo(() => {
         const length = !props.isPublic ? userRecipes.length : userProfile.recipes.length;
         const list = !props.isPublic ? userRecipes : userProfile.recipes;
         const recipes = [];
@@ -21,8 +20,8 @@ const MyLeftColumn = (props) => {
             recipes.push(list[length - i]);
         }
 
-        setRecent(recipes);
-    };
+        return recipes;
+    }, [userRecipes, userProfile, props.isPublic]);
 
     useEffect(() => {
         //Only get this if we don't already have it and if it's the current user's.
@@ -33,11 +32,6 @@ const MyLeftColumn = (props) => {
             }
         }
     }, []);
-
-    useEffect(() => {
-        //Run this if either change and on load.
-        recentRecipes();
-    }, [userRecipes, userProfile]);
 
     return (
         <div className="columns__left">

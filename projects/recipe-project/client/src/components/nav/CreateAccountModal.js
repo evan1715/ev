@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { clearErrorAction } from '../../actions/serverError.js';
@@ -32,12 +32,6 @@ const CreateAccountModal = (props) => {
             dispatch(clearErrorAction());
         }
     };
-
-    useEffect(() => {
-        if (serverError.error) {
-            setResponse(serverError.error);
-        }
-    }, [serverError]);
 
     return (
         <Modal
@@ -106,7 +100,7 @@ const CreateAccountModal = (props) => {
             </form>
             {
                 /* If there's a response, then show the response to the user here. */
-                response && <p>{response}</p>
+                (response || serverError.error) && <p>{response || serverError.error}</p>
             }
             <button className="button" onClick={props.handleCloseModal} title="Close">
                 Close

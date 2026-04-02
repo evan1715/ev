@@ -1,5 +1,4 @@
-import React from 'react';
-
+/** Conversions reference page for cooking measurements. */
 const ConversionsPage = () => (
     <div className="conversions">
         <h1 className="center title">Conversions for your deliciousness</h1>

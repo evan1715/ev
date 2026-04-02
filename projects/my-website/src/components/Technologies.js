@@ -1,3 +1,8 @@
+/**
+ * Technology proficiencies component. Displays technology logos
+ * in a grid (desktop) or a rotating carousel (mobile).
+ * @module components/Technologies
+ */
 //NextJS
 import Image from 'next/image';
 import express from '../images/logos/express.svg';
@@ -19,6 +24,7 @@ import react from '../images/logos/react.svg';
 import redux from '../images/logos/redux.svg';
 import sass from '../images/logos/sass.svg';
 
+/** @param {{ mobile: boolean }} props */
 const Technologies = (props) => {
     const images = [
         'HTML',
@@ -55,7 +61,6 @@ const Technologies = (props) => {
 
     return (
         <Container className="mt-1 mb-4">
-            {' '}
             {!props.mobile ? (
                 <>
                     <h2 className="p-2">Technology Proficiencies</h2>
@@ -103,9 +108,9 @@ const Technologies = (props) => {
                                             <span id="mustache-logo">{'}'}</span>
                                             {/* <Image
                                     alt={ `${tech} icon` }
-                                    src={ mustache } 
-                                    height={ 128 } 
-                                    width={ 128 } 
+                                    src={ mustache }
+                                    height={ 128 }
+                                    width={ 128 }
                                 /> */}
                                         </Carousel.Item>
                                     );

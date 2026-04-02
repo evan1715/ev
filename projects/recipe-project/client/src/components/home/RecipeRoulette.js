@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Transition } from 'react-transition-group';
-import handleRecipeRoulette from '../../actions/recipe-roulette';
+import handleRecipeRoulette from '../../actions/recipe-roulette.js';
 
 // Recipe Roulette idea: This component will display 10 cards each containing a random recipe. If the user doesn't like any of the recipes on the
 // cards, then some animation will trigger and continue until 10 new recipes have been received from the API and can be displayed
@@ -74,8 +74,8 @@ const RecipeRoulette = () => {
                                         rotate="0"
                                     >
                                         <path
-                                            d="M512 96c-229.8 0-416 186.2-416 416s186.2 416 416 416c229.8 0 416-186.2 416-416s-186.2-416-416-416zM512 
-                                        893.4c-210.2 0-381.4-171-381.4-381.4 0-210.2 171-381.4 381.4-381.4 210.2 0 381.4 171 381.4 381.4 0 210.2-171.2 
+                                            d="M512 96c-229.8 0-416 186.2-416 416s186.2 416 416 416c229.8 0 416-186.2 416-416s-186.2-416-416-416zM512
+                                        893.4c-210.2 0-381.4-171-381.4-381.4 0-210.2 171-381.4 381.4-381.4 210.2 0 381.4 171 381.4 381.4 0 210.2-171.2
                                         381.4-381.4 381.4z M512 512h-192v34.6h226.6v-290.6h-34.6z"
                                         />
                                     </svg>{' '}

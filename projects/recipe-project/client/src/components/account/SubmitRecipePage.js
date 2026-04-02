@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
 import RecipeForm from './RecipeForm.js';
 
 const SubmitRecipe = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const userRecipe = useSelector((state) => state.userRecipesReducer);
     const [approvePush, setApprovePush] = useState(false);
 
     useEffect(() => {
         if (approvePush) {
-            history.push('/myrecipes');
+            navigate('/myrecipes');
         }
     }, [userRecipe]);
 
