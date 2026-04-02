@@ -26,11 +26,6 @@
         When you enable useUnifiedTopology, please remove those options from your mongoose.connect() or createConnection() calls.
     }
 */
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-mongoose.connect(process.env.MONGODB_RECIPE, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_RECIPE);

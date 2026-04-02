@@ -321,7 +321,7 @@ const ChangePasswordModal = (props) => {
                     type="checkbox"
                     title="toggle visibility"
                     onClick={() => {
-                        var toggle = document.getElementById('prevPass');
+                        let toggle = document.getElementById('prevPass');
                         toggle.type === 'password' ? (toggle.type = 'text') : (toggle.type = 'password');
                     }}
                 />
@@ -339,7 +339,7 @@ const ChangePasswordModal = (props) => {
                     type="checkbox"
                     title="toggle visibility"
                     onClick={() => {
-                        var toggle = document.getElementById('newPass');
+                        let toggle = document.getElementById('newPass');
                         toggle.type === 'password' ? (toggle.type = 'text') : (toggle.type = 'password');
                     }}
                 />
@@ -357,7 +357,7 @@ const ChangePasswordModal = (props) => {
                     type="checkbox"
                     title="toggle visibility"
                     onClick={() => {
-                        var toggle = document.getElementById('verifyPass');
+                        let toggle = document.getElementById('verifyPass');
                         toggle.type === 'password' ? (toggle.type = 'text') : (toggle.type = 'password');
                     }}
                 />

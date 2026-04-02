@@ -1,10 +1,19 @@
-/*  Description
+/**
+ * Authentication middleware module.
+ * @module middleware/authentication
+ */
+import jwt from 'jsonwebtoken';
+import User from '../models/userModel.js';
 
-*/
-const jwt = require('jsonwebtoken');
-const User = require('../models/userModel.js');
-
-//auth is short for authentication, authenticate, authorization, authorize,
+/**
+ * Express middleware that verifies the JWT token from the Authorization header
+ * and attaches the authenticated user to the request object.
+ * auth is short for authentication, authenticate, authorization, authorize,
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ * @param {import('express').NextFunction} next
+ * @returns {Promise<void>}
+ */
 const auth = async (req, res, next) => {
     try {
         const token = req.header('Authorization').replace('Bearer ', '');
@@ -18,9 +27,9 @@ const auth = async (req, res, next) => {
         req.token = token;
         req.user = user;
         next();
-    } catch (error) {
+    } catch (_error) {
         res.status(401).send({ error: 'Did not pass authentication.' });
     }
 };
 
-module.exports = auth;
+export default auth;

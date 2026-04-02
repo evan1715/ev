@@ -1,11 +1,18 @@
-const express = require('express');
-const multer = require('multer');
-const sharp = require('sharp');
-const Recipe = require('../models/recipeModel.js');
-const User = require('../models/userModel.js');
-const auth = require('../middleware/authentication.js');
-const router = new express.Router();
+/**
+ * Recipe router module.
+ * Handles CRUD operations for recipes and picture management.
+ * @module routers/recipeRouter
+ */
+import express from 'express';
+import multer from 'multer';
+import sharp from 'sharp';
+import auth from '../middleware/authentication.js';
+import Recipe from '../models/recipeModel.js';
+import User from '../models/userModel.js';
 
+const router = express.Router();
+
+//Create a new recipe.
 router.post('/recipes', auth, async (req, res) => {
     //...req.body will copy all of the properties from body to this object.
     const recipe = new Recipe({
@@ -22,11 +29,11 @@ router.post('/recipes', auth, async (req, res) => {
 });
 
 //No authentication to get all recipes listed.
-router.get('/recipes/all', async (req, res) => {
+router.get('/recipes/all', async (_req, res) => {
     try {
         const recipes = await Recipe.find({});
         res.send(recipes);
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
@@ -38,7 +45,7 @@ router.get('/recipes/user/:username', async (req, res) => {
         const recipes = await Recipe.find({ owner: user._id });
 
         res.send(recipes);
-    } catch (error) {
+    } catch (_error) {
         res.status(404).send('User not found.');
     }
 });
@@ -53,7 +60,7 @@ router.get('/recipes/:id', async (req, res) => {
         }
 
         res.send(recipe);
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
@@ -96,18 +103,18 @@ router.delete('/recipes/:id', auth, async (req, res) => {
         }
 
         res.send(recipe);
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
 
-//Recipe pictures
-//Documentation - https://www.npmjs.com/package/multer
+/**
+ * Multer upload configuration for recipe pictures.
+ * @see https://www.npmjs.com/package/multer
+ */
 const upload = multer({
-    limits: {
-        filesize: 1000000,
-    },
-    fileFilter(req, file, callback) {
+    limits: { fileSize: 1000000 },
+    fileFilter(_req, file, callback) {
         if (!file.originalname.match(/\.(png|jpg|jpeg|bmp)$/)) {
             return callback(new Error('Unsupported image file type.'));
         }
@@ -116,7 +123,7 @@ const upload = multer({
     },
 });
 
-//Upload picture(s) of the food
+//Upload picture(s) of the food (auth required, owner only, max 5).
 router.post(
     '/recipes/:id/pictures',
     auth,
@@ -129,11 +136,8 @@ router.post(
                 return res.status(404).send('Cannot find recipe.');
             }
 
-            for (var i = 0; i < req.files.length; i++) {
-                const buffer = await sharp(req.files[i].buffer)
-                    .resize({ width: 640, height: 360 })
-                    .jpeg()
-                    .toBuffer();
+            for (const file of req.files || []) {
+                const buffer = await sharp(file.buffer).resize({ width: 640, height: 360 }).jpeg().toBuffer();
                 recipe.pictures = recipe.pictures.concat({ picture: buffer });
             }
 
@@ -144,7 +148,7 @@ router.post(
             res.status(400).send({ error: error.message });
         }
     },
-    (error, req, res, next) => {
+    (error, _req, res, _next) => {
         //This to handle multer upload errors
         res.status(400).send({ error: error.message });
     }
@@ -162,7 +166,7 @@ router.get('/recipes/:id/pictures', async (req, res) => {
 
         res.set('Content-Type', 'image/jpeg');
         res.send(recipe.pictures[pic].picture);
-    } catch (error) {
+    } catch (_error) {
         res.status(404).send();
     }
 });
@@ -190,9 +194,9 @@ router.delete('/recipes/:id/pictures', auth, async (req, res) => {
 
         await recipe.save();
         res.send();
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
 
-module.exports = router;
+export default router;

@@ -1,4 +1,4 @@
-@import '/node_modules/bootstrap/scss/bootstrap.scss'; //1. Load Bootstrap SCSS first so we can override settings after.
+@import '~bootstrap/scss/bootstrap.scss'; //1. Load Bootstrap SCSS first so we can override settings after.
 @import './base/settings.scss'; //2. Load settings for variables to be used throughout.
 @import './base/base.scss'; //3. Load base.
 @import './base/mixins.scss';

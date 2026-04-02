@@ -1,11 +1,16 @@
-const mongoose = require('mongoose');
-const validator = require('validator');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const Filter = require('bad-words');
+/**
+ * User model module.
+ * @module models/userModel
+ */
+import mongoose from 'mongoose';
+import { Filter } from 'bad-words';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import validator from 'validator';
 
 const filter = new Filter();
 
+/** @type {import('mongoose').Schema} */
 const userSchema = new mongoose.Schema(
     {
         username: {
@@ -13,7 +18,7 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true,
             unique: true,
-            validate(input) {
+            validate(/** @type {string} */ input) {
                 if (input === null) {
                     throw new Error('Must provide a username.');
                 }
@@ -28,7 +33,7 @@ const userSchema = new mongoose.Schema(
             trim: true,
             unique: true,
             lowercase: true,
-            validate(input) {
+            validate(/** @type {string} */ input) {
                 if (!validator.isEmail(input)) {
                     throw new Error('Email is invalid.');
                 }
@@ -42,8 +47,8 @@ const userSchema = new mongoose.Schema(
             required: true,
             trim: true,
             minlength: 8,
-            validate(input) {
-                if (input < 8) {
+            validate(/** @type {string} */ input) {
+                if (input.length < 8) {
                     throw new Error('Password must be at least eight characters.');
                 }
                 if (input.toLowerCase().includes('password')) {
@@ -55,7 +60,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
-            validate(input) {
+            validate(/** @type {string} */ input) {
                 if (filter.isProfane(input)) {
                     throw new Error('That name contains profanity.');
                 }
@@ -98,16 +103,19 @@ userSchema.methods.createToken = async function () {
     return token;
 };
 
-//Login the user by comparing the email and password to match.
+/**
+ * Login the user by comparing the email and password to match.
+ * @param {string} email
+ * @param {string} password
+ */
 userSchema.statics.loginUser = async (email, password) => {
     const user = await User.findOne({ email: email });
     const userPassMatch = await bcrypt.compare(password, user.password);
 
     if (!user || !userPassMatch) {
         throw new Error('Unable to login.');
-    } else {
-        return user;
     }
+    return user;
 };
 
 //Let's hide some user data here so the db only sends what's needed when called.
@@ -134,4 +142,4 @@ userSchema.virtual('recipes', {
 
 //Pass the User mongoose model out.
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+export default User;

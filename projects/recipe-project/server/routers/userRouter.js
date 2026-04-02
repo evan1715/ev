@@ -1,12 +1,15 @@
-/*  Description
-    The user will be able to create a login, login, log out, log out of all locations, delete, and update their profile.
-*/
-const express = require('express');
-const multer = require('multer');
-const sharp = require('sharp');
-const User = require('../models/userModel.js');
-const auth = require('../middleware/authentication.js');
-const router = new express.Router();
+/**
+ * User router module.
+ * Handles: create account, login, logout, profile management, and icon operations.
+ * @module routers/userRouter
+ */
+import express from 'express';
+import multer from 'multer';
+import sharp from 'sharp';
+import auth from '../middleware/authentication.js';
+import User from '../models/userModel.js';
+
+const router = express.Router();
 
 //Create an account & Log in with token.
 router.post('/user', async (req, res) => {
@@ -29,7 +32,7 @@ router.post('/user/login', async (req, res) => {
         const token = await user.createToken();
 
         res.send({ user: user, token: token });
-    } catch (e) {
+    } catch (_e) {
         const error = 'Unable to login.';
         res.status(400).send({ error });
     }
@@ -44,7 +47,7 @@ router.post('/user/logout', auth, async (req, res) => {
         });
         await req.user.save();
         res.send();
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
@@ -56,7 +59,7 @@ router.post('/user/logoutAll', auth, async (req, res) => {
         req.user.loginTokens = [];
         await req.user.save();
         res.send();
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
@@ -68,7 +71,7 @@ router.get('/user/username/:id', async (req, res) => {
         const username = user.username;
 
         res.send({ username });
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
@@ -84,7 +87,7 @@ router.get('/user/profile/:id', async (req, res) => {
         const user = await User.findById(req.params.id);
 
         res.send(user);
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
@@ -103,7 +106,7 @@ router.patch('/user/profile', auth, async (req, res) => {
 
     try {
         //Check for valid previous password before changing to new password
-        if (updates.includes('previousPassword', 'password')) {
+        if (updates.includes('previousPassword') && updates.includes('password')) {
             await User.loginUser(req.body.email, req.body.previousPassword);
             delete updates.previousPassword;
         }
@@ -128,19 +131,17 @@ router.patch('/user/profile', auth, async (req, res) => {
 //Delete a user.
 router.delete('/user/profile', auth, async (req, res) => {
     try {
-        await req.user.remove();
+        await req.user.deleteOne();
         res.send(req.user);
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
 
-//Profile icon
+//Multer upload configuration for user profile icons.
 const upload = multer({
-    limits: {
-        filesize: 1000000,
-    },
-    fileFilter(req, file, callback) {
+    limits: { fileSize: 1000000 },
+    fileFilter(_req, file, callback) {
         if (!file.originalname.match(/\.(png|jpg|jpeg|bmp|gif)$/)) {
             return callback(new Error('Unsupported image file type.'));
         }
@@ -149,7 +150,7 @@ const upload = multer({
     },
 });
 
-//Upload a user's icon.
+// Upload a user's profile icon.
 router.post(
     '/user/profile/icon',
     auth,
@@ -167,12 +168,12 @@ router.post(
             res.status(400).send({ error: error.message });
         }
     },
-    (error, req, res, next) => {
+    (error, _req, res, _next) => {
         res.status(400).send({ error: error.message });
     }
 );
 
-//Get user's icon.
+// Get a user's profile icon by user id.
 router.get('/user/:id/icon', async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
@@ -184,20 +185,20 @@ router.get('/user/:id/icon', async (req, res) => {
         res.set('Content-Type', 'image/jpeg');
 
         res.send(user.icon);
-    } catch (error) {
+    } catch (_error) {
         res.status(404).send();
     }
 });
 
-//Delete icon.
+//Delete a user's profile icon.
 router.delete('/user/profile/icon', auth, async (req, res) => {
     try {
         req.user.icon = null;
         await req.user.save();
         res.send();
-    } catch (error) {
+    } catch (_error) {
         res.status(500).send();
     }
 });
 
-module.exports = router;
+export default router;

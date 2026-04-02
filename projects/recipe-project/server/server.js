@@ -1,8 +1,15 @@
-const path = require('path'); //core module
-const express = require('express'); //npm module
-require('./database/mongoose.js'); //start the db with the server
-const userRouter = require('./routers/userRouter.js');
-const recipeRouter = require('./routers/recipeRouter.js');
+/**
+ * Express server entry point.
+ * Connects to MongoDB, configures middleware, and starts the server.
+ * @module server
+ */
+import path from 'node:path'; //core module
+import express from 'express'; //npm module
+import './database/mongoose.js'; //start the db with the server
+import recipeRouter from './routers/recipeRouter.js';
+import userRouter from './routers/userRouter.js';
+
+const __dirname = import.meta.dirname;
 
 const app = express();
 
@@ -16,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 //'*' is a wildcard character in Express that we can use to mean, "match anything that we haven't matched so far."
 //Using this, it'll match all unmatched routes.
-app.get('*', (req, res) => {
+app.get('*', (_req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 

@@ -1,15 +1,20 @@
-const mongoose = require('mongoose');
-const Filter = require('bad-words');
+/**
+ * Recipe model module.
+ * @module models/recipeModel
+ */
+import mongoose from 'mongoose';
+import { Filter } from 'bad-words';
 
 const filter = new Filter();
 
+/** @type {import('mongoose').Schema} */
 const recipeSchema = new mongoose.Schema(
     {
         title: {
             type: String,
             required: true,
             trim: true,
-            validate(input) {
+            validate(/** @type {string} */ input) {
                 if (input.length > 64) {
                     throw new Error('Title cannot be longer than 64 characters.');
                 }
@@ -21,7 +26,7 @@ const recipeSchema = new mongoose.Schema(
         cookTime: {
             type: Number,
             default: 0,
-            validate(number) {
+            validate(/** @type {number} */ number) {
                 if (number < 0) {
                     throw new Error('Cook time must be a positive number.');
                 }
@@ -29,14 +34,11 @@ const recipeSchema = new mongoose.Schema(
         },
         ingredients: [
             {
-                amount: {
-                    type: Number,
-                    required: true,
-                },
+                amount: { type: Number, required: true },
                 measurement: {
                     type: String,
                     required: true,
-                    validate(input) {
+                    validate(/** @type {string} */ input) {
                         if (filter.isProfane(input)) {
                             throw new Error('Your measurements contain profanity.');
                         }
@@ -45,7 +47,7 @@ const recipeSchema = new mongoose.Schema(
                 item: {
                     type: String,
                     required: true,
-                    validate(input) {
+                    validate(/** @type {string} */ input) {
                         if (filter.isProfane(input)) {
                             throw new Error('Your ingredient items contain profanity.');
                         }
@@ -56,19 +58,13 @@ const recipeSchema = new mongoose.Schema(
         instructions: {
             type: String,
             required: true,
-            validate(input) {
+            validate(/** @type {string} */ input) {
                 if (filter.isProfane(input)) {
                     throw new Error('Your instructions contain profanity.');
                 }
             },
         },
-        pictures: [
-            {
-                picture: {
-                    type: Buffer,
-                },
-            },
-        ],
+        pictures: [{ picture: { type: Buffer } }],
         owner: {
             //mongoose.Schema.Types.ObjectId is saying that the data stored and owner is going to be an ObjectId.
             type: mongoose.Schema.Types.ObjectId,
@@ -81,9 +77,7 @@ const recipeSchema = new mongoose.Schema(
             default: 0,
         },
     },
-    {
-        timestamps: true,
-    }
+    { timestamps: true }
 );
 
 recipeSchema.path('pictures').validate((num) => {
@@ -93,4 +87,4 @@ recipeSchema.path('pictures').validate((num) => {
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
-module.exports = Recipe;
+export default Recipe;
