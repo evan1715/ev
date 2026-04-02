@@ -6,14 +6,13 @@ const User = require('../models/userModel.js');
 const auth = require('../middleware/authentication.js');
 const router = new express.Router();
 
-
 router.post('/recipes', auth, async (req, res) => {
     //...req.body will copy all of the properties from body to this object.
-    const recipe = new Recipe ({
+    const recipe = new Recipe({
         ...req.body,
-        owner: req.user._id
+        owner: req.user._id,
     });
-    
+
     try {
         await recipe.save();
         res.status(201).send(recipe);
@@ -40,7 +39,7 @@ router.get('/recipes/user/:username', async (req, res) => {
 
         res.send(recipes);
     } catch (error) {
-        res.status(404).send("User not found.");
+        res.status(404).send('User not found.');
     }
 });
 
@@ -48,9 +47,9 @@ router.get('/recipes/user/:username', async (req, res) => {
 router.get('/recipes/:id', async (req, res) => {
     try {
         const recipe = await Recipe.findById(req.params.id);
-        
+
         if (!recipe) {
-            return res.status(404).send("Cannot find recipe.");
+            return res.status(404).send('Cannot find recipe.');
         }
 
         res.send(recipe);
@@ -67,14 +66,14 @@ router.patch('/recipes/:id', auth, async (req, res) => {
     });
 
     if (!validUpdates) {
-        return res.status(400).send("Update not valid.")
+        return res.status(400).send('Update not valid.');
     }
 
     try {
         const recipe = await Recipe.findOne({ _id: req.params.id, owner: req.user._id });
 
         if (!recipe) {
-            return res.status(404).send("Cannot find recipe.")
+            return res.status(404).send('Cannot find recipe.');
         }
 
         updates.forEach((update) => {
@@ -91,9 +90,9 @@ router.patch('/recipes/:id', auth, async (req, res) => {
 router.delete('/recipes/:id', auth, async (req, res) => {
     try {
         const recipe = await Recipe.findOneAndDelete({ _id: req.params.id, owner: req.user._id });
-        
+
         if (!recipe) {
-            return res.status(404).send("Cannot find recipe.");
+            return res.status(404).send('Cannot find recipe.');
         }
 
         res.send(recipe);
@@ -102,49 +101,54 @@ router.delete('/recipes/:id', auth, async (req, res) => {
     }
 });
 
-
-
-
 //Recipe pictures
-//Documentation - https://www.npmjs.com/package/multer 
+//Documentation - https://www.npmjs.com/package/multer
 const upload = multer({
     limits: {
-        filesize: 1000000
+        filesize: 1000000,
     },
     fileFilter(req, file, callback) {
         if (!file.originalname.match(/\.(png|jpg|jpeg|bmp)$/)) {
-            return callback(new Error("Unsupported image file type."));
+            return callback(new Error('Unsupported image file type.'));
         }
         //If file is good, null, true to accept file.
         callback(undefined, true);
-    }
+    },
 });
 
 //Upload picture(s) of the food
-router.post('/recipes/:id/pictures', auth, upload.array('pictures', 5), async (req, res) => {
-    
-    try {
-        const recipe = await Recipe.findOne({ _id: req.params.id, owner: req.user._id });
+router.post(
+    '/recipes/:id/pictures',
+    auth,
+    upload.array('pictures', 5),
+    async (req, res) => {
+        try {
+            const recipe = await Recipe.findOne({ _id: req.params.id, owner: req.user._id });
 
-        if (!recipe) {
-            return res.status(404).send("Cannot find recipe.");
+            if (!recipe) {
+                return res.status(404).send('Cannot find recipe.');
+            }
+
+            for (var i = 0; i < req.files.length; i++) {
+                const buffer = await sharp(req.files[i].buffer)
+                    .resize({ width: 640, height: 360 })
+                    .jpeg()
+                    .toBuffer();
+                recipe.pictures = recipe.pictures.concat({ picture: buffer });
+            }
+
+            await recipe.save();
+            res.send();
+        } catch (error) {
+            //Catch to handle Mongoose schema/model errors
+            res.status(400).send({ error: error.message });
         }
-
-        for (var i = 0; i < req.files.length; i++) {
-            const buffer = await sharp(req.files[i].buffer).resize({ width: 640, height: 360 }).jpeg().toBuffer();
-            recipe.pictures = recipe.pictures.concat({ picture: buffer });
-        }
-
-        await recipe.save();
-        res.send();
-    } catch (error) {
-        //Catch to handle Mongoose schema/model errors
+    },
+    (error, req, res, next) => {
+        //This to handle multer upload errors
         res.status(400).send({ error: error.message });
     }
-}, (error, req, res, next) => {
-    //This to handle multer upload errors
-    res.status(400).send({ error: error.message });
-});
+);
 
 //Get picture(s)
 router.get('/recipes/:id/pictures', async (req, res) => {
@@ -153,7 +157,7 @@ router.get('/recipes/:id/pictures', async (req, res) => {
         const pic = req.query.image;
 
         if (!recipe || !recipe.pictures) {
-            throw new Error("None found.");
+            throw new Error('None found.');
         }
 
         res.set('Content-Type', 'image/jpeg');
@@ -174,7 +178,7 @@ router.delete('/recipes/:id/pictures', auth, async (req, res) => {
 
         for (let i = 0; i < recipe.pictures.length; i++) {
             const id = recipe.pictures[i]._id.toString();
-            
+
             if (req.query.image === id) {
                 recipe.pictures.splice(i, 1);
             }
@@ -190,6 +194,5 @@ router.delete('/recipes/:id/pictures', auth, async (req, res) => {
         res.status(500).send();
     }
 });
-
 
 module.exports = router;

@@ -14,19 +14,24 @@ const Home = () => {
                 <h1 className="main-title h-25">Evan McHugh</h1>
 
                 <div className="h-25 px-4 main-center">
-                    <p className="h4">Self-learning software developer through research and development with a high interest in technology.</p>
-                    <div className="h4 link-info mt-1" onClick={ () => router.push('/coding#recipe-project') }>
+                    <p className="h4">
+                        Self-learning software developer through research and development with a high interest
+                        in technology.
+                    </p>
+                    <div className="h4 link-info mt-1" onClick={() => router.push('/coding#recipe-project')}>
                         Check out my highlighted work!
                     </div>
                 </div>
 
                 <div>
-                    <Technologies mobile={ true } />
+                    <Technologies mobile={true} />
                 </div>
             </section>
 
             {/* Animated border between sections */}
-            <div className="card-animation" id="software-summary"><i /></div>
+            <div className="card-animation" id="software-summary">
+                <i />
+            </div>
 
             {/* Middle section: Project cards */}
             <section className="middle-section border-orange m-2">
@@ -34,7 +39,9 @@ const Home = () => {
             </section>
 
             {/* Animated border between sections */}
-            <div className="card-animation"><i /></div>
+            <div className="card-animation">
+                <i />
+            </div>
 
             {/* Last section  */}
             <section className="m-2 bottom-section p-2">
@@ -57,11 +64,10 @@ const Home = () => {
                     </div>
 
                     <Contact />
-
                 </Container>
             </section>
         </>
     );
-}
+};
 
-export { Home as default }
+export { Home as default };

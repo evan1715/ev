@@ -7,18 +7,17 @@ import storeConfig from './store/storeConfig.js';
 import './scss/styles.scss'; //all styles
 import { loginAction, logoutAction } from './actions/account.js';
 
-
 const store = storeConfig();
 
 const renderApp = () => {
     ReactDOM.render(
-        <Provider store={ store }>
+        <Provider store={store}>
             <LoadingBar />
             <AppRouter />
         </Provider>,
         document.getElementById('root')
     );
-}
+};
 
 const getUser = async () => {
     const token = localStorage.getItem('token');
@@ -26,7 +25,7 @@ const getUser = async () => {
     //If there's a token, retrieve user data before rendering the app.
     if (token) {
         try {
-            const user = await (await fetch('/user/me', { headers: { 'Authorization': token }})).json();
+            const user = await (await fetch('/user/me', { headers: { Authorization: token } })).json();
 
             if (user.error) {
                 //If the account can't be found, log them out locally.
@@ -39,9 +38,10 @@ const getUser = async () => {
         }
 
         renderApp();
-    } else { //If there is no token, render the app.
+    } else {
+        //If there is no token, render the app.
         renderApp();
     }
-}
+};
 
 getUser();

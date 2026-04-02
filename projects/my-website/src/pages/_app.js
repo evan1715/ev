@@ -1,8 +1,8 @@
 import Head from 'next/head.js';
 import Container from 'react-bootstrap/Container';
 import '../styles/globals.scss';
-import Navigation from '../components/Navigation.js';
 import Footer from '../components/Footer.js';
+import Navigation from '../components/Navigation.js';
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -21,4 +21,4 @@ function MyApp({ Component, pageProps }) {
     );
 }
 
-export { MyApp as default }
+export { MyApp as default };

@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
     const transporter = nodemailer.createTransport({
-        host: "smtp-mail.outlook.com",
+        host: 'smtp-mail.outlook.com',
         port: 587,
         //secure – if true the connection will use TLS when connecting to server. If false (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to true if you are connecting to port 465. For port 587 or 25 keep it false
         secure: false,
@@ -10,8 +10,8 @@ export default async function handler(req, res) {
         requireTLS: true,
         auth: {
             user: process.env.MAIL1,
-            pass: process.env.MAIL2
-        }
+            pass: process.env.MAIL2,
+        },
     });
 
     const data = {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
         bcc: '',
         subject: `${req.body.subject}`,
         text: `Name: ${req.body.name} \nEmail: ${req.body.email} \nMessage: ${req.body.message} \n`,
-    }
+    };
 
     try {
         await transporter.sendMail(data);
@@ -29,4 +29,4 @@ export default async function handler(req, res) {
         res.status(400).end();
         console.log(error);
     }
-};
+}

@@ -2,17 +2,17 @@ const selectedRecipeReducer = (state = {}, action) => {
     switch (action.type) {
         case 'SELECTED_RECIPE':
             return {
-                ...action.recipe
-            }
+                ...action.recipe,
+            };
         case 'EDIT_RECIPE':
             return {
-                ...action.recipe
-            }
+                ...action.recipe,
+            };
         case 'CLEAR_SELECTED_RECIPE':
-            return {}
+            return {};
         default:
             return state;
     }
-}
+};
 
-export { selectedRecipeReducer as default }
+export { selectedRecipeReducer as default };

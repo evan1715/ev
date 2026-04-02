@@ -4,38 +4,37 @@ const accountReducer = (state = {}, action) => {
             return {
                 user: action.user.user,
                 token: action.user.token,
-                authenticated: true
-            }
+                authenticated: true,
+            };
         case 'LOGOUT':
             localStorage.removeItem('token');
             return {
-                authenticated: false
-            }
+                authenticated: false,
+            };
         case 'GET_USER':
             return {
                 user: action.user,
                 token: token,
-                authenticated: true
-            }
+                authenticated: true,
+            };
         case 'UPDATE_USER':
             return {
                 ...state,
-                user: action.user
-            }
+                user: action.user,
+            };
         case 'GET_USER_ICON':
             return {
                 ...state,
-                icon: action.icon
-            }
+                icon: action.icon,
+            };
         case 'DELETE_USER_ICON':
             return {
                 ...state,
-                icon: null
-            }
+                icon: null,
+            };
         default:
             return state;
     }
-}
-
+};
 
 export { accountReducer as default };

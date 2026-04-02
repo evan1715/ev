@@ -44,7 +44,8 @@
         min-height: $footer-desktop;
     }
 
-    .recipe-form__add-ingredients, .recipe-form__added-ingredients {
+    .recipe-form__add-ingredients,
+    .recipe-form__added-ingredients {
         flex-direction: column;
     }
     .recipe-form__add-ingredients {

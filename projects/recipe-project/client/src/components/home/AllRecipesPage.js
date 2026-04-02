@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { showLoading } from 'react-redux-loading-bar';
-import PopulateRecipes from './PopulateRecipes.js';
-import processUsernames from '../../utils/processUsernames.js';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
+import processUsernames from '../../utils/processUsernames.js';
+import PopulateRecipes from './PopulateRecipes.js';
 
 const AllRecipesPage = () => {
     const dispatch = useDispatch();
-    const allRecipes = useSelector(state => state.allRecipesReducer.allRecipes);
-    const recipeOwners = useSelector(state => state.allRecipesReducer.recipeOwners);
+    const allRecipes = useSelector((state) => state.allRecipesReducer.allRecipes);
+    const recipeOwners = useSelector((state) => state.allRecipesReducer.recipeOwners);
     const [userNames, setUsernames] = useState([]);
 
-    useEffect(async () => {
+    useEffect(() => {
         //Only get it if we don't already have it.
         if (!allRecipes.length && allRecipes.length !== 0) {
             dispatch(showLoading());
@@ -30,16 +30,13 @@ const AllRecipesPage = () => {
     return (
         <>
             <h1 className="center title">All User Recipes</h1>
-            { allRecipes.length < 1 ?
+            {allRecipes.length < 1 ? (
                 <p className="search-results--none">None found!</p>
-                :
-                <PopulateRecipes
-                    recipes={ allRecipes.length && allRecipes }
-                    users={ userNames }
-                />
-            }
+            ) : (
+                <PopulateRecipes recipes={allRecipes.length && allRecipes} users={userNames} />
+            )}
         </>
     );
-}
+};
 
-export { AllRecipesPage as default }
+export { AllRecipesPage as default };

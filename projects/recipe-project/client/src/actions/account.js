@@ -5,9 +5,9 @@ const loginAction = (user, token) => {
             type: 'LOGIN',
             user: {
                 user: user,
-                token: token
-            }
-        }
+                token: token,
+            },
+        };
     }
 
     if (user.token) {
@@ -17,49 +17,41 @@ const loginAction = (user, token) => {
             type: 'LOGIN',
             user: {
                 user: user.user,
-                token: user.token
-            }
-        }
+                token: user.token,
+            },
+        };
     }
 };
 
 //LOG_OUT
 const logoutAction = (token) => ({
     type: 'LOGOUT',
-    token: token
+    token: token,
 });
 
 //GET_USER
 const getUserAction = (profile) => ({
     type: 'GET_USER',
-    user: profile
+    user: profile,
 });
 
 //UPDATE_USER
 const updateUserAction = (user, token) => ({
     type: 'UPDATE_USER',
     user: user,
-    token: token
+    token: token,
 });
 
 //GET_USER_ICON
 const getIconAction = (icon) => ({
     type: 'GET_USER_ICON',
-    icon: icon
+    icon: icon,
 });
 
 //DELETE_USER_ICON
 const deleteUserIconAction = (user) => ({
     type: 'DELETE_USER_ICON',
-    user: user
+    user: user,
 });
 
-
-export {
-    loginAction,
-    logoutAction,
-    getUserAction,
-    updateUserAction,
-    getIconAction,
-    deleteUserIconAction,
-}
+export { loginAction, logoutAction, getUserAction, updateUserAction, getIconAction, deleteUserIconAction };

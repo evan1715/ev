@@ -13,18 +13,22 @@ const Footer = () => {
                 <div className="d-flex flex-row">
                     <a href="https://github.com/evan1715" rel="noreferrer" target="_blank">
                         <span className="external-link nav-link">
-                            GitHub <Image alt="external link" src={ external } />
+                            GitHub <Image alt="external link" src={external} />
                         </span>
                     </a>
-                    <a href="https://www.linkedin.com/in/evan-mchugh-8013a6142/" rel="noreferrer" target="_blank">
+                    <a
+                        href="https://www.linkedin.com/in/evan-mchugh-8013a6142/"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
                         <span className="external-link nav-link">
-                            LinkedIn <Image alt="external-link" src={ external } />
+                            LinkedIn <Image alt="external-link" src={external} />
                         </span>
                     </a>
                 </div>
             </Container>
         </footer>
     );
-}
+};
 
-export { Footer as default }
+export { Footer as default };

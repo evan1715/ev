@@ -8,7 +8,8 @@
     padding: 0.38em 0.975rem; //top&bot left&right
     transform: translate(-1%, -1%);
     //div sections are the moving animations
-    div { //top
+    div {
+        //top
         box-sizing: border-box;
         display: block;
         height: 100%;
@@ -17,14 +18,17 @@
         top: 0;
         width: 100%;
     }
-    div:nth-child(2) { //right
+    div:nth-child(2) {
+        //right
         margin-left: 5px;
         transform: rotate(90deg);
     }
-    div:nth-child(3) { //bottom
+    div:nth-child(3) {
+        //bottom
         transform: rotate(180deg);
     }
-    div:nth-child(4) { //left
+    div:nth-child(4) {
+        //left
         margin-left: -5px;
         transform: rotate(270deg);
     }
@@ -49,7 +53,8 @@
     overflow: hidden;
     padding: 0.43em 0.99rem; //top&bot left&right
     transform: translate(-1%, -1%);
-    div { //top
+    div {
+        //top
         box-sizing: border-box;
         display: block;
         height: 100%;
@@ -58,7 +63,8 @@
         top: 0;
         width: 100%;
     }
-    div:nth-child(2) { //bottom
+    div:nth-child(2) {
+        //bottom
         transform: rotate(180deg);
     }
     div:before {
@@ -70,7 +76,7 @@
         content: '';
         height: 2px;
         position: absolute;
-        width:100%;
+        width: 100%;
     }
 }
 
@@ -83,12 +89,12 @@
     50% {
         transform: scaleX(1);
         transform-origin: left;
-    } 
+    }
     51% {
         transform: scaleX(1);
         transform-origin: right;
     }
-    
+
     100% {
         transform: scaleX(0);
         transform-origin: right;
@@ -126,7 +132,7 @@
     50% {
         transform: scaleX(1);
         transform-origin: right;
-    } 
+    }
     55% {
         transform: scaleX(1);
         transform-origin: left;

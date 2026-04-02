@@ -16,7 +16,7 @@ router.post('/user', async (req, res) => {
         const token = await user.createToken();
 
         await user.save();
-        res.status(201).send(({ user: user, token: token }));
+        res.status(201).send({ user: user, token: token });
     } catch (error) {
         res.status(400).send(error);
     }
@@ -30,7 +30,7 @@ router.post('/user/login', async (req, res) => {
 
         res.send({ user: user, token: token });
     } catch (e) {
-        const error = "Unable to login.";
+        const error = 'Unable to login.';
         res.status(400).send({ error });
     }
 });
@@ -56,7 +56,7 @@ router.post('/user/logoutAll', auth, async (req, res) => {
         req.user.loginTokens = [];
         await req.user.save();
         res.send();
-    } catch (error) { 
+    } catch (error) {
         res.status(500).send();
     }
 });
@@ -67,7 +67,7 @@ router.get('/user/username/:id', async (req, res) => {
         const user = await User.findById(req.params.id);
         const username = user.username;
 
-        res.send({username});
+        res.send({ username });
     } catch (error) {
         res.status(500).send();
     }
@@ -98,7 +98,7 @@ router.patch('/user/profile', auth, async (req, res) => {
     });
 
     if (!validUpdates) {
-        return res.status(400).send("Update not valid.");
+        return res.status(400).send('Update not valid.');
     }
 
     try {
@@ -116,8 +116,8 @@ router.patch('/user/profile', auth, async (req, res) => {
         await req.user.save(); //middleware used
         res.send(req.user);
     } catch (errors) {
-        const error = "Invalid current password.";
-        if (errors.message === "Unable to login.") {
+        const error = 'Invalid current password.';
+        if (errors.message === 'Unable to login.') {
             res.status(400).send({ error });
         } else {
             res.status(400).send(errors);
@@ -135,34 +135,42 @@ router.delete('/user/profile', auth, async (req, res) => {
     }
 });
 
-
 //Profile icon
 const upload = multer({
     limits: {
-        filesize: 1000000
+        filesize: 1000000,
     },
     fileFilter(req, file, callback) {
         if (!file.originalname.match(/\.(png|jpg|jpeg|bmp|gif)$/)) {
-            return callback(new Error("Unsupported image file type."));
+            return callback(new Error('Unsupported image file type.'));
         }
         //If file is good, null, true to accept file.
         callback(undefined, true);
-    }
+    },
 });
 
 //Upload a user's icon.
-router.post('/user/profile/icon', auth, upload.single('icon'), async (req, res) => {
-    try {
-        req.user.icon = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).jpeg().toBuffer();
+router.post(
+    '/user/profile/icon',
+    auth,
+    upload.single('icon'),
+    async (req, res) => {
+        try {
+            req.user.icon = await sharp(req.file.buffer)
+                .resize({ width: 250, height: 250 })
+                .jpeg()
+                .toBuffer();
 
-        await req.user.save();
-        res.send();
-    } catch (error) {
+            await req.user.save();
+            res.send();
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
+    },
+    (error, req, res, next) => {
         res.status(400).send({ error: error.message });
     }
-}, (error, req, res, next) => {
-    res.status(400).send({ error: error.message });
-});
+);
 
 //Get user's icon.
 router.get('/user/:id/icon', async (req, res) => {
@@ -170,7 +178,7 @@ router.get('/user/:id/icon', async (req, res) => {
         const user = await User.findById(req.params.id);
 
         if (!user || !user.icon) {
-            throw new Error("None found.");
+            throw new Error('None found.');
         }
 
         res.set('Content-Type', 'image/jpeg');
@@ -191,6 +199,5 @@ router.delete('/user/profile/icon', auth, async (req, res) => {
         res.status(500).send();
     }
 });
-
 
 module.exports = router;

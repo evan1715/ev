@@ -14,7 +14,7 @@ const Navigation = () => {
     const handleRoute = (e, route) => {
         e.preventDefault();
         router.push(route);
-    }
+    };
 
     useEffect(() => {
         //This is here so that whenever a user is on a page, the active navbar will still display.
@@ -22,11 +22,24 @@ const Navigation = () => {
     }, [router.asPath]);
 
     return (
-        <Navbar bg="navbar navbar-dark bg-dark bg-gradient" collapseOnSelect expand="lg" sticky="top" variant="dark">
+        <Navbar
+            bg="navbar navbar-dark bg-dark bg-gradient"
+            collapseOnSelect
+            expand="lg"
+            sticky="top"
+            variant="dark"
+        >
             <Container>
                 {/* <Navbar.Brand aria-current="page" href onClick={ (e) => handleRoute(e, '/') }> */}
-                <Navbar.Brand aria-current="page" className={ isActive === '/' && 'navbar-brand-active' } href="/">
-                    <div /><div /><div /><div />
+                <Navbar.Brand
+                    aria-current="page"
+                    className={isActive === '/' && 'navbar-brand-active'}
+                    href="/"
+                >
+                    <div />
+                    <div />
+                    <div />
+                    <div />
                     Evan
                 </Navbar.Brand>
 
@@ -37,16 +50,34 @@ const Navigation = () => {
                     <Nav className=" justify-content-between w-100" variant="tabs">
                         <div></div>
 
-                        <Nav.Link active={ isActive === '/#software-summary' && true } eventKey="#software-summary" onClick={ (e) => handleRoute(e, '/#software-summary') }>
-                            <div /><div />Software Summary
+                        <Nav.Link
+                            active={isActive === '/#software-summary' && true}
+                            eventKey="#software-summary"
+                            onClick={(e) => handleRoute(e, '/#software-summary')}
+                        >
+                            <div />
+                            <div />
+                            Software Summary
                         </Nav.Link>
 
-                        <Nav.Link active={ isActive === '/#contact' && true } eventKey="#contact" onClick={ (e) => handleRoute(e, '/#contact') }>
-                            <div /><div />Contact
+                        <Nav.Link
+                            active={isActive === '/#contact' && true}
+                            eventKey="#contact"
+                            onClick={(e) => handleRoute(e, '/#contact')}
+                        >
+                            <div />
+                            <div />
+                            Contact
                         </Nav.Link>
 
-                        <Nav.Link active={ isActive === '/coding' && true } eventKey="coding" onClick={ (e) => handleRoute(e, '/coding') }>
-                            <div /><div />Coding Details
+                        <Nav.Link
+                            active={isActive === '/coding' && true}
+                            eventKey="coding"
+                            onClick={(e) => handleRoute(e, '/coding')}
+                        >
+                            <div />
+                            <div />
+                            Coding Details
                         </Nav.Link>
 
                         {/* <Nav.Link active={ isActive === '/about' && true } eventKey="about" onClick={ (e) => handleRoute(e, '/about') }>
@@ -57,6 +88,6 @@ const Navigation = () => {
             </Container>
         </Navbar>
     );
-}
+};
 
-export { Navigation as default }
+export { Navigation as default };

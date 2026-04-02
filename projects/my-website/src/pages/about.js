@@ -3,8 +3,11 @@ import Container from 'react-bootstrap/Container';
 const About = () => (
     <Container className="border border-warning p-4 d-flex justify-content-center flex-column">
         <h1 className="text-center">About</h1>
-        <p className="text-center">This page has not been completed yet. I apologize and it will be ready soon. Meanwhile, enjoy the colors! ;p</p>
-        
+        <p className="text-center">
+            This page has not been completed yet. I apologize and it will be ready soon. Meanwhile, enjoy the
+            colors! ;p
+        </p>
+
         <div className="mt-5">
             <h4 className="text-center">Color theme of website compared</h4>
             <div className="w-100 bar-color1">cyan</div>
@@ -19,4 +22,4 @@ const About = () => (
     </Container>
 );
 
-export { About as default }
+export { About as default };

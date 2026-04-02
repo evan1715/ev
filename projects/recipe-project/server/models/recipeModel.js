@@ -3,90 +3,94 @@ const Filter = require('bad-words');
 
 const filter = new Filter();
 
-const recipeSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-        trim: true,
-        validate(input) {
-            if (input.length > 64) {
-                throw new Error("Title cannot be longer than 64 characters.");
-            }
-            if (filter.isProfane(input)) {
-                throw new Error("That title contains profanity.");
-            }
-        }
-    },
-    cookTime: {
-        type: Number,
-        default: 0,
-        validate(number) {
-            if (number < 0) {
-                throw new Error("Cook time must be a positive number.");
-            }
-        }
-    },
-    ingredients: [{
-        amount: {
+const recipeSchema = new mongoose.Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+            trim: true,
+            validate(input) {
+                if (input.length > 64) {
+                    throw new Error('Title cannot be longer than 64 characters.');
+                }
+                if (filter.isProfane(input)) {
+                    throw new Error('That title contains profanity.');
+                }
+            },
+        },
+        cookTime: {
             type: Number,
-            required: true,
+            default: 0,
+            validate(number) {
+                if (number < 0) {
+                    throw new Error('Cook time must be a positive number.');
+                }
+            },
         },
-        measurement: {
+        ingredients: [
+            {
+                amount: {
+                    type: Number,
+                    required: true,
+                },
+                measurement: {
+                    type: String,
+                    required: true,
+                    validate(input) {
+                        if (filter.isProfane(input)) {
+                            throw new Error('Your measurements contain profanity.');
+                        }
+                    },
+                },
+                item: {
+                    type: String,
+                    required: true,
+                    validate(input) {
+                        if (filter.isProfane(input)) {
+                            throw new Error('Your ingredient items contain profanity.');
+                        }
+                    },
+                },
+            },
+        ],
+        instructions: {
             type: String,
             required: true,
             validate(input) {
                 if (filter.isProfane(input)) {
-                    throw new Error("Your measurements contain profanity.");
+                    throw new Error('Your instructions contain profanity.');
                 }
-            }
+            },
         },
-        item: {
-            type: String,
+        pictures: [
+            {
+                picture: {
+                    type: Buffer,
+                },
+            },
+        ],
+        owner: {
+            //mongoose.Schema.Types.ObjectId is saying that the data stored and owner is going to be an ObjectId.
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
-            validate(input) {
-                if (filter.isProfane(input)) {
-                    throw new Error("Your ingredient items contain profanity.");
-                }
-            }
-        }
-    }],
-    instructions: {
-        type: String,
-        required: true,
-        validate(input) {
-            if (filter.isProfane(input)) {
-                throw new Error("Your instructions contain profanity.");
-            }
-        }
+            //Using reference to User so it'll connect with the User model.
+            ref: 'User',
+        },
+        starred: {
+            type: Number,
+            default: 0,
+        },
     },
-    pictures: [{
-        picture: {
-            type: Buffer
-        }
-    }],
-    owner: {
-        //mongoose.Schema.Types.ObjectId is saying that the data stored and owner is going to be an ObjectId.
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        //Using reference to User so it'll connect with the User model.
-        ref: 'User'
-    },
-    starred: {
-        type: Number,
-        default: 0
+    {
+        timestamps: true,
     }
-}, {
-    timestamps: true
-});
-
+);
 
 recipeSchema.path('pictures').validate((num) => {
     if (num.length > 5) {
-        throw new Error("Maximum number of pictures per recipe is 5.");
+        throw new Error('Maximum number of pictures per recipe is 5.');
     }
 });
-
-
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 module.exports = Recipe;

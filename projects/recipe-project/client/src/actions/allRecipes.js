@@ -5,17 +5,17 @@ import processData from '../utils/processData.js';
 //ALL_RECIPES
 const allRecipesAction = (data) => {
     const recipes = processData(data);
-    
+
     return {
         type: 'ALL_RECIPES',
-        recipes
-    }
-}
+        recipes,
+    };
+};
 
 //RECIPE_OWNERS
 const recipeOwnersAction = (usernames) => ({
     type: 'RECIPE_OWNERS',
-    usernames
+    usernames,
 });
 
 //SEARCH_RESULTS
@@ -28,12 +28,8 @@ const searchResultsAction = (data) => {
 
     return {
         type: 'SEARCH_RESULTS',
-        recipes
-    }
-}
+        recipes,
+    };
+};
 
-export {
-    allRecipesAction,
-    recipeOwnersAction,
-    searchResultsAction
-}
+export { allRecipesAction, recipeOwnersAction, searchResultsAction };

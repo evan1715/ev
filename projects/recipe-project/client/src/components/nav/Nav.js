@@ -1,7 +1,7 @@
 import React from 'react';
-import NavTop from './NavTop.js';
 import NavBottom from './NavBottom.js';
 import NavPopout from './NavPopout.js';
+import NavTop from './NavTop.js';
 
 const Nav = () => (
     <div className="center">
@@ -15,4 +15,4 @@ const Nav = () => (
     </div>
 );
 
-export { Nav as default }
+export { Nav as default };

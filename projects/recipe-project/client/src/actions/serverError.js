@@ -2,16 +2,13 @@
 const serverErrorAction = (data) => {
     return {
         type: 'SERVER_ERROR',
-        error: data
-    }
-}
+        error: data,
+    };
+};
 
 //CLEAR_ERROR
 const clearErrorAction = () => ({
-    type: 'CLEAR_ERROR'
+    type: 'CLEAR_ERROR',
 });
 
-export {
-    serverErrorAction,
-    clearErrorAction
-}
+export { serverErrorAction, clearErrorAction };

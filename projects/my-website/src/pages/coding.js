@@ -13,7 +13,7 @@ import fcc_html_css from '../images/certificates/fcc_html_css_certificate.png';
 import fcc_js from '../images/certificates/fcc_js_certificate.png';
 import udemy_js from '../images/certificates/udemy_js_certificate.jpg';
 import udemy_nodejs from '../images/certificates/udemy_nodejs_certificate.jpg';
-import udemy_reactjs from '../images/certificates/udemy_reactjs_certificate.jpg'
+import udemy_reactjs from '../images/certificates/udemy_reactjs_certificate.jpg';
 
 const Coding = () => {
     const [fullscreen, setFullscreen] = useState(true);
@@ -24,7 +24,7 @@ const Coding = () => {
         setSelectedImage(selected);
         setFullscreen('');
         setShow(true);
-    }
+    };
 
     return (
         //px-2 to make the technologies 2 rows to fit all when fully expanded
@@ -33,35 +33,76 @@ const Coding = () => {
 
             {/* Technologies section */}
             <section className="my-2 w-100 ">
-                <Technologies mobile={ false } />
+                <Technologies mobile={false} />
             </section>
-    
+
             {/* Repository section */}
             <section className="my-5 w-100">
                 <ProjectAccordion />
             </section>
 
-
-
             {/* Certifications section */}
             <section className="m-4 w-100">
                 <h2 className="p-2">Certifications</h2>
                 <div className="d-flex flex-wrap justify-content-around mb-5">
-                    <Image alt="FCC HTML CSS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_html_css) } src={ fcc_html_css } height={ 225 } width={ 300 } />
-                    <Image alt="FCC JS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(fcc_js) } src={ fcc_js } height={ 225 } width={ 300 } />
-                    <Image alt="Udemy JS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_js) } src={ udemy_js } height={ 225 } width={ 300 } />
-                    <Image alt="Udemy NodeJS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_nodejs) } src={ udemy_nodejs } height={ 225 } width={ 300 } />
-                    <Image alt="Udemy ReactJS Certification" className="my-3 zoom-zoom" onClick={ () => handleShow(udemy_reactjs) } src={ udemy_reactjs } height={ 225 } width={ 300 } />
+                    <Image
+                        alt="FCC HTML CSS Certification"
+                        className="my-3 zoom-zoom"
+                        onClick={() => handleShow(fcc_html_css)}
+                        src={fcc_html_css}
+                        height={225}
+                        width={300}
+                    />
+                    <Image
+                        alt="FCC JS Certification"
+                        className="my-3 zoom-zoom"
+                        onClick={() => handleShow(fcc_js)}
+                        src={fcc_js}
+                        height={225}
+                        width={300}
+                    />
+                    <Image
+                        alt="Udemy JS Certification"
+                        className="my-3 zoom-zoom"
+                        onClick={() => handleShow(udemy_js)}
+                        src={udemy_js}
+                        height={225}
+                        width={300}
+                    />
+                    <Image
+                        alt="Udemy NodeJS Certification"
+                        className="my-3 zoom-zoom"
+                        onClick={() => handleShow(udemy_nodejs)}
+                        src={udemy_nodejs}
+                        height={225}
+                        width={300}
+                    />
+                    <Image
+                        alt="Udemy ReactJS Certification"
+                        className="my-3 zoom-zoom"
+                        onClick={() => handleShow(udemy_reactjs)}
+                        src={udemy_reactjs}
+                        height={225}
+                        width={300}
+                    />
                 </div>
             </section>
 
             {/* Modal used for pop up images to view a whole selected photo. */}
-            <Modal className="d-flex" fullscreen={ fullscreen } onHide={ () => setShow(false) } size="lg" show={ show }>
+            <Modal
+                className="d-flex"
+                fullscreen={fullscreen}
+                onHide={() => setShow(false)}
+                size="lg"
+                show={show}
+            >
                 <Modal.Header className="bg-dark bg-gradient" closeButton closeVariant="white" />
-                <Modal.Body className="bg-dark bg-gradient"><Image alt="enlarged image" src={ selectedImage } /></Modal.Body>
+                <Modal.Body className="bg-dark bg-gradient">
+                    <Image alt="enlarged image" src={selectedImage} />
+                </Modal.Body>
             </Modal>
         </Container>
-    )
-}
+    );
+};
 
-export { Coding as default }
+export { Coding as default };

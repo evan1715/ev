@@ -6,23 +6,19 @@ const profileRecipesAction = (data) => {
 
     return {
         type: 'PROFILE_RECIPES',
-        recipes: recipes
-    }
-}
+        recipes: recipes,
+    };
+};
 
 //PROFILE_USER
 const profileUserAction = (user) => ({
-        type: 'PROFILE_USER',
-        user: user
+    type: 'PROFILE_USER',
+    user: user,
 });
 
 //CLEAR_PROFILE
 const clearProfileAction = () => ({
-    type: 'CLEAR_PROFILE'
+    type: 'CLEAR_PROFILE',
 });
 
-export {
-    profileRecipesAction,
-    profileUserAction,
-    clearProfileAction
-}
+export { profileRecipesAction, profileUserAction, clearProfileAction };

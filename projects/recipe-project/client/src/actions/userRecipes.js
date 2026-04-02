@@ -5,7 +5,7 @@ import processData from '../utils/processData.js';
 //Submit a recipe
 const submitRecipeAction = (data) => ({
     type: 'SUBMIT_RECIPE',
-    recipe: data
+    recipe: data,
 });
 
 //MY_RECIPES
@@ -14,24 +14,18 @@ const myRecipesAction = (data) => {
 
     return {
         type: 'MY_RECIPES',
-        recipes
-    }
-}
+        recipes,
+    };
+};
 
 //DELETE_RECIPE
 const deleteRecipeAction = () => ({
-    type: 'DELETE_RECIPE'
+    type: 'DELETE_RECIPE',
 });
 
 //CLEAR_USER_RECIPES
 const clearUserRecipesAction = () => ({
-    type: 'CLEAR_USER_RECIPES'
+    type: 'CLEAR_USER_RECIPES',
 });
 
-
-export {
-    submitRecipeAction,
-    myRecipesAction,
-    deleteRecipeAction,
-    clearUserRecipesAction
-}
+export { submitRecipeAction, myRecipesAction, deleteRecipeAction, clearUserRecipesAction };

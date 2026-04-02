@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import { clearErrorAction } from '../../actions/serverError.js';
 import userServerAPI from '../../database/userServerAPI.js';
@@ -7,11 +7,10 @@ import userServerAPI from '../../database/userServerAPI.js';
 //Modal requires us to pass in the main <div> to Modal.setAppElement. In this project's case, it's #root since that's what React is in the index.html.
 Modal.setAppElement('#root');
 
-
 //Upload an icon for the user
 const UploadUserIconModal = (props) => {
     const dispatch = useDispatch();
-    const { user, token, authenticated: isAuth, icon } = useSelector(state => state.accountReducer);
+    const { user, token, authenticated: isAuth, icon } = useSelector((state) => state.accountReducer);
     const [iconFile, setIconFile] = useState();
     const [response, setResponse] = useState();
     const user_id = user._id;
@@ -22,74 +21,80 @@ const UploadUserIconModal = (props) => {
             return;
         }
 
-        console.log("File type attempted to upload:", iconFile.type);
-    
+        console.log('File type attempted to upload:', iconFile.type);
+
         //Check the file type
         if (!iconFile.type.match(/(png|jpg|jpeg|bmp|gif)/)) {
-            return setResponse("Not a supported file type.");
+            return setResponse('Not a supported file type.');
         }
-    
+
         //If file type is good, pass it to the app and the server. The server will also check the filetype.
-        const config = { iconFile, token, user_id }
-        
+        const config = { iconFile, token, user_id };
+
         userServerAPI('uploadIcon', config);
-        setResponse("Uploaded!");
+        setResponse('Uploaded!');
         //Let's reload the page after it uploaded.
         setTimeout(() => {
             window.location.reload();
         }, 2000);
-    }
+    };
 
     const deleteIcon = () => {
         if (isAuth && icon) {
             dispatch(userServerAPI('deleteIcon', token));
         }
-    }
+    };
 
     return (
         <Modal
-            isOpen={ props.openUploadUserIconModal }
-            onRequestClose={ props.handleCloseModal }
-            onAfterOpen={ () => setResponse('') } //Clear responses when modal opens
-            onAfterClose={ () => setResponse('') } //If modal gets closed, reset any response
+            isOpen={props.openUploadUserIconModal}
+            onRequestClose={props.handleCloseModal}
+            onAfterOpen={() => setResponse('')} //Clear responses when modal opens
+            onAfterClose={() => setResponse('')} //If modal gets closed, reset any response
             contentLabel="Upload user icon" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
         >
             <form encType="multipart/form-data">
-                <img src={ icon }></img>
-                <input type="file" id="image-upload" onChange={ (e) => setIconFile(e.target.files[0]) } />
+                <img src={icon}></img>
+                <input type="file" id="image-upload" onChange={(e) => setIconFile(e.target.files[0])} />
             </form>
-            { response && <p>{ response }</p> }
-            <button className="button" onClick={ props.handleCloseModal } title="Cancel">Cancel</button>
-            <button className="button" onClick={ deleteIcon } title="Delete icon">Delete icon</button>
-            <button className="button" onClick={ isAuth && uploadIcon } title="Delete icon">Upload</button>
+            {response && <p>{response}</p>}
+            <button className="button" onClick={props.handleCloseModal} title="Cancel">
+                Cancel
+            </button>
+            <button className="button" onClick={deleteIcon} title="Delete icon">
+                Delete icon
+            </button>
+            <button className="button" onClick={isAuth && uploadIcon} title="Delete icon">
+                Upload
+            </button>
         </Modal>
-    )
-}
+    );
+};
 
 //Change username
 const ChangeUsernameModal = (props) => {
     const dispatch = useDispatch();
-    const { user, token, authenticated: isAuth } = useSelector(state => state.accountReducer);
-    const serverError = useSelector(state => state.serverErrorReducer);
+    const { user, token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
+    const serverError = useSelector((state) => state.serverErrorReducer);
     const [response, setResponse] = useState('');
     const [username, setUsername] = useState('');
 
     const updateUser = () => {
-        const config = { token, username }
+        const config = { token, username };
 
         //If they haven't entered a username or if it isn't new, don't dispatch.
         if (username && username !== user.username) {
             dispatch(userServerAPI('updateUser', config));
         }
-    }
+    };
 
     const handleClearError = () => {
         if (serverError.error != null) {
-            dispatch(clearErrorAction())
+            dispatch(clearErrorAction());
         }
-    }
+    };
 
     useEffect(() => {
         if (serverError.error) {
@@ -99,7 +104,7 @@ const ChangeUsernameModal = (props) => {
 
     useEffect(() => {
         //If the userinfo changes in redux, that means it worked. Tell the user it updated.
-        setResponse("Updated!");
+        setResponse('Updated!');
         //Close the modal after a little, but don't close it when the page loads. Only when it's opened.
         if (props.openChangeUsernameModal) {
             setTimeout(() => {
@@ -110,10 +115,10 @@ const ChangeUsernameModal = (props) => {
 
     return (
         <Modal
-            isOpen={ props.openChangeUsernameModal }
-            onRequestClose={ props.handleCloseModal }
-            onAfterOpen={ () => setResponse('') } //Clear responses when modal opens
-            onAfterClose={ () => { 
+            isOpen={props.openChangeUsernameModal}
+            onRequestClose={props.handleCloseModal}
+            onAfterOpen={() => setResponse('')} //Clear responses when modal opens
+            onAfterClose={() => {
                 //If modal gets closed, clear user input from state
                 setUsername('');
                 //If modal gets closed, reset any response
@@ -121,53 +126,58 @@ const ChangeUsernameModal = (props) => {
                 handleClearError();
             }}
             contentLabel="Change username" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
         >
             <h2 className="title">Update username</h2>
-            <p>Current username: { user.username }</p>
+            <p>Current username: {user.username}</p>
 
-            <input 
+            <input
                 className="modal__form--input"
                 maxLength="32"
-                onChange={ (e) => setUsername(e.target.value) }
-                onKeyPress={ (e) => (e.key === 'Enter') && updateUser() }
+                onChange={(e) => setUsername(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && updateUser()}
                 placeholder="username"
                 title="new username"
                 type="text"
             />
 
-            { /* If there's a response, then show the response to the user here. */
-                response && <p>{ response }</p> 
-            } 
-            <button className="button" onClick={ props.handleCloseModal } title="Cancel">Cancel</button>
-            <button className="button" onClick={ isAuth && updateUser } title="Update">Update</button>
+            {
+                /* If there's a response, then show the response to the user here. */
+                response && <p>{response}</p>
+            }
+            <button className="button" onClick={props.handleCloseModal} title="Cancel">
+                Cancel
+            </button>
+            <button className="button" onClick={isAuth && updateUser} title="Update">
+                Update
+            </button>
         </Modal>
-    )
-}
+    );
+};
 
 //Change email
 const ChangeEmailModal = (props) => {
     const dispatch = useDispatch();
-    const { user, token, authenticated: isAuth } = useSelector(state => state.accountReducer);
-    const serverError = useSelector(state => state.serverErrorReducer)
+    const { user, token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
+    const serverError = useSelector((state) => state.serverErrorReducer);
     const [response, setResponse] = useState('');
     const [email, setEmail] = useState('');
 
     const updateUser = () => {
-        const config = { token, email }
+        const config = { token, email };
 
         //if they haven't entered an email or it isn't new, don't dispatch.
         if (email && email !== user.email) {
             dispatch(userServerAPI('updateUser', config));
         }
-    }
+    };
 
     const handleClearError = () => {
         if (serverError.error != null) {
-            dispatch(clearErrorAction())
+            dispatch(clearErrorAction());
         }
-    }
+    };
 
     useEffect(() => {
         if (serverError.error) {
@@ -177,7 +187,7 @@ const ChangeEmailModal = (props) => {
 
     useEffect(() => {
         //If the userinfo changes in redux, that means it worked. Tell the user it updated.
-        setResponse("Updated!");
+        setResponse('Updated!');
         //Close the modal after a little, but don't close it when the page loads. Only when it's opened.
         if (props.openChangeEmailModal) {
             setTimeout(() => {
@@ -188,47 +198,52 @@ const ChangeEmailModal = (props) => {
 
     return (
         <Modal
-            isOpen={ props.openChangeEmailModal }
-            onRequestClose={ props.handleCloseModal }
-            onAfterOpen={ () => setResponse('') } //Clear responses when modal opens
-            onAfterClose={ () => { 
+            isOpen={props.openChangeEmailModal}
+            onRequestClose={props.handleCloseModal}
+            onAfterOpen={() => setResponse('')} //Clear responses when modal opens
+            onAfterClose={() => {
                 //If modal gets closed, clear user input from state
                 setEmail('');
                 //If modal gets closed, reset any response
-                setResponse(''); 
+                setResponse('');
                 handleClearError();
             }}
             contentLabel="Change email" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
         >
             <h2 className="title">Update email</h2>
-            <p>Current email: { user.email }</p>
+            <p>Current email: {user.email}</p>
 
-            <input 
+            <input
                 className="modal__form--input"
                 maxLength="32"
-                onChange={ (e) => setEmail(e.target.value) }
-                onKeyPress={ (e) => (e.key === 'Enter') && updateUser() }
+                onChange={(e) => setEmail(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && updateUser()}
                 placeholder="email"
                 title="new email"
                 type="email"
             />
 
-            { /* If there's a response, then show the response to the user here. */
-                response && <p>{ response }</p> 
-            } 
-            <button className="button" onClick={ props.handleCloseModal } title="Cancel">Cancel</button>
-            <button className="button" onClick={ isAuth && updateUser } title="Update">Update</button>
+            {
+                /* If there's a response, then show the response to the user here. */
+                response && <p>{response}</p>
+            }
+            <button className="button" onClick={props.handleCloseModal} title="Cancel">
+                Cancel
+            </button>
+            <button className="button" onClick={isAuth && updateUser} title="Update">
+                Update
+            </button>
         </Modal>
-    )
-}
+    );
+};
 
 //Change password
 const ChangePasswordModal = (props) => {
     const dispatch = useDispatch();
-    const { user, token, authenticated: isAuth } = useSelector(state => state.accountReducer);
-    const serverError = useSelector(state => state.serverErrorReducer);
+    const { user, token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
+    const serverError = useSelector((state) => state.serverErrorReducer);
     const [response, setResponse] = useState('');
     const [previousPassword, setPreviousPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -237,23 +252,23 @@ const ChangePasswordModal = (props) => {
     const updateUser = () => {
         const email = user.email;
         const password = newPasswordVerified;
-        const config = { token, email, previousPassword, password }
-        
+        const config = { token, email, previousPassword, password };
+
         if (newPassword !== newPasswordVerified) {
-            return setResponse("New passwords do not match.");
+            return setResponse('New passwords do not match.');
         }
 
         //If they haven't given all fields, don't dispatch.
         if (previousPassword && newPassword && newPasswordVerified) {
             dispatch(userServerAPI('updateUser', config));
         }
-    }
+    };
 
     const handleClearError = () => {
         if (serverError.error != null) {
-            dispatch(clearErrorAction())
+            dispatch(clearErrorAction());
         }
-    }
+    };
 
     useEffect(() => {
         if (serverError.error) {
@@ -263,7 +278,7 @@ const ChangePasswordModal = (props) => {
 
     useEffect(() => {
         //If the userinfo changes in redux, that means it worked. Tell the user it updated.
-        setResponse("Updated!");
+        setResponse('Updated!');
         //Close the modal after a little, but don't close it when the page loads. Only when it's opened.
         if (props.openChangePasswordModal) {
             setTimeout(() => {
@@ -274,98 +289,115 @@ const ChangePasswordModal = (props) => {
 
     return (
         <Modal
-            isOpen={ props.openChangePasswordModal }
-            onRequestClose={ props.handleCloseModal }
-            onAfterOpen={ () => setResponse('') } //Clear responses when modal opens
-            onAfterClose={ () => { 
+            isOpen={props.openChangePasswordModal}
+            onRequestClose={props.handleCloseModal}
+            onAfterOpen={() => setResponse('')} //Clear responses when modal opens
+            onAfterClose={() => {
                 //If modal gets closed, clear user input from state
                 setPreviousPassword('');
                 setNewPassword('');
                 setNewPasswordVerified('');
                 //If modal gets closed, reset any response
-                setResponse(''); 
-                handleClearError(); 
+                setResponse('');
+                handleClearError();
             }}
             contentLabel="Change password" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
         >
             <h2 className="title">Update password</h2>
-            <form onKeyPress={ (e) => (e.key === 'Enter') && updateUser() }>
-                <input 
+            <form onKeyPress={(e) => e.key === 'Enter' && updateUser()}>
+                <input
                     className="modal__form--input"
                     id="prevPass"
                     maxLength="32"
-                    onChange={ (e) => setPreviousPassword(e.target.value) }
+                    onChange={(e) => setPreviousPassword(e.target.value)}
                     placeholder="current password"
                     required
                     title="current password"
                     type="password"
                 />
-                <input type="checkbox" title="toggle visibility" onClick={ () => {
-                    var toggle = document.getElementById('prevPass');
-                    toggle.type === "password" ? toggle.type = "text" : toggle.type = "password"
-                }} />
+                <input
+                    type="checkbox"
+                    title="toggle visibility"
+                    onClick={() => {
+                        var toggle = document.getElementById('prevPass');
+                        toggle.type === 'password' ? (toggle.type = 'text') : (toggle.type = 'password');
+                    }}
+                />
                 <input
                     className="modal__form--input"
                     id="newPass"
                     maxLength="32"
-                    onChange={ (e) => setNewPassword(e.target.value) }
+                    onChange={(e) => setNewPassword(e.target.value)}
                     placeholder="new password"
                     required
                     title="new password"
                     type="password"
                 />
-                <input type="checkbox" title="toggle visibility" onClick={ () => {
-                    var toggle = document.getElementById('newPass');
-                    toggle.type === "password" ? toggle.type = "text" : toggle.type = "password"
-                }} />
-                <input 
+                <input
+                    type="checkbox"
+                    title="toggle visibility"
+                    onClick={() => {
+                        var toggle = document.getElementById('newPass');
+                        toggle.type === 'password' ? (toggle.type = 'text') : (toggle.type = 'password');
+                    }}
+                />
+                <input
                     className="modal__form--input"
                     id="verifyPass"
                     maxLength="32"
-                    onChange={ (e) => setNewPasswordVerified(e.target.value) }
+                    onChange={(e) => setNewPasswordVerified(e.target.value)}
                     placeholder="verify new password"
                     required
                     title="verify new password"
                     type="password"
                 />
-                <input type="checkbox" title="toggle visibility" onClick={ () => {
-                    var toggle = document.getElementById('verifyPass');
-                    toggle.type === "password" ? toggle.type = "text" : toggle.type = "password"
-                }} />
+                <input
+                    type="checkbox"
+                    title="toggle visibility"
+                    onClick={() => {
+                        var toggle = document.getElementById('verifyPass');
+                        toggle.type === 'password' ? (toggle.type = 'text') : (toggle.type = 'password');
+                    }}
+                />
             </form>
-            { /* If there's a response, then show the response to the user here. */
-                response && <p>{ response }</p> 
-            } 
-            <button className="button" onClick={ props.handleCloseModal } title="Cancel">Cancel</button>
-            <button className="button" onClick={ isAuth && updateUser } title="Update">Update</button>
+            {
+                /* If there's a response, then show the response to the user here. */
+                response && <p>{response}</p>
+            }
+            <button className="button" onClick={props.handleCloseModal} title="Cancel">
+                Cancel
+            </button>
+            <button className="button" onClick={isAuth && updateUser} title="Update">
+                Update
+            </button>
         </Modal>
-    )
-}
+    );
+};
 
 //Change name
 const ChangeNameModal = (props) => {
     const dispatch = useDispatch();
-    const { user, token, authenticated: isAuth } = useSelector(state => state.accountReducer);
-    const serverError = useSelector(state => state.serverErrorReducer);
+    const { user, token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
+    const serverError = useSelector((state) => state.serverErrorReducer);
     const [response, setResponse] = useState('');
     const [name, setName] = useState('');
 
     const updateUser = () => {
-        const config = { token, name }
+        const config = { token, name };
 
         //If they haven't entered a name or it isn't new, don't dispatch
         if (name && name !== user.name) {
             dispatch(userServerAPI('updateUser', config));
         }
-    }
+    };
 
     const handleClearError = () => {
         if (serverError.error != null) {
-            dispatch(clearErrorAction())
+            dispatch(clearErrorAction());
         }
-    }
+    };
 
     useEffect(() => {
         if (serverError.error) {
@@ -375,7 +407,7 @@ const ChangeNameModal = (props) => {
 
     useEffect(() => {
         //If the userinfo changes in redux, that means it worked. Tell the user it updated.
-        setResponse("Updated!");
+        setResponse('Updated!');
         //Close the modal after a little, but don't close it when the page loads. Only when it's opened.
         if (props.openChangeNameModal) {
             setTimeout(() => {
@@ -386,74 +418,79 @@ const ChangeNameModal = (props) => {
 
     return (
         <Modal
-            isOpen={ props.openChangeNameModal }
-            onRequestClose={ props.handleCloseModal }
-            onAfterOpen={ () => setResponse('') } //Clear responses when modal opens
-            onAfterClose={ () => { 
+            isOpen={props.openChangeNameModal}
+            onRequestClose={props.handleCloseModal}
+            onAfterOpen={() => setResponse('')} //Clear responses when modal opens
+            onAfterClose={() => {
                 //If modal gets closed, clear user input from state
                 setName('');
                 //If modal gets closed, reset any response
-                setResponse(''); 
-                handleClearError(); 
+                setResponse('');
+                handleClearError();
             }}
             contentLabel="Change name" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
         >
             <h2 className="title">Update name</h2>
-            <p>Current name: { user.name }</p>
+            <p>Current name: {user.name}</p>
 
-            <input 
+            <input
                 className="modal__form--input"
                 maxLength="32"
-                onChange={ (e) => setName(e.target.value) }
-                onKeyPress={ (e) => (e.key === 'Enter') && updateUser() }
+                onChange={(e) => setName(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && updateUser()}
                 placeholder="name"
                 title="new name"
                 type="text"
             />
 
-            { /* If there's a response, then show the response to the user here. */
-                response && <p>{ response }</p> 
-            } 
-            <button className="button" onClick={ props.handleCloseModal }>Cancel</button>
-            <button className="button" onClick={ isAuth && updateUser }>Update</button>
+            {
+                /* If there's a response, then show the response to the user here. */
+                response && <p>{response}</p>
+            }
+            <button className="button" onClick={props.handleCloseModal}>
+                Cancel
+            </button>
+            <button className="button" onClick={isAuth && updateUser}>
+                Update
+            </button>
         </Modal>
-    )
-}
+    );
+};
 
 //Log out of all locations
 const LogoutAllModal = (props) => {
     const dispatch = useDispatch();
-    const { token, authenticated: isAuth } = useSelector(state => state.accountReducer);
+    const { token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
 
     return (
         <Modal
-            isOpen={ props.openLogoutAllModal }
-            onRequestClose={ props.handleCloseModal }
+            isOpen={props.openLogoutAllModal}
+            onRequestClose={props.handleCloseModal}
             contentLabel="Logout of all locations" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
         >
             <h2 className="title">Are you sure you want to logout of all locations?</h2>
-            <button 
-                className="button" 
+            <button
+                className="button"
                 //If they're authorized, log out all, and they'll be redirected to the homepage.
-                onClick={ isAuth && (() => (dispatch(userServerAPI('logoutAll', token)))) }
+                onClick={isAuth && (() => dispatch(userServerAPI('logoutAll', token)))}
             >
                 Yes
             </button>
-            <button className="button" onClick={ props.handleCloseModal }>
+            <button className="button" onClick={props.handleCloseModal}>
                 No
             </button>
         </Modal>
-    )
-}
+    );
+};
 
 //Delete account
 const DeleteAccountModal = (props) => {
     const dispatch = useDispatch();
-    const { user, token, authenticated: isAuth } = useSelector(state => state.accountReducer);
+    const { user, token, authenticated: isAuth } = useSelector((state) => state.accountReducer);
     const [username, setUsername] = useState('');
 
     const handleDeleteUser = () => {
@@ -462,26 +499,29 @@ const DeleteAccountModal = (props) => {
             //Once they're deleted and logged out, they'll be redirected to the homepage.
             dispatch(userServerAPI('deleteUser', token));
         }
-    }
+    };
 
     return (
         <Modal
-            isOpen={ props.openDeleteAccountModal }
-            onRequestClose={ props.handleCloseModal }
+            isOpen={props.openDeleteAccountModal}
+            onRequestClose={props.handleCloseModal}
             contentLabel="Delete my account" //Accessability label
-            closeTimeoutMS={ 250 }
+            closeTimeoutMS={250}
             className="modal"
-            onAfterClose={ () => setUsername('') }
+            onAfterClose={() => setUsername('')}
         >
             <h2 className="title">Are you sure you want to delete your account?</h2>
             <p>Type your username to delete your account.</p>
-            <input className="modal__form--input" onChange={ (e) => setUsername(e.target.value) } />
-            <button className="button" onClick={ props.handleCloseModal }>Cancel</button>
-            <button className="button" disabled={ username !== user.username } onClick={ handleDeleteUser }>Delete</button>
+            <input className="modal__form--input" onChange={(e) => setUsername(e.target.value)} />
+            <button className="button" onClick={props.handleCloseModal}>
+                Cancel
+            </button>
+            <button className="button" disabled={username !== user.username} onClick={handleDeleteUser}>
+                Delete
+            </button>
         </Modal>
-    )
-}
-
+    );
+};
 
 export {
     UploadUserIconModal,
@@ -490,5 +530,5 @@ export {
     ChangePasswordModal,
     ChangeNameModal,
     LogoutAllModal,
-    DeleteAccountModal
-}
+    DeleteAccountModal,
+};

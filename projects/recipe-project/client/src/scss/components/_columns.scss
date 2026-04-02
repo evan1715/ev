@@ -48,7 +48,8 @@
     .columns {
         min-height: $footer-mobile;
     }
-    .columns__left, .columns__right {
+    .columns__left,
+    .columns__right {
         align-items: center;
     }
     .columns__left {

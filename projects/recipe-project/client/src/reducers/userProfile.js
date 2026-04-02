@@ -1,25 +1,25 @@
 const defaultState = {
     recipes: {},
-    user: {}
-}
+    user: {},
+};
 
 const userProfileReducer = (state = defaultState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'PROFILE_RECIPES':
             return {
                 ...state,
-                recipes: action.recipes
-            }
+                recipes: action.recipes,
+            };
         case 'PROFILE_USER':
             return {
                 ...state,
-                user: action.user
-            }
+                user: action.user,
+            };
         case 'CLEAR_PROFILE':
-            return {}
+            return {};
         default:
             return state;
     }
-}
+};
 
-export { userProfileReducer as default }
+export { userProfileReducer as default };

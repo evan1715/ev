@@ -3,7 +3,7 @@ import React from 'react';
 const ConversionsPage = () => (
     <div className="conversions">
         <h1 className="center title">Conversions for your deliciousness</h1>
-        
+
         <h2 className="center title">Dry measurements</h2>
         <table className="conversions__table">
             <thead>
@@ -132,4 +132,4 @@ const ConversionsPage = () => (
     </div>
 );
 
-export { ConversionsPage as default }
+export { ConversionsPage as default };

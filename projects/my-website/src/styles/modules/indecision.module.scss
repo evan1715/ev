@@ -11,12 +11,11 @@ $off-white: #a5afd7;
 $purple: #8357c5;
 
 //Spacing size
-$s-size: 1.0rem;
+$s-size: 1rem;
 $m-size: 1.2rem;
-$l-size: 2.0rem;
+$l-size: 2rem;
 $xl-size: 4.4rem;
 $desktop-breakpoint: 45rem;
-
 
 /*============================================
                 Add Option Error
@@ -38,7 +37,7 @@ $desktop-breakpoint: 45rem;
 .add-option__input {
     background: $dark-blue;
     border: none;
-    border-bottom: .3rem solid darken($dark-blue, 10%);
+    border-bottom: 0.3rem solid darken($dark-blue, 10%);
     color: $off-white;
     flex-grow: 1; //grow to fill up the area.
     margin: 0 0 $s-size 0;
@@ -62,7 +61,7 @@ $desktop-breakpoint: 45rem;
 .big-button {
     background: $purple;
     border: none;
-    border-bottom: .6rem solid darken($purple, 10%);
+    border-bottom: 0.6rem solid darken($purple, 10%);
     color: white;
     font-weight: bold;
     font-size: $l-size;
@@ -85,14 +84,14 @@ $desktop-breakpoint: 45rem;
 .indecision-button {
     background: $purple;
     border: none;
-    border-bottom: .3rem solid darken($purple, 10%);
+    border-bottom: 0.3rem solid darken($purple, 10%);
     color: white;
     font-weight: 500;
     padding: $s-size;
 }
 
 .button--link {
-    border-bottom: .3rem solid darken($purple, 10%);
+    border-bottom: 0.3rem solid darken($purple, 10%);
     font-weight: 500;
     padding: $s-size;
 

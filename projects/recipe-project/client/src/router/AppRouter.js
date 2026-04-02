@@ -1,23 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import UserRoute from './UserRoute.js'; //private routes
-import Nav from '../components/nav/Nav.js'; //nav
-import Footer from '../components/nav/Footer.js'; //footer
-
-//Normal import method.
-//Home components/non-authorized pages.
-import HomePage from '../components/home/HomePage.js';
-import AllRecipesPage from '../components/home/AllRecipesPage.js';
-import AboutPage from '../components/home/AboutPage.js';
-import ConversionsPage from '../components/home/ConversionsPage.js';
-import SearchResultsPage from '../components/home/SearchResultsPage.js';
-import UserProfilePage from '../components/home/UserProfilePage.js';
-import ViewRecipePage from '../components/home/ViewRecipePage.js';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 //Account components/authorized only pages.
 import EditRecipePage from '../components/account/EditRecipePage.js';
 import MyAccountPage from '../components/account/MyAccountPage.js';
 import MyRecipesPage from '../components/account/MyRecipesPage.js';
 import SubmitRecipePage from '../components/account/SubmitRecipePage.js';
+import AboutPage from '../components/home/AboutPage.js';
+import AllRecipesPage from '../components/home/AllRecipesPage.js';
+import ConversionsPage from '../components/home/ConversionsPage.js';
+//Normal import method.
+//Home components/non-authorized pages.
+import HomePage from '../components/home/HomePage.js';
+import SearchResultsPage from '../components/home/SearchResultsPage.js';
+import UserProfilePage from '../components/home/UserProfilePage.js';
+import ViewRecipePage from '../components/home/ViewRecipePage.js';
+import Footer from '../components/nav/Footer.js'; //footer
+import Nav from '../components/nav/Nav.js'; //nav
+import UserRoute from './UserRoute.js'; //private routes
 
 //Lazy Load method -- going to disable it for now since the project is small and lazy loading doesn't benefit much. We'll keep it speedy by having it all in one.
 // //Home components/non-authorized pages.
@@ -37,29 +36,29 @@ import SubmitRecipePage from '../components/account/SubmitRecipePage.js';
 const AppRouter = () => (
     <Router>
         <Nav />
-        <React.Suspense fallback={ <p className="center">Loading...</p> }>
+        <React.Suspense fallback={<p className="center">Loading...</p>}>
             <Switch>
                 <Route exact path={'/'} component={HomePage} />
 
-                <Route path={'/allrecipes'} component={ AllRecipesPage } />
+                <Route path={'/allrecipes'} component={AllRecipesPage} />
 
-                <Route path={'/conversions'} component={ ConversionsPage } />
+                <Route path={'/conversions'} component={ConversionsPage} />
 
-                <Route path={'/about'} component={ AboutPage } />
+                <Route path={'/about'} component={AboutPage} />
 
-                <Route path={'/recipe'} component={ ViewRecipePage } />
+                <Route path={'/recipe'} component={ViewRecipePage} />
 
-                <Route path={'/user'} component={ UserProfilePage } />
+                <Route path={'/user'} component={UserProfilePage} />
 
-                <Route path={'/search'} component={ SearchResultsPage } />
+                <Route path={'/search'} component={SearchResultsPage} />
 
-                <UserRoute path='/editrecipe' component={ EditRecipePage } />
+                <UserRoute path="/editrecipe" component={EditRecipePage} />
 
-                <UserRoute path='/myaccount' component={ MyAccountPage } />
-                
-                <UserRoute path='/myrecipes' component={ MyRecipesPage } />
+                <UserRoute path="/myaccount" component={MyAccountPage} />
 
-                <UserRoute path='/submitrecipe' component={ SubmitRecipePage } />
+                <UserRoute path="/myrecipes" component={MyRecipesPage} />
+
+                <UserRoute path="/submitrecipe" component={SubmitRecipePage} />
 
                 <Route render={() => <h1 className="center">404: Page Not Found</h1>} />
             </Switch>
@@ -68,4 +67,4 @@ const AppRouter = () => (
     </Router>
 );
 
-export { AppRouter as default }
+export { AppRouter as default };

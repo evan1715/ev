@@ -26,12 +26,12 @@
 */
 
 import { hideLoading } from 'react-redux-loading-bar';
-import { 
+import {
+    deleteUserIconAction,
+    getIconAction,
     loginAction,
     logoutAction,
     updateUserAction,
-    getIconAction,
-    deleteUserIconAction,
 } from '../actions/account.js';
 import { serverErrorAction } from '../actions/serverError.js';
 
@@ -58,21 +58,23 @@ const userServerAPI = (type, config) => {
         case 'deleteIcon':
             return deleteIcon(config);
     }
-}
+};
 
 const handleResponse = (res) => {
-    if (res.ok) { //if res.status = 200-299
-        console.log(res.status, "Server URL success. Server response: ", res);
-    } else if (!res.ok) { //if res.status = 400-599
-        console.log(res.status, "Server URL unsuccessful.");
+    if (res.ok) {
+        //if res.status = 200-299
+        console.log(res.status, 'Server URL success. Server response: ', res);
+    } else if (!res.ok) {
+        //if res.status = 400-599
+        console.log(res.status, 'Server URL unsuccessful.');
     }
 
     return res.json();
-}
+};
 
 const handleMongoError = (data) => {
     var message;
-    
+
     if (data.keyPattern) {
         if (data.keyPattern.username) {
             message = `The username \"${data.keyValue.username}\" is already taken!`;
@@ -90,7 +92,7 @@ const handleMongoError = (data) => {
         //password handler
         if (data.errors.password) {
             if (data.errors.password.kind === 'minlength') {
-                message = "Password must be a minimum length of 8 characters.";
+                message = 'Password must be a minimum length of 8 characters.';
             } else if (data.errors.password.message === 'Password cannot contain the word password.') {
                 message = data.errors.password.message;
             }
@@ -99,19 +101,19 @@ const handleMongoError = (data) => {
         //Required field error handler
         if (data.errors.username) {
             if (data.errors.username.kind === 'required') {
-                message = "Username required.";
+                message = 'Username required.';
             }
         } else if (data.errors.email) {
             if (data.errors.email.kind === 'required') {
-                message = "Email required.";
+                message = 'Email required.';
             }
         } else if (data.errors.password) {
             if (data.errors.password.kind === 'required') {
-                message = "Password required.";
+                message = 'Password required.';
             }
         } else if (data.errors.name) {
             if (data.errors.name.kind === 'required') {
-                message = "Name required.";
+                message = 'Name required.';
             }
         }
 
@@ -123,24 +125,22 @@ const handleMongoError = (data) => {
         } else if (data.errors.name && data.errors.name.message === 'That name contains profanity.') {
             message = data.errors.name.message;
         }
-
     } else if (data.error === 'Invalid current password.') {
         message = data.error;
     } else if (data.error === 'Unable to login.') {
-        message = "Incorrect email and password combination.";
+        message = 'Incorrect email and password combination.';
     } else if (data.error === 'Unsupported image file type.') {
         message = data.error;
     } else {
-        message = "Unknown error.";
+        message = 'Unknown error.';
     }
 
     return message;
-}
+};
 
 const handleCatchError = (error) => {
-    console.log("Response error message: ", error.message);
-}
-
+    console.log('Response error message: ', error.message);
+};
 
 //Contact the server to create an account and dispatch what the server responds with.
 const createAccount = (config) => {
@@ -148,154 +148,153 @@ const createAccount = (config) => {
     const { username, email, password, name } = config;
 
     // fetch & post the information
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ username, email, password, name })
+            body: JSON.stringify({ username, email, password, name }),
         })
-        .then(res => handleResponse(res))
-        .then(data => {
-            console.log("Server data sent back: ", data);
-            if (data.token) {
-                dispatch(loginAction(data));
-            } else if (data.name === 'MongoError' || data.errors) {
-                dispatch(serverErrorAction(handleMongoError(data)));
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
-
+            .then((res) => handleResponse(res))
+            .then((data) => {
+                console.log('Server data sent back: ', data);
+                if (data.token) {
+                    dispatch(loginAction(data));
+                } else if (data.name === 'MongoError' || data.errors) {
+                    dispatch(serverErrorAction(handleMongoError(data)));
+                }
+            })
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Login
 const login = (config) => {
     const { email, password } = config;
 
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user/login', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
                 email: email,
-                password: password
+                password: password,
+            }),
+        })
+            .then((res) => handleResponse(res))
+            .then((data) => {
+                console.log('Server data sent back: ', data);
+                if (data.token) {
+                    dispatch(loginAction(data));
+                } else if (data.error) {
+                    dispatch(serverErrorAction(handleMongoError(data)));
+                }
             })
-        })
-        .then(res => handleResponse(res))
-        .then(data => {
-            console.log("Server data sent back: ", data);
-            if (data.token) {
-                dispatch(loginAction(data));
-            } else if (data.error) {
-                dispatch(serverErrorAction(handleMongoError(data)));
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Logout of current location.
 const logout = (token) => {
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user/logout', {
             method: 'POST',
-            headers: { 'Authorization': token }
+            headers: { Authorization: token },
         })
-        .then(res => res.ok && dispatch(logoutAction(token)))
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => res.ok && dispatch(logoutAction(token)))
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Logout of all locations.
 const logoutAll = (token) => {
-    return dispatch => {
+    return (dispatch) => {
         fetch('user/logoutAll', {
             method: 'POST',
-            headers: { 'Authorization': token }
+            headers: { Authorization: token },
         })
-        .then(res => res.ok && dispatch (logoutAction(token)))
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => res.ok && dispatch(logoutAction(token)))
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Get user profile/account.
 const getUser = (token) => {
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user/profile', {
             method: 'GET',
-            headers: { 'Authorization': token }
+            headers: { Authorization: token },
         })
-        .then(res => handleResponse(res))
-        .then(data => {
-            console.log("Server data sent back: ", data);
-            if (data.username) {
-                dispatch(loginAction(data, token));
-            } else if (data.name === 'MongoError' || data.errors) {
-                dispatch(serverErrorAction(handleMongoError(data)));
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => handleResponse(res))
+            .then((data) => {
+                console.log('Server data sent back: ', data);
+                if (data.username) {
+                    dispatch(loginAction(data, token));
+                } else if (data.name === 'MongoError' || data.errors) {
+                    dispatch(serverErrorAction(handleMongoError(data)));
+                }
+            })
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Update a user.
 const updateUser = (config) => {
     //Server will only accept changes to username, email, password, and name.
     const { token, username, email, previousPassword, password, name } = config;
-    let newUserInfo = {}
-    
+    let newUserInfo = {};
+
     if (username) {
-        newUserInfo = { username: username }
+        newUserInfo = { username: username };
     } else if (email && !password && !previousPassword) {
-        newUserInfo = { email: email }
+        newUserInfo = { email: email };
     } else if (password) {
-        newUserInfo = { 
-            email: email, 
-            previousPassword: previousPassword, 
-            password: password
-        }
+        newUserInfo = {
+            email: email,
+            previousPassword: previousPassword,
+            password: password,
+        };
     } else if (name) {
-        newUserInfo = { name: name }
+        newUserInfo = { name: name };
     }
 
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user/profile', {
             method: 'PATCH',
-            headers: { 
-                'Authorization': token,
-                'Content-type': 'application/json'
+            headers: {
+                Authorization: token,
+                'Content-type': 'application/json',
             },
-            body: JSON.stringify(newUserInfo)
+            body: JSON.stringify(newUserInfo),
         })
-        .then(res => handleResponse(res))
-        .then(data => {
-            console.log("Server data sent back: ", data);
-            if (data.username) {
-                dispatch(updateUserAction(data, token));
-            } else if (data.name === 'MongoError' || data.errors || data.error) {
-                dispatch(serverErrorAction(handleMongoError(data)));
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => handleResponse(res))
+            .then((data) => {
+                console.log('Server data sent back: ', data);
+                if (data.username) {
+                    dispatch(updateUserAction(data, token));
+                } else if (data.name === 'MongoError' || data.errors || data.error) {
+                    dispatch(serverErrorAction(handleMongoError(data)));
+                }
+            })
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Delete a user.
 const deleteUser = (token) => {
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user/profile', {
             method: 'DELETE',
-            headers: { 'Authorization': token }
+            headers: { Authorization: token },
         })
-        .then(res => {
-            handleResponse(res);
-            if (res.ok) {
-                dispatch(logoutAction(token));
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => {
+                handleResponse(res);
+                if (res.ok) {
+                    dispatch(logoutAction(token));
+                }
+            })
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Upload a user's icon.
 const uploadIcon = (data) => {
@@ -306,51 +305,50 @@ const uploadIcon = (data) => {
 
     fetch('/user/profile/icon', {
         method: 'POST',
-        headers: { 'Authorization': token },
-        body: icon
+        headers: { Authorization: token },
+        body: icon,
     })
-    .then(res => handleResponse(res))
-    .catch(error => handleCatchError(error));
-}
+        .then((res) => handleResponse(res))
+        .catch((error) => handleCatchError(error));
+};
 
 //Get a user's icon.
 const getIcon = (id) => {
-    return dispatch => {
+    return (dispatch) => {
         fetch(`/user/${id}/icon`, {
-            method: 'GET'
+            method: 'GET',
         })
-        .then(res => res.blob())
-        .then(image => {
-            //Check if there's a file at all.
-            if (image.size > 0) {
-                //Convert it to a url to call upon.
-                const url = URL.createObjectURL(image);
-                dispatch(getIconAction(url));
-                dispatch(hideLoading());
-            } else {
-                dispatch(hideLoading());
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => res.blob())
+            .then((image) => {
+                //Check if there's a file at all.
+                if (image.size > 0) {
+                    //Convert it to a url to call upon.
+                    const url = URL.createObjectURL(image);
+                    dispatch(getIconAction(url));
+                    dispatch(hideLoading());
+                } else {
+                    dispatch(hideLoading());
+                }
+            })
+            .catch((error) => handleCatchError(error));
+    };
+};
 
 //Delete current user's icon.
 const deleteIcon = (token) => {
-    return dispatch => {
+    return (dispatch) => {
         fetch('/user/profile/icon', {
             method: 'DELETE',
-            headers: { 'Authorization': token }
+            headers: { Authorization: token },
         })
-        .then(res => {
-            handleResponse(res);
-            if (res.ok) {
-                dispatch(deleteUserIconAction());
-            }
-        })
-        .catch(error => handleCatchError(error));
-    }
-}
+            .then((res) => {
+                handleResponse(res);
+                if (res.ok) {
+                    dispatch(deleteUserIconAction());
+                }
+            })
+            .catch((error) => handleCatchError(error));
+    };
+};
 
-
-export { userServerAPI as default }
+export { userServerAPI as default };

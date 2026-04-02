@@ -19,8 +19,8 @@ const auth = async (req, res, next) => {
         req.user = user;
         next();
     } catch (error) {
-        res.status(401).send({ error: "Did not pass authentication."});
+        res.status(401).send({ error: 'Did not pass authentication.' });
     }
-}
+};
 
 module.exports = auth;

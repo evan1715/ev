@@ -18,4 +18,4 @@ const Contact = () => (
     </Container>
 );
 
-export { Contact as default }
+export { Contact as default };

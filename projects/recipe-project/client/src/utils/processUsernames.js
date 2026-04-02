@@ -1,22 +1,22 @@
-import { recipeOwnersAction } from "../actions/allRecipes";
+import { recipeOwnersAction } from '../actions/allRecipes';
 
-const processUsernames = (data) => async dispatch => {
+const processUsernames = (data) => async (dispatch) => {
     let list = [];
     let owners = [];
 
     for (let i = 0; i < data.length; i++) {
-    /*  If we've already fetched a recipe's owner's username, let's not waste resources by checking our list
+        /*  If we've already fetched a recipe's owner's username, let's not waste resources by checking our list
         we've already received from fetch. We'll filter an array of objects containing the user id and their
         username. Then we'll only call fetch if there isn't one. If there is, we'll just what we already
         have without calling fetch. */
         try {
             const owner_id = data[i].owner;
-            const already = owners.find(id => id.owner_id === owner_id);
+            const already = owners.find((id) => id.owner_id === owner_id);
 
             if (!already) {
                 const data = await (await fetch(`/user/username/${owner_id}`)).json();
                 const user = data.username;
-                
+
                 list.push(user);
                 owners.push({ owner_id, user });
             } else {
@@ -27,6 +27,6 @@ const processUsernames = (data) => async dispatch => {
         }
     }
     return dispatch(recipeOwnersAction(list));
-}
+};
 
-export { processUsernames as default }
+export { processUsernames as default };
