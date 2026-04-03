@@ -39,6 +39,7 @@
     },
     "workspaces": [
         "packages\\passage",
+        "packages\\react-redux-loading-bar",
         "projects\\chat-app",
         "projects\\recipe-project",
         "projects\\my-website",
