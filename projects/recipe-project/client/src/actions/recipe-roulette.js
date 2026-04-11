@@ -1,4 +1,4 @@
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import { hideLoading, showLoading } from '@ev/react-redux-loading-bar';
 
 /**
  * Redux thunk that fetches random recipes from the Spoonacular API.

@@ -68,17 +68,17 @@ export default {
                 drop: ['console', 'debugger'],
             }),
         ],
-        splitChunks: devMode
-            ? {}
-            : {
-                  cacheGroups: {
-                      react_redux: {
-                          test: /[\\/]node_modules[\\/](history|hoist-non-react-statics|mini-create-react-context|prop-types|react|redux|scheduler)/,
-                          name: 'react-redux',
-                          chunks: 'all',
-                      },
-                  },
-              },
+        // splitChunks: devMode
+        //     ? {}
+        //     : {
+        //           cacheGroups: {
+        //               react_redux: {
+        //                   test: /[\\/]node_modules[\\/](history|hoist-non-react-statics|mini-create-react-context|prop-types|react|redux|scheduler)/,
+        //                   name: 'react-redux',
+        //                   chunks: 'all',
+        //               },
+        //           },
+        //       },
     },
     //Source mapping allows us to still find the location of our errors in the console.
     devtool: devMode ? 'inline-source-map' : 'source-map',

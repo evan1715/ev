@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { showLoading } from 'react-redux-loading-bar';
+import { showLoading } from '@ev/react-redux-loading-bar';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
 
 const MyLeftColumn = (props) => {

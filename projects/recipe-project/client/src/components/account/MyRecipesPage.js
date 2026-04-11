@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { showLoading } from '@ev/react-redux-loading-bar';
 import Modal from 'react-modal';
-import { showLoading } from 'react-redux-loading-bar';
 import { clearSelectedRecipeAction, editRecipeAction } from '../../actions/selectedRecipe.js';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
 import LeftColumn from './LeftColumn.js';

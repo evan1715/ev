@@ -1,18 +1,17 @@
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import LoadingBar from 'react-redux-loading-bar';
+import LoadingBar from '@ev/react-redux-loading-bar';
 import AppRouter from './router/AppRouter.js';
 import storeConfig from './store/storeConfig.js';
 import './scss/styles.scss'; //all styles
 import { loginAction, logoutAction } from './actions/account.js';
 
-const store = storeConfig();
-
 const renderApp = () => {
+    /** @type {import('react-dom/client').Container} */
     const container = document.getElementById('root');
     const root = createRoot(container);
     root.render(
-        <Provider store={store}>
+        <Provider store={storeConfig}>
             <LoadingBar />
             <AppRouter />
         </Provider>

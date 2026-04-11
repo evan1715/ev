@@ -120,6 +120,7 @@
     /* Reference other tsconfig files to enhance performance and avoid duplication. */
     "references": [
         { "path": "./packages/passage" },
+        { "path": "./packages/react-redux-loading-bar" },
         { "path": "./projects/chat-app" },
         { "path": "./projects/my-website" },
         { "path": "./projects/recipe-project" },

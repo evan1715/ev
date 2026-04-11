@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { showLoading } from 'react-redux-loading-bar';
+import { showLoading } from '@ev/react-redux-loading-bar';
 import { viewRecipeAction } from '../../actions/selectedRecipe.js';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
 

@@ -25,7 +25,7 @@
     - /user/profile/icon
 */
 
-import { hideLoading } from 'react-redux-loading-bar';
+import { hideLoading } from '@ev/react-redux-loading-bar';
 import {
     deleteUserIconAction,
     getIconAction,

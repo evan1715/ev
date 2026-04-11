@@ -25,7 +25,7 @@
     - /recipes/:id/pictures
 */
 
-import { hideLoading } from 'react-redux-loading-bar';
+import { hideLoading } from '@ev/react-redux-loading-bar';
 import { allRecipesAction } from '../actions/allRecipes.js';
 import { viewRecipeAction } from '../actions/selectedRecipe.js';
 import { serverErrorAction } from '../actions/serverError.js';

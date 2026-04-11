@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { showLoading } from 'react-redux-loading-bar';
+import { showLoading } from '@ev/react-redux-loading-bar';
 import recipeServerAPI from '../../database/recipeServerAPI.js';
 import processUsernames from '../../utils/processUsernames.js';
 import PopulateRecipes from './PopulateRecipes.js';

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import { hideLoading, showLoading } from '@ev/react-redux-loading-bar';
 import { searchResultsAction } from '../../actions/allRecipes.js';
 import PopulateRecipes from './PopulateRecipes.js';
 

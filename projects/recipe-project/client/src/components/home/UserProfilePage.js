@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import { hideLoading, showLoading } from '@ev/react-redux-loading-bar';
 import { profileRecipesAction, profileUserAction } from '../../actions/userProfile.js';
 import LeftColumn from './../account/LeftColumn.js';
 import RightColumn from './../account/RightColumn.js';
